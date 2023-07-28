@@ -3,7 +3,7 @@ import "./style.css";
 import {
   FaGithub,
   FaTwitter,
-  FaFacebookF,
+  FaInstagram,
   FaLinkedin,
   FaYoutube,
   FaTwitch,
@@ -28,10 +28,10 @@ export const Socialicons = (params) => {
             </a>
           </li>
         )}
-        {socialprofils.facebook && (
+        {socialprofils.instagram && (
           <li>
-            <a href={socialprofils.facebook}>
-              <FaFacebookF />
+            <a href={socialprofils.instagram}>
+              <FaInstagram />
             </a>
           </li>
         )}

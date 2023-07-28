@@ -158,8 +158,8 @@ const dataportfolio = [
 ];
 
 const contactConfig = {
-  YOUR_EMAIL: "name@domain.com",
-  YOUR_FONE: "(555)123-4567",
+  YOUR_EMAIL: "vvaibhavsingh.0.com",
+  YOUR_FONE: "+91 7839271574",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula eu nunc et sollicitudin. Cras pulvinar, nisi at imperdiet pharetra. ",
   // creat an emailjs.com account
@@ -170,10 +170,10 @@ const contactConfig = {
 };
 
 const socialprofils = {
-  github: "https://github.com",
-  facebook: "https://facebook.com",
-  linkedin: "https://linkedin.com",
-  twitter: "https://twitter.com",
+  github: "https://github.com/Z3RO-O",
+  instagram: "https://www.instagram.com/vvaibhav_s/",
+  linkedin: "https://www.linkedin.com/in/vvaibhavsingh/",
+  twitter: "https://twitter.com/vaibhavsngh0",
 };
 export {
   meta,
