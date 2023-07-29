@@ -12,54 +12,64 @@ const introdata = {
     second: "I code cool websites",
     third: "I develop Problems to solve them",
   },
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum",
+  description: [
+    "A web developer | An Ethical hacking enthusiast",
+    "A Programmer on a mission to make the world a better place",
+  ],
   your_img_url: "https://images.unsplash.com/photo-1514790193030-c89d266d5a9d",
 };
 
 const dataabout = {
-  title: "abit about my self",
+  title: "abit about myself",
   aboutme:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis dolor id ligula semper elementum feugiat pretium nulla. Nunc non commodo dolor. Nunc mollis dignissim facilisis. Morbi ut magna ultricies.",
 };
 const worktimeline = [
   {
-    jobtitle: "Designer of week",
-    where: "YAdfi",
-    date: "2020",
+    jobtitle: "Web Developer",
+    where: "Trialshopy",
+    date: "2023",
   },
   {
-    jobtitle: "Designer of week",
-    where: "Jamalya",
-    date: "2019",
+    jobtitle: "Ninja Entrepreneur",
+    where: "Coding Ninjas",
+    date: "2022",
   },
-  {
-    jobtitle: "Designer of week",
-    where: "ALquds",
-    date: "2019",
-  },
+  // {
+  //   jobtitle: "Designer of week",
+  //   where: "ALquds",
+  //   date: "2019",
+  // },
 ];
 
 const skills = [
   {
-    name: "Python",
-    value: 90,
-  },
-  {
-    name: "Djano",
-    value: 85,
-  },
-  {
-    name: "Javascript",
+    name: "C++",
     value: 80,
   },
   {
-    name: "React",
-    value: 60,
+    name: "Java",
+    value: 75,
   },
   {
-    name: "Jquery",
-    value: 85,
+    name: "Python",
+    value: 70,
+  },
+  {
+    name: "Javascript",
+    value: 75,
+  },
+  {
+    name: "React",
+    value: 70,
+  },
+  {
+    name: "Tailwind CSS",
+    value: 90,
+  },
+  {
+    name: "Django",
+    value: 50,
   },
 ];
 
@@ -70,7 +80,7 @@ const services = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin.",
   },
   {
-    title: "Mobile Apps",
+    title: "Website Development",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin.",
   },
@@ -161,7 +171,8 @@ const contactConfig = {
   YOUR_EMAIL: "vvaibhavsingh.0.com",
   YOUR_FONE: "+91 7839271574",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula eu nunc et sollicitudin. Cras pulvinar, nisi at imperdiet pharetra. ",
+    "If you have a project that you need help with, or if you just want to chat about hacking, I'd love to hear from you.",
+  description2: "You can reach me by email or by phone.",
   // creat an emailjs.com account
   // check out this tutorial https://www.emailjs.com/docs/examples/reactjs/
   YOUR_SERVICE_ID: "service_id",

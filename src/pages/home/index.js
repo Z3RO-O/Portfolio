@@ -37,11 +37,20 @@ export const Home = () => {
                     }}
                   />
                 </h1>
-                <p className="mb-1x">{introdata.description}</p>
+                <p className="mb-1x">{introdata.description[0]}</p>
+                <p className="mb-1x">{introdata.description[1]}</p>
                 <div className="intro_btn-action pb-5">
                   <Link to="/portfolio" className="text_2">
-                    <div id="button_p" className="ac_btn btn ">
+                    <div id="button_h" className="ac_btn btn ">
                       My Portfolio
+                      <div className="ring one"></div>
+                      <div className="ring two"></div>
+                      <div className="ring three"></div>
+                    </div>
+                  </Link>
+                  <Link to="/about" className="text_2">
+                    <div id="button_p" className="ac_btn btn ">
+                      About
                       <div className="ring one"></div>
                       <div className="ring two"></div>
                       <div className="ring three"></div>
