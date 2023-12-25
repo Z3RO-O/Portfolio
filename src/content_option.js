@@ -35,6 +35,11 @@ const dataabout = {
 };
 const worktimeline = [
 	{
+		jobtitle: "Frontend Developer",
+		where: "Blue Bricks",
+		date: "2023",
+	},
+	{
 		jobtitle: "Web Developer",
 		where: "Trialshopy",
 		date: "2023",
@@ -44,11 +49,6 @@ const worktimeline = [
 		where: "Coding Ninjas",
 		date: "2022",
 	},
-	// {
-	//   jobtitle: "Designer of week",
-	//   where: "ALquds",
-	//   date: "2019",
-	// },
 ];
 
 const skills = [
