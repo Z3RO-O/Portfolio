@@ -1,8 +1,8 @@
-import one from "./assets/svg/projects/one.svg";
-import two from "./assets/svg/projects/train_illustration.jpg";
-import three from "./assets/svg/projects/three.svg";
+import one from "./assets/svg/projects/stegano.svg";
+import two from "./assets/svg/projects/cool-e.svg";
+import three from "./assets/svg/projects/isdf.svg";
 import four from "./assets/svg/projects/stock_market.svg";
-import five from "./assets/svg/projects/phishing_illustration.jpg";
+import five from "./assets/svg/projects/phishing_illustration.svg";
 
 const logotext = "VAIBHAV";
 const meta = {
