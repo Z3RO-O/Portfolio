@@ -35,6 +35,11 @@ const dataabout = {
 };
 const worktimeline = [
 	{
+		jobtitle: "Jr. Frontend Developer",
+		where: "Prism AI",
+		date: "2024",
+	},
+	{
 		jobtitle: "Frontend Developer",
 		where: "Blue Bricks",
 		date: "2023",
@@ -43,11 +48,6 @@ const worktimeline = [
 		jobtitle: "Web Developer",
 		where: "Trialshopy",
 		date: "2023",
-	},
-	{
-		jobtitle: "Ninja Entrepreneur",
-		where: "Coding Ninjas",
-		date: "2022",
 	},
 ];
 
