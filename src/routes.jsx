@@ -5,18 +5,38 @@ import { Projects } from "./pages/projects";
 import { ContactUs } from "./pages/contact";
 import { About } from "./pages/about";
 import { Socialicons } from "./components/socialicons";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { AnimatePresence, motion } from "framer-motion";
+
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    x: "-100vw",
+  },
+  in: {
+    opacity: 1,
+    x: 0,
+  },
+  out: {
+    opacity: 0,
+    x: "100vw",
+  },
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 0.4,
+};
 
 const AnimatedRoutes = withRouter(({ location }) => (
-  <TransitionGroup>
-    <CSSTransition
-      key={location.key}
-      timeout={{
-        enter: 400,
-        exit: 400,
-      }}
-      classNames="page"
-      unmountOnExit
+  <AnimatePresence mode="wait">
+    <motion.div
+      key={location.pathname}
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
     >
       <Routes location={location}>
         <Route exact path="/" element={<Home />} />
@@ -25,8 +45,8 @@ const AnimatedRoutes = withRouter(({ location }) => (
         <Route path="/contact" element={<ContactUs />} />
         <Route path="*" element={<Home />} />
       </Routes>
-    </CSSTransition>
-  </TransitionGroup>
+    </motion.div>
+  </AnimatePresence>
 ));
 
 function AppRoutes() {
