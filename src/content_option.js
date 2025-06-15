@@ -35,6 +35,16 @@ const dataabout = {
 };
 const worktimeline = [
 	{
+		jobtitle: "MTS 1",
+		where: "Fyle",
+		date: "2025",
+	},
+	{
+		jobtitle: "Engineering Intern (Frontend)",
+		where: "Fyle",
+		date: "2024-25",
+	},
+	{
 		jobtitle: "Jr. Frontend Developer",
 		where: "Prism AI",
 		date: "2024",
