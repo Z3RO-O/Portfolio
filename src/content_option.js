@@ -35,7 +35,12 @@ const dataabout = {
 };
 const worktimeline = [
 	{
-		jobtitle: "MTS 1",
+		jobtitle: "Associate Engineer",
+		where: "Sage",
+		date: "2025",
+	},
+	{
+		jobtitle: "Member of Technical Staff 1",
 		where: "Fyle",
 		date: "2025",
 	},
