@@ -1,8 +1,8 @@
 .singleProject {
   background-color: rgb(255, 255, 255);
   box-shadow: 1px 2px 4px 2px rgba(3, 3, 3, 0.2);
-  width: 304px;
-  height: 360px;
+  width: 324px;
+  height: 354px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,6 @@
   position: relative;
   cursor: pointer;
   overflow: hidden;
-  margin-bottom: 10%;
 }
 
 .projectContent {

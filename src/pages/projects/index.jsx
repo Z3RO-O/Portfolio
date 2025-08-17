@@ -13,13 +13,13 @@ export const Projects = () => {
 					<title> Projects | {meta.title} </title>{" "}
 					<meta name="description" content={meta.description} />
 				</Helmet>
-				<Row className="mb-5 mt-3 pt-md-3">
-					<Col lg="8">
+				<Row className="my-3 pt-md-3">
+					<Col>
 						<h1 className="display-4 mb-4"> Projects </h1>{" "}
-						<hr className="t_border my-4 ml-0 text-left" />
+						<hr className="t_border my-4 text-left" />
 					</Col>
 				</Row>
-				<div className="mb-5 po_items_ho">
+				<div className="po_items_ho">
 					{projects.map((project) => {
 						return (
 							<SingleProject
