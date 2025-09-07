@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const SkillsWithIcons = ({ skills }) => {
   return (
@@ -8,14 +8,12 @@ export const SkillsWithIcons = ({ skills }) => {
           <h4 className="category-title">{category.category}</h4>
           <div className="skills-grid">
             {category.items.map((skill, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="skill-item"
-                style={{ '--skill-color': skill.color }}
+                style={{ "--skill-color": skill.color }}
               >
-                <div className="skill-icon">
-                  {skill.icon}
-                </div>
+                <div className="skill-icon">{skill.icon}</div>
                 <span className="skill-name">{skill.name}</span>
               </div>
             ))}

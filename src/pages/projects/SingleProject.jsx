@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { makeStyles } from "@mui/styles";
 import { FaPlay, FaCode } from "react-icons/fa";
-import placeholder from "./placeholder.png";
+import placeholder from "@/pages/projects/placeholder.png";
 import "./SingleProject.css";
 
 // eslint-disable-next-line react/prop-types

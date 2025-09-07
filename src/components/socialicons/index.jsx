@@ -5,10 +5,9 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedin,
-  FaYoutube,
-  FaTwitch,
+  // FaYoutube,
 } from "react-icons/fa";
-import { socialprofils } from "../../content_option";
+import { socialprofils } from "@/content_option";
 
 export const Socialicons = (params) => {
   return (

@@ -2,9 +2,9 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { meta } from "../../content_option";
+import { meta } from "@/content_option";
 import { Container, Row, Col, Alert } from "react-bootstrap";
-import { contactConfig } from "../../content_option";
+import { contactConfig } from "@/content_option";
 
 export const ContactUs = () => {
   const [formData, setFormdata] = useState({
@@ -33,7 +33,7 @@ export const ContactUs = () => {
         contactConfig.YOUR_SERVICE_ID,
         contactConfig.YOUR_TEMPLATE_ID,
         templateParams,
-        contactConfig.YOUR_USER_ID
+        contactConfig.YOUR_USER_ID,
       )
       .then(
         (result) => {
@@ -53,7 +53,7 @@ export const ContactUs = () => {
             show: true,
           });
           document.getElementsByClassName("co_alert")[0].scrollIntoView();
-        }
+        },
       );
   };
 

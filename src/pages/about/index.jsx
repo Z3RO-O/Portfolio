@@ -7,8 +7,8 @@ import {
   worktimeline,
   skills,
   services,
-} from "../../content_option";
-import { SkillsWithIcons } from "../../components/SkillsWithIcons";
+} from "@/content_option";
+import { SkillsWithIcons } from "@/components/SkillsWithIcons";
 
 export const About = () => {
   return (
