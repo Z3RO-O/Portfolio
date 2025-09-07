@@ -6,6 +6,7 @@ import five from "./assets/svg/projects/phishing_illustration.svg";
 
 // React Icons imports for skills
 import { RiFirebaseFill } from "react-icons/ri";
+import { VscVscode } from "react-icons/vsc";
 import { 
   FaReact, 
   FaJsSquare, 
@@ -48,7 +49,7 @@ const skills = [
       {
         name: "Next.js",
         icon: <SiNextdotjs />,
-        color: "#000000",
+        color: "#fff",
       },
       {
         name: "React",
@@ -93,7 +94,7 @@ const skills = [
       {
         name: "Flask",
         icon: <SiFlask />,
-        color: "#000000",
+        color: "#fff",
       },
       {
         name: "NestJS",
@@ -103,7 +104,7 @@ const skills = [
       {
         name: "Express",
         icon: <SiExpress />,
-        color: "#000000",
+        color: "#fff",
       },
     ]
   },
@@ -144,6 +145,11 @@ const skills = [
         name: "Git",
         icon: <FaGitAlt />,
         color: "#F05032",
+      },
+      {
+        name: "VS Code",
+        icon: <VscVscode />,
+        color: "#007ACC",
       },
       {
         name: "Docker",
