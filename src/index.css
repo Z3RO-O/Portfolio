@@ -101,6 +101,19 @@ code {
   padding: 1rem 0;
 }
 
+/* Add before .skills-grid */
+.skills-category {
+  margin-bottom: 2rem;
+}
+
+.category-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -169,14 +182,6 @@ code {
   line-height: 1.2;
   position: relative;
   z-index: 1;
-}
-
-/* Special styling for C++ text icon */
-.cpp-icon {
-  font-family: 'Courier New', monospace;
-  font-weight: bold;
-  font-size: 1.8rem;
-  color: #00599C;
 }
 
 /* Responsive design */

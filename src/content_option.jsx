@@ -5,34 +5,189 @@ import four from "./assets/svg/projects/stock_market.svg";
 import five from "./assets/svg/projects/phishing_illustration.svg";
 
 // React Icons imports for skills
+import { RiFirebaseFill } from "react-icons/ri";
 import { 
   FaReact, 
   FaJsSquare, 
-  FaPython, 
-  FaJava, 
-  FaHtml5, 
-  FaCss3Alt, 
   FaNodeJs, 
   FaGitAlt, 
+  FaGithub,
   FaDocker,
-  FaAws,
-  FaLinux
+  FaWindows,
 } from 'react-icons/fa';
 import { 
   SiTailwindcss, 
   SiDjango, 
   SiMongodb, 
   SiPostgresql, 
+  SiMysql,
   SiTypescript,
   SiNextdotjs,
   SiExpress,
-  SiFirebase,
-  SiGraphql,
   SiAngular,
-  SiFlutter,
-  SiReactquery,
-  SiMysql
+  SiRedux,
+  SiPostman,
+  SiGooglecloud,
+  SiUbuntu,
+  SiApple,
+  SiFlask,
+  SiFastapi,
+  SiNestjs,
+  SiKalilinux 
 } from 'react-icons/si';
+
+const skills = [
+  {
+    category: "Frontend",
+    items: [
+      {
+        name: "Angular",
+        icon: <SiAngular />,
+        color: "#DD0031",
+      },
+      {
+        name: "Next.js",
+        icon: <SiNextdotjs />,
+        color: "#000000",
+      },
+      {
+        name: "React",
+        icon: <FaReact />,
+        color: "#61DAFB",
+      },
+      {
+        name: "Redux",
+        icon: <SiRedux />,
+        color: "#764ABC",
+      },
+      {
+        name: "TypeScript",
+        icon: <SiTypescript />,
+        color: "#3178C6",
+      },
+      {
+        name: "JavaScript",
+        icon: <FaJsSquare />,
+        color: "#F7DF1E",
+      },
+      {
+        name: "Tailwind CSS",
+        icon: <SiTailwindcss />,
+        color: "#06B6D4",
+      }
+    ]
+  },
+  {
+    category: "Backend",
+    items: [
+      {
+        name: "Django",
+        icon: <SiDjango />,
+        color: "#092E20",
+      },
+      {
+        name: "FastAPI",
+        icon: <SiFastapi />,
+        color: "#009688",
+      },
+      {
+        name: "Flask",
+        icon: <SiFlask />,
+        color: "#000000",
+      },
+      {
+        name: "NestJS",
+        icon: <SiNestjs />,
+        color: "#E0234E",
+      },
+      {
+        name: "Express",
+        icon: <SiExpress />,
+        color: "#000000",
+      },
+    ]
+  },
+  {
+    category: "Databases",
+    items: [
+      {
+        name: "MongoDB",
+        icon: <SiMongodb />,
+        color: "#47A248",
+      },
+      {
+        name: "PostgreSQL",
+        icon: <SiPostgresql />,
+        color: "#336791",
+      },
+      {
+        name: "MySQL",
+        icon: <SiMysql />,
+        color: "#4479A1",
+      },
+      {
+        name: "Firebase",
+        icon: <RiFirebaseFill />,
+        color: "#FFCA28",
+      },
+    ]
+  },
+  {
+    category: "Tools & Platforms",
+    items: [
+      {
+        name: "GitHub",
+        icon: <FaGithub />,
+        color: "#fff",
+      },
+      {
+        name: "Git",
+        icon: <FaGitAlt />,
+        color: "#F05032",
+      },
+      {
+        name: "Docker",
+        icon: <FaDocker />,
+        color: "#2496ED",
+      },
+      {
+        name: "Postman",
+        icon: <SiPostman />,
+        color: "#FF6C37",
+      },
+      {
+        name: "Google Cloud",
+        icon: <SiGooglecloud />,
+        color: "#4285F4",
+      },
+    ]
+  },
+  {
+    category: "Operating Systems",
+    items: [
+      {
+        name: "Windows",
+        icon: <FaWindows />,
+        color: "#0078D6",
+      },
+      {
+        name: "macOS",
+        icon: <SiApple />,
+        color: "#999999",
+      },
+      {
+        name: "Kali Linux",
+        icon: <SiKalilinux  />,
+        color: "#1788D2",
+      },
+      {
+        name: "Ubuntu",
+        icon: <SiUbuntu />,
+        color: "#E95420",
+      },
+    ]
+  },
+];
 
 const logotext = "VAIBHAV";
 const meta = {
@@ -93,119 +248,6 @@ const worktimeline = [
 		jobtitle: "Web Developer",
 		where: "Trialshopy",
 		date: "2023",
-	},
-];
-
-const skills = [
-	{
-		name: "React",
-		icon: <FaReact />,
-		color: "#61DAFB",
-	},
-	{
-		name: "JavaScript",
-		icon: <FaJsSquare />,
-		color: "#F7DF1E",
-	},
-	{
-		name: "TypeScript",
-		icon: <SiTypescript />,
-		color: "#3178C6",
-	},
-	{
-		name: "Python",
-		icon: <FaPython />,
-		color: "#3776AB",
-	},
-	{
-		name: "Java",
-		icon: <FaJava />,
-		color: "#ED8B00",
-	},
-	{
-		name: "C++",
-		icon: <span className="cpp-icon">C++</span>,
-		color: "#00599C",
-	},
-	{
-		name: "Node.js",
-		icon: <FaNodeJs />,
-		color: "#339933",
-	},
-	{
-		name: "Express",
-		icon: <SiExpress />,
-		color: "#000000",
-	},
-	{
-		name: "Django",
-		icon: <SiDjango />,
-		color: "#092E20",
-	},
-	{
-		name: "Next.js",
-		icon: <SiNextdotjs />,
-		color: "#000000",
-	},
-	{
-		name: "Tailwind CSS",
-		icon: <SiTailwindcss />,
-		color: "#06B6D4",
-	},
-	{
-		name: "HTML5",
-		icon: <FaHtml5 />,
-		color: "#E34F26",
-	},
-	{
-		name: "CSS3",
-		icon: <FaCss3Alt />,
-		color: "#1572B6",
-	},
-	{
-		name: "MongoDB",
-		icon: <SiMongodb />,
-		color: "#47A248",
-	},
-	{
-		name: "PostgreSQL",
-		icon: <SiPostgresql />,
-		color: "#336791",
-	},
-	{
-		name: "MySQL",
-		icon: <SiMysql />,
-		color: "#4479A1",
-	},
-	{
-		name: "Git",
-		icon: <FaGitAlt />,
-		color: "#F05032",
-	},
-	{
-		name: "Docker",
-		icon: <FaDocker />,
-		color: "#2496ED",
-	},
-	{
-		name: "AWS",
-		icon: <FaAws />,
-		color: "#FF9900",
-	},
-	{
-		name: "Linux",
-		icon: <FaLinux />,
-		color: "#FCC624",
-	},
-	{
-		name: "Firebase",
-		icon: <SiFirebase />,
-		color: "#FFCA28",
-	},
-	{
-		name: "GraphQL",
-		icon: <SiGraphql />,
-		color: "#E10098",
 	},
 ];
 
