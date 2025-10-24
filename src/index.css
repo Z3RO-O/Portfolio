@@ -1,8 +1,8 @@
 @import 'tailwindcss';
 
 :root {
-  --bg-color: #0c0c0c;
-  --primary-color: #0d0d0d;
+  --bg-color: #000;
+  --primary-color: #000;
   --secondary-color: #fff;
   --text-color: #fff;
   --text-color-2: #fff;
@@ -10,9 +10,9 @@
   --overlay-color: rgb(12 12 12 / 63%);
 }
 
-[data-theme='light'] {
-  --bg-color: #ffffff;
-  --primary-color: #ffffff;
+[theme='light'] {
+  --bg-color: #fff;
+  --primary-color: #fff;
   --secondary-color: #000;
   --text-color: #000;
   --text-color-2: #000;
@@ -56,6 +56,7 @@ h6 {
 a,
 a:hover {
   color: var(--text-color);
+  text-decoration: none;
 }
 
 p {

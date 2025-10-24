@@ -3,10 +3,10 @@ import { socialprofils } from '@/content_option';
 
 const SocialIcons = () => {
   return (
-    <div className='fixed top-1/2 left-[30px] w-5 h-[200px] -mt-[100px] lg:static lg:w-auto lg:h-auto lg:mt-0 lg:flex lg:flex-row-reverse lg:justify-center lg:py-10 lg:items-center'>
-      <ul className='list-none p-0 m-0 lg:mb-5'>
+    <div className='fixed top-1/2 left-[30px] w-5 h-[200px] -mt-[100px] max-lg:w-auto max-lg:h-auto max-lg:static max-lg:mt-0 max-lg:flex max-lg:flex-row-reverse max-lg:justify-center max-lg:py-10 max-lg:items-center'>
+      <ul className='list-none p-0 m-0 max-lg:mb-5 max-lg:flex max-lg:flex-row max-lg:gap-2.5'>
         {socialprofils.twitter && (
-          <li className='block text-xs text-center mb-2.5 transition-all duration-300 lg:inline lg:mb-[29px] lg:mr-2.5'>
+          <li className='block text-xs text-center mb-2.5 transition-all duration-300 max-lg:mb-0'>
             <a
               target='_blank'
               rel='noreferrer'
@@ -18,7 +18,7 @@ const SocialIcons = () => {
           </li>
         )}
         {socialprofils.github && (
-          <li className='block text-xs text-center mb-2.5 transition-all duration-300 lg:inline lg:mb-[29px] lg:mr-2.5'>
+          <li className='block text-xs text-center mb-2.5 transition-all duration-300 max-lg:mb-0'>
             <a
               target='_blank'
               rel='noreferrer'
@@ -30,7 +30,7 @@ const SocialIcons = () => {
           </li>
         )}
         {socialprofils.instagram && (
-          <li className='block text-xs text-center mb-2.5 transition-all duration-300 lg:inline lg:mb-[29px] lg:mr-2.5'>
+          <li className='block text-xs text-center mb-2.5 transition-all duration-300 max-lg:mb-0'>
             <a
               target='_blank'
               rel='noreferrer'
@@ -42,7 +42,7 @@ const SocialIcons = () => {
           </li>
         )}
         {socialprofils.linkedin && (
-          <li className='block text-xs text-center mb-2.5 transition-all duration-300 lg:inline lg:mb-[29px] lg:mr-2.5'>
+          <li className='block text-xs text-center mb-2.5 transition-all duration-300 max-lg:mb-0'>
             <a
               target='_blank'
               rel='noreferrer'
@@ -54,9 +54,9 @@ const SocialIcons = () => {
           </li>
         )}
       </ul>
-      <p className='relative top-[70px] -left-6 w-[68px] h-5 text-(--text-color) text-xs font-semibold leading-[1.2] whitespace-nowrap -rotate-90 after:content-[""] after:block after:absolute after:top-[9px] after:-right-12 after:w-10 after:h-px after:bg-(--text-color) lg:static lg:w-auto lg:h-auto lg:rotate-0 lg:text-[17px] lg:mr-[65px] lg:after:hidden'>
+      <div className='relative top-[70px] -left-6 w-[68px] h-5 text-(--text-color) text-xs font-semibold leading-[1.2] whitespace-nowrap -rotate-90 after:content-[""] after:block after:absolute after:top-[9px] after:-right-12 after:w-10 after:h-px after:bg-(--text-color) max-lg:static max-lg:w-auto max-lg:h-auto max-lg:rotate-0 max-lg:text-[17px] max-lg:mr-[65px]'>
         Follow Me
-      </p>
+      </div>
     </div>
   );
 };

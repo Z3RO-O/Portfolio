@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import withRouter from '@/hooks/withRouter';
 import AppRoutes from '@/routes';
-import Headermain from '@/components/common/Header';
+import Header from '@/components/common/Header';
 import AnimatedCursor from '@/hooks/AnimatedCursor';
 
 interface ScrollToTopProps {
@@ -34,7 +34,7 @@ const App = () => {
         />
       </div>
       <ScrollToTop>
-        <Headermain />
+        <Header />
         <AppRoutes />
       </ScrollToTop>
     </Router>
