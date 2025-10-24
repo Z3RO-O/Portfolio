@@ -1,10 +1,10 @@
 import { Route, Routes, type Location } from 'react-router-dom';
 import withRouter from '@/hooks/withRouter';
-import { Home } from '@/pages/home';
-import { Projects } from '@/pages/projects';
-import { ContactUs } from '@/pages/contact';
-import { About } from '@/pages/about';
-import { Socialicons } from '@/components/socialicons';
+import { Home } from '@/components/pages/home';
+import { Projects } from '@/components/pages/projects';
+import { ContactUs } from '@/components/pages/contact';
+import { About } from '@/components/pages/about';
+import { SocialIcons } from '@/components/common/SocialIcons';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const pageVariants = {
@@ -55,9 +55,9 @@ const AnimatedRoutes = withRouter(({ location }: AnimatedRoutesProps) => (
 
 const AppRoutes = () => {
   return (
-    <div className='_c'>
+    <div className='max-[991px]:pt-10'>
       <AnimatedRoutes />
-      <Socialicons />
+      <SocialIcons />
     </div>
   );
 };

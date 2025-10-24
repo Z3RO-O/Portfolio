@@ -3,25 +3,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import withRouter from '@/hooks/withRouter';
 import AppRoutes from '@/routes';
-import Headermain from '@/header';
+import Headermain from '@/components/common/Header';
 import AnimatedCursor from '@/hooks/AnimatedCursor';
-import './App.css';
 
 interface ScrollToTopProps {
   children?: React.ReactNode;
 }
 
-function _ScrollToTop({ children }: ScrollToTopProps): JSX.Element {
+const _ScrollToTop = ({ children }: ScrollToTopProps) => {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
   return <>{children}</>;
-}
+};
 
 const ScrollToTop = withRouter(_ScrollToTop);
 
-export default function App(): JSX.Element {
+const App = () => {
   return (
     <Router basename={import.meta.env.PUBLIC_URL}>
       <div className='cursor__dot'>
@@ -40,4 +39,6 @@ export default function App(): JSX.Element {
       </ScrollToTop>
     </Router>
   );
-}
+};
+
+export default App;

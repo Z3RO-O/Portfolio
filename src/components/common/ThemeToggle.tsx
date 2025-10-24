@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { WiMoonAltWaningCrescent4 } from 'react-icons/wi';
 
-const Themetoggle = () => {
+const ThemeToggle = () => {
   const [theme, settheme] = useState<string>(
     localStorage.getItem('theme') || 'dark'
   );
@@ -16,10 +16,13 @@ const Themetoggle = () => {
   }, [theme]);
 
   return (
-    <div className='nav_ac' onClick={themetoggle}>
+    <div
+      className='py-[5px] px-[15px] m-0 border-none bg-(--primary-color) text-xl font-[Marcellus] text-(--text-color-2) leading-loose h-[50px] font-bold z-1000 cursor-pointer hover:text-(--text-color-2) [&>svg]:w-8 [&>svg]:h-8'
+      onClick={themetoggle}
+    >
       <WiMoonAltWaningCrescent4 />
     </div>
   );
 };
 
-export default Themetoggle;
+export default ThemeToggle;

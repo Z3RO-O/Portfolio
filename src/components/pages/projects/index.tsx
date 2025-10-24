@@ -2,7 +2,7 @@ import './style.css';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Container, Row, Col } from 'react-bootstrap';
 import { meta, projects } from '@/content_option';
-import SingleProject from '@/pages/projects/SingleProject';
+import SingleProject from '@/components/pages/projects/SingleProject';
 
 export const Projects = () => {
   return (

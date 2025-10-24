@@ -5,8 +5,8 @@ import Typewriter from 'typewriter-effect';
 import { introdata, meta } from '@/content_option';
 import { Link } from 'react-router-dom';
 import { Suspense, useState } from 'react';
-import Loader from '@/components/loader';
-import Mask from '@/models/mask';
+import Loader from '@/components/common/Loader';
+import Mask from '@/components/models/mask';
 
 export const Home = () => {
   const adjustMaskForScreenSize = (): [
@@ -81,7 +81,10 @@ export const Home = () => {
                 <p className='mb-1x'>{introdata.description[0]}</p>
                 <p className='mb-1x'>{introdata.description[1]}</p>
                 <div className='intro_btn-action pb-5'>
-                  <Link to='/projects' className='text_2'>
+                  <Link
+                    to='/projects'
+                    className='text-(--text-color-2) hover:text-(--text-color-2)'
+                  >
                     <div id='button_h' className='ac_btn btn '>
                       My Projects
                       <div className='ring one'></div>
@@ -89,7 +92,10 @@ export const Home = () => {
                       <div className='ring three'></div>
                     </div>
                   </Link>
-                  <Link to='/about' className='text_2'>
+                  <Link
+                    to='/about'
+                    className='text-(--text-color-2) hover:text-(--text-color-2)'
+                  >
                     <div id='button_p' className='ac_btn btn '>
                       About
                       <div className='ring one'></div>
