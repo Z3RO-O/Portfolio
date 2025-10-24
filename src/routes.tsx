@@ -1,9 +1,9 @@
 import { Route, Routes, type Location } from 'react-router-dom';
 import withRouter from '@/hooks/withRouter';
-import { Home } from '@/components/pages/home';
-import { Projects } from '@/components/pages/projects';
-import { ContactUs } from '@/components/pages/contact';
-import { About } from '@/components/pages/about';
+import { Home } from '@/components/pages/Home';
+import { Projects } from '@/components/pages/Projects';
+import { Contact } from '@/components/pages/Contact';
+import { About } from '@/components/pages/About';
 import { SocialIcons } from '@/components/common/SocialIcons';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -46,7 +46,7 @@ const AnimatedRoutes = withRouter(({ location }: AnimatedRoutesProps) => (
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/projects' element={<Projects />} />
-        <Route path='/contact' element={<ContactUs />} />
+        <Route path='/contact' element={<Contact />} />
         <Route path='*' element={<Home />} />
       </Routes>
     </motion.div>

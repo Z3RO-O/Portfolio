@@ -1,4 +1,3 @@
-import './style.css';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Container, Row, Col } from 'react-bootstrap';
 import {
@@ -22,10 +21,10 @@ export const About = () => {
         <Row className='mb-5 mt-3 pt-md-3'>
           <Col>
             <h1 className='display-4 mb-4'>About me</h1>
-            <hr className='t_border my-4 ml-0 text-left' />
+            <hr className='border-(--text-color) my-4 ml-0 text-left' />
           </Col>
         </Row>
-        <Row className='sec_sp'>
+        <Row className='mb-24'>
           <Col lg={5}>
             <h3 className='text-(--secondary-color) py-4'>{dataabout.title}</h3>
           </Col>
@@ -37,12 +36,12 @@ export const About = () => {
             </div>
           </Col>
         </Row>
-        <Row className='sec_sp'>
+        <Row className='mb-24'>
           <Col lg={5}>
             <h3 className='text-(--secondary-color) py-4'>Work Timline</h3>
           </Col>
           <Col lg={7}>
-            <table className='table caption-top'>
+            <table className='table caption-top [&_td]:text-(--text-color) [&_td]:bg-(--bg-color) [&_th]:text-(--text-color) [&_th]:bg-(--bg-color)'>
               <tbody>
                 {worktimeline.map((data, i) => {
                   return (
@@ -57,7 +56,7 @@ export const About = () => {
             </table>
           </Col>
         </Row>
-        <Row className='sec_sp'>
+        <Row className='mb-24'>
           <Col lg={12}>
             <h3 className='text-(--secondary-color) py-4'>
               Skills & Technologies
@@ -65,7 +64,7 @@ export const About = () => {
             <SkillsWithIcons skills={skills} />
           </Col>
         </Row>
-        <Row className='sec_sp'>
+        <Row className='mb-24'>
           <Col lg={5}>
             <h3 className='text-(--secondary-color) py-4'>
               Services & Interests
@@ -74,8 +73,10 @@ export const About = () => {
           <Col lg={7}>
             {services.map((data, i) => {
               return (
-                <div className='service_ py-4' key={i}>
-                  <h5 className='service__title'>{data.title}</h5>
+                <div className='py-4' key={i}>
+                  <h5 className='py-2 border-b-2 border-(--secondary-color)'>
+                    {data.title}
+                  </h5>
                   <p className='service_desc'>{data.description}</p>
                 </div>
               );

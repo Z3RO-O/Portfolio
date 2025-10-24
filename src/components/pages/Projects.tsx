@@ -1,8 +1,7 @@
-import './style.css';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Container, Row, Col } from 'react-bootstrap';
 import { meta, projects } from '@/content_option';
-import SingleProject from '@/components/pages/projects/SingleProject';
+import SingleProject from '@/components/common/SingleProject';
 
 export const Projects = () => {
   return (
@@ -16,10 +15,10 @@ export const Projects = () => {
         <Row className='my-3 pt-md-3'>
           <Col>
             <h1 className='display-4 mb-4'> Projects </h1>{' '}
-            <hr className='t_border my-4 text-left' />
+            <hr className='border-(--text-color) my-4 text-left' />
           </Col>
         </Row>
-        <div className='po_items_ho'>
+        <div className='flex flex-wrap justify-center gap-16 pb-12'>
           {projects.map(project => {
             return (
               <SingleProject

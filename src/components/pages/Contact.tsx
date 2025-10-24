@@ -1,6 +1,5 @@
 import { useState, type FormEvent, type ChangeEvent } from 'react';
 import emailjs from '@emailjs/browser';
-import './style.css';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { meta } from '@/content_option';
 import { Container, Row, Col, Alert } from 'react-bootstrap';
@@ -16,7 +15,7 @@ interface FormData {
   variant: string;
 }
 
-export const ContactUs = () => {
+export const Contact = () => {
   const [formData, setFormdata] = useState<FormData>({
     email: '',
     name: '',
@@ -89,10 +88,10 @@ export const ContactUs = () => {
         <Row className='mb-5 mt-3 pt-md-3'>
           <Col>
             <h1 className='display-4 mb-4'>Contact Me</h1>
-            <hr className='t_border my-4 ml-0 text-left' />
+            <hr className='border-(--text-color) my-4 ml-0 text-left' />
           </Col>
         </Row>
-        <Row className='sec_sp'>
+        <Row className='mb-24'>
           <Col lg={12}>
             <Alert
               variant={formData.variant}
@@ -124,7 +123,10 @@ export const ContactUs = () => {
             <p>{contactConfig.description2}</p>
           </Col>
           <Col lg={7} className='d-flex align-items-center'>
-            <form onSubmit={handleSubmit} className='contact__form w-100'>
+            <form
+              onSubmit={handleSubmit}
+              className='w-100 [&_.form-control]:py-[1.375rem] [&_.form-control]:px-3 [&_.form-control]:leading-[1.5] [&_.form-control]:text-(--text-color) [&_.form-control]:bg-(--bg-color) [&_.form-control]:rounded-none [&_.form-control]:border [&_.form-control]:border-(--secondary-color) [&_.form-control::placeholder]:text-(--secondary-color) [&_.form-control::placeholder]:opacity-70 [&_input.form-control]:mb-8 [&_input.form-control]:h-[calc(2.5em+0.75rem+2px)]'
+            >
               <Row>
                 <Col lg={6} className='form-group'>
                   <input
@@ -164,7 +166,10 @@ export const ContactUs = () => {
               <br />
               <Row>
                 <Col lg={12} className='form-group'>
-                  <button className='btn ac_btn' type='submit'>
+                  <button
+                    className='btn py-1 px-[19px] text-(--secondary-color) relative border-2 border-(--secondary-color) overflow-hidden transition-all duration-[600ms] ease-[cubic-bezier(0.55,0,0.1,1)] cursor-pointer rounded-none mr-5 hover:shadow-[8px_8px_0px_var(--text-color),-8px_-8px_0px_var(--text-color)] hover:text-(--secondary-color)'
+                    type='submit'
+                  >
                     {formData.loading ? 'Sending...' : 'Send'}
                   </button>
                 </Col>
@@ -173,7 +178,13 @@ export const ContactUs = () => {
           </Col>
         </Row>
       </Container>
-      <div className={formData.loading ? 'loading-bar' : 'd-none'}></div>
+      <div
+        className={
+          formData.loading
+            ? 'fixed top-0 left-0 right-0 h-[10px] z-[999999999] bg-(--text-color) translate-x-full animate-[shift-rightwards_1s_ease-in-out_infinite] delay-300'
+            : 'd-none'
+        }
+      ></div>
     </HelmetProvider>
   );
 };
