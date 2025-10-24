@@ -1,40 +1,35 @@
-import "./style.css";
-import {
-  FaGithub,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedin,
-} from "react-icons/fa";
-import { socialprofils } from "@/content_option";
+import './style.css';
+import { FaGithub, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { socialprofils } from '@/content_option';
 
 export const Socialicons = () => {
   return (
-    <div className="stick_follow_icon">
+    <div className='stick_follow_icon'>
       <ul>
         {socialprofils.twitter && (
           <li>
-            <a target="_blank" rel="noreferrer" href={socialprofils.twitter}>
+            <a target='_blank' rel='noreferrer' href={socialprofils.twitter}>
               <FaTwitter />
             </a>
           </li>
         )}
         {socialprofils.github && (
           <li>
-            <a target="_blank" rel="noreferrer" href={socialprofils.github}>
+            <a target='_blank' rel='noreferrer' href={socialprofils.github}>
               <FaGithub />
             </a>
           </li>
         )}
         {socialprofils.instagram && (
           <li>
-            <a target="_blank" rel="noreferrer" href={socialprofils.instagram}>
+            <a target='_blank' rel='noreferrer' href={socialprofils.instagram}>
               <FaInstagram />
             </a>
           </li>
         )}
         {socialprofils.linkedin && (
           <li>
-            <a target="_blank" rel="noreferrer" href={socialprofils.linkedin}>
+            <a target='_blank' rel='noreferrer' href={socialprofils.linkedin}>
               <FaLinkedin />
             </a>
           </li>
@@ -44,4 +39,3 @@ export const Socialicons = () => {
     </div>
   );
 };
-

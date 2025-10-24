@@ -1,39 +1,43 @@
-import "./style.css";
-import { Canvas } from "@react-three/fiber";
-import { Helmet, HelmetProvider } from "react-helmet-async";
-import Typewriter from "typewriter-effect";
-import { introdata, meta } from "@/content_option";
-import { Link } from "react-router-dom";
-import { Suspense, useState } from "react";
-import Loader from "@/components/loader";
-import Mask from "@/models/mask";
+import './style.css';
+import { Canvas } from '@react-three/fiber';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import Typewriter from 'typewriter-effect';
+import { introdata, meta } from '@/content_option';
+import { Link } from 'react-router-dom';
+import { Suspense, useState } from 'react';
+import Loader from '@/components/loader';
+import Mask from '@/models/mask';
 
 export const Home = () => {
-  const adjustMaskForScreenSize = (): [[number, number, number], [number, number, number], [number, number, number]] => {
+  const adjustMaskForScreenSize = (): [
+    [number, number, number],
+    [number, number, number],
+    [number, number, number],
+  ] => {
     const screenScale: [number, number, number] = [2.5, 2.5, 2];
     const screenPosition: [number, number, number] = [0, -25, -40];
     const rotation: [number, number, number] = [0.1, -0.5, 0];
-    
+
     return [screenScale, screenPosition, rotation];
   };
 
   const [maskScale, maskPosition, rotation] = adjustMaskForScreenSize();
   const [currentStage, setCurrentStage] = useState<number | null>(1);
   const [isRotating, setIsRotating] = useState<boolean>(false);
-  
+
   return (
     <HelmetProvider>
-      <section id="home" className="home">
+      <section id='home' className='home'>
         <Helmet>
-          <meta charSet="utf-8" />
+          <meta charSet='utf-8' />
           <title> {meta.title}</title>
-          <meta name="description" content={meta.description} />
+          <meta name='description' content={meta.description} />
         </Helmet>
-        <div className="intro_sec d-block d-lg-flex align-items-center">
-          <div className="h_bg-image order-1 order-lg-2 h-100 ">
+        <div className='intro_sec d-block d-lg-flex align-items-center'>
+          <div className='h_bg-image order-1 order-lg-2 h-100 '>
             <Canvas
               className={`h_bg-image  order-1 order-lg-2 h-100 bg-transparent ${
-                isRotating ? "cursor-grabbing" : "cursor-grab"
+                isRotating ? 'cursor-grabbing' : 'cursor-grab'
               }`}
               camera={{ near: 0.1, far: 1000 }}
             >
@@ -41,8 +45,8 @@ export const Home = () => {
                 <directionalLight position={[1, 1, 1]} intensity={5} />
                 <ambientLight intensity={0.5} />
                 <hemisphereLight
-                  color="#b1e1ff"
-                  groundColor="#000000"
+                  color='#b1e1ff'
+                  groundColor='#000000'
                   intensity={1}
                 />
                 <Mask
@@ -56,11 +60,11 @@ export const Home = () => {
               </Suspense>
             </Canvas>
           </div>
-          <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center">
-            <div className="align-self-center ">
-              <div className="intro mx-auto">
-                <h2 className="mb-1x">{introdata.title}</h2>
-                <h1 className="fluidz-48 mb-1x">
+          <div className='text order-2 order-lg-1 h-100 d-lg-flex justify-content-center'>
+            <div className='align-self-center '>
+              <div className='intro mx-auto'>
+                <h2 className='mb-1x'>{introdata.title}</h2>
+                <h1 className='fluidz-48 mb-1x'>
                   <Typewriter
                     options={{
                       strings: [
@@ -74,31 +78,31 @@ export const Home = () => {
                     }}
                   />
                 </h1>
-                <p className="mb-1x">{introdata.description[0]}</p>
-                <p className="mb-1x">{introdata.description[1]}</p>
-                <div className="intro_btn-action pb-5">
-                  <Link to="/projects" className="text_2">
-                    <div id="button_h" className="ac_btn btn ">
+                <p className='mb-1x'>{introdata.description[0]}</p>
+                <p className='mb-1x'>{introdata.description[1]}</p>
+                <div className='intro_btn-action pb-5'>
+                  <Link to='/projects' className='text_2'>
+                    <div id='button_h' className='ac_btn btn '>
                       My Projects
-                      <div className="ring one"></div>
-                      <div className="ring two"></div>
-                      <div className="ring three"></div>
+                      <div className='ring one'></div>
+                      <div className='ring two'></div>
+                      <div className='ring three'></div>
                     </div>
                   </Link>
-                  <Link to="/about" className="text_2">
-                    <div id="button_p" className="ac_btn btn ">
+                  <Link to='/about' className='text_2'>
+                    <div id='button_p' className='ac_btn btn '>
                       About
-                      <div className="ring one"></div>
-                      <div className="ring two"></div>
-                      <div className="ring three"></div>
+                      <div className='ring one'></div>
+                      <div className='ring two'></div>
+                      <div className='ring three'></div>
                     </div>
                   </Link>
-                  <Link to="/contact">
-                    <div id="button_h" className="ac_btn btn">
+                  <Link to='/contact'>
+                    <div id='button_h' className='ac_btn btn'>
                       Contact Me
-                      <div className="ring one"></div>
-                      <div className="ring two"></div>
-                      <div className="ring three"></div>
+                      <div className='ring one'></div>
+                      <div className='ring two'></div>
+                      <div className='ring three'></div>
                     </div>
                   </Link>
                 </div>
@@ -110,4 +114,3 @@ export const Home = () => {
     </HelmetProvider>
   );
 };
-

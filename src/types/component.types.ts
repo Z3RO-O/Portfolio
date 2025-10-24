@@ -23,4 +23,3 @@ export interface MaskProps {
   setIsRotating: (value: boolean) => void;
   setCurrentStage: (stage: number) => void;
 }
-

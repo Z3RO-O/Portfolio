@@ -1,7 +1,7 @@
-import { makeStyles } from "@mui/styles";
-import { FaPlay, FaCode } from "react-icons/fa";
-import { placeholder } from "@/assets/assets";
-import "./SingleProject.css";
+import { makeStyles } from '@mui/styles';
+import { FaPlay, FaCode } from 'react-icons/fa';
+import { placeholder } from '@/assets/assets';
+import './SingleProject.css';
 
 interface SingleProjectProps {
   id: number;
@@ -13,63 +13,71 @@ interface SingleProjectProps {
   image: string;
 }
 
-const SingleProject = ({ id, name, desc, tags, code, demo, image }: SingleProjectProps) => {
+const SingleProject = ({
+  id,
+  name,
+  desc,
+  tags,
+  code,
+  demo,
+  image,
+}: SingleProjectProps) => {
   const useStyles = makeStyles(() => ({
     iconBtn: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       width: 40,
       height: 40,
       border: `2px solid `,
-      transition: "all 0.2s",
+      transition: 'all 0.2s',
     },
     icon: {
-      fontSize: "1rem",
-      transition: "all 0.2s",
+      fontSize: '1rem',
+      transition: 'all 0.2s',
     },
   }));
 
   const classes = useStyles();
   return (
     <>
-      <div key={id} className="singleProject">
-        <div className="projectContent">
+      <div key={id} className='singleProject'>
+        <div className='projectContent'>
           <h2 id={name}>{name}</h2>
           <img src={image ? image : placeholder} alt={name} />
-          <div className="project--showcaseBtn">
+          <div className='project--showcaseBtn'>
             <a
               href={demo}
-              target="_blank"
-              rel="noreferrer"
+              target='_blank'
+              rel='noreferrer'
               className={classes.iconBtn}
               aria-labelledby={`${name} ${name}-demo`}
             >
               <FaPlay
                 id={`${name}-demo`}
-                color="white"
+                color='white'
                 className={classes.icon}
-                aria-label="Demo"
+                aria-label='Demo'
               />
             </a>
             <a
               href={code}
-              target="_blank"
-              rel="noreferrer"
+              target='_blank'
+              rel='noreferrer'
               className={classes.iconBtn}
               aria-labelledby={`${name} ${name}-code`}
             >
               <FaCode
                 id={`${name}-code`}
-                color="white"
+                color='white'
                 className={classes.icon}
-                aria-label="Code"
+                aria-label='Code'
               />
             </a>
           </div>
         </div>
-        <p className="project--desc">{desc}</p>
-        <div className="project--lang">
+        <p className='project--desc'>{desc}</p>
+        <div className='project--lang'>
           {tags.map((tag, id) => (
             <span key={id}>{tag}</span>
           ))}
@@ -77,7 +85,6 @@ const SingleProject = ({ id, name, desc, tags, code, demo, image }: SingleProjec
       </div>
     </>
   );
-}
+};
 
 export default SingleProject;
-

@@ -19,12 +19,14 @@ A modern, TypeScript-based portfolio website built with React 19, Vite 7, and Ta
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - React 19.2.0
 - TypeScript 5.9.3
 - Vite 7.1.7
 - Tailwind CSS 4.1.16
 
 ### Libraries
+
 - Three.js & @react-three/fiber (3D graphics)
 - React Router 7.6.2 (routing)
 - Framer Motion (animations)
@@ -84,6 +86,7 @@ src/
 ## 🎨 Customization
 
 Edit `src/content_option.ts` to customize:
+
 - Personal information
 - Skills and technologies
 - Work experience
@@ -112,6 +115,7 @@ MIT License - see [LICENSE](./LICENSE) file for details
 ## 👤 Author
 
 **Vaibhav Singh**
+
 - GitHub: [@Z3RO-O](https://github.com/Z3RO-O)
 - LinkedIn: [vvaibhavsingh](https://www.linkedin.com/in/vvaibhavsingh/)
 - Twitter: [@vaibhavsngh0](https://twitter.com/vaibhavsngh0)

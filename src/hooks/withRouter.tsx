@@ -1,6 +1,6 @@
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import type { ComponentType } from "react";
-import type { WithRouterProps } from "@/types/component.types";
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import type { ComponentType } from 'react';
+import type { WithRouterProps } from '@/types/component.types';
 
 function withRouter<P extends object>(
   Component: ComponentType<P & WithRouterProps>
@@ -9,7 +9,7 @@ function withRouter<P extends object>(
     const location = useLocation();
     const navigate = useNavigate();
     const params = useParams();
-    
+
     return (
       <Component
         {...(props as P)}
@@ -24,4 +24,3 @@ function withRouter<P extends object>(
 }
 
 export default withRouter;
-

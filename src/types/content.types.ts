@@ -67,4 +67,3 @@ export interface DataAbout {
   title: string;
   aboutme: string[];
 }
-

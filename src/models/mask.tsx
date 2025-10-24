@@ -6,13 +6,13 @@ Source: https://sketchfab.com/3d-models/hacker-face-ecb2e2a0801e4914b8b5420fe866
 Title: Hacker Face
 */
 
-import { useRef, useEffect } from "react";
-import { useGLTF } from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
-import { hacker_face } from "@/assets/assets";
-import { a } from "@react-spring/three";
-import * as THREE from "three";
-import type { GLTF } from "three-stdlib";
+import { useRef, useEffect } from 'react';
+import { useGLTF } from '@react-three/drei';
+import { useFrame, useThree } from '@react-three/fiber';
+import { hacker_face } from '@/assets/assets';
+import { a } from '@react-spring/three';
+import * as THREE from 'three';
+import type { GLTF } from 'three-stdlib';
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -28,7 +28,7 @@ type GLTFResult = GLTF & {
     path4159__0: THREE.Mesh;
   };
   materials: {
-    "Scene_-_Root": THREE.Material;
+    'Scene_-_Root': THREE.Material;
   };
 };
 
@@ -58,7 +58,8 @@ const Mask = ({
     event.preventDefault();
     setIsRotating(true);
 
-    const clientX = "touches" in event ? event.touches[0].clientX : event.clientX;
+    const clientX =
+      'touches' in event ? event.touches[0].clientX : event.clientX;
     lastX.current = clientX;
   };
 
@@ -72,7 +73,8 @@ const Mask = ({
     event.stopPropagation();
     event.preventDefault();
     if (isRotating) {
-      const clientX = "touches" in event ? event.touches[0].clientX : event.clientX;
+      const clientX =
+        'touches' in event ? event.touches[0].clientX : event.clientX;
       const delta = (clientX - lastX.current) / viewport.width;
 
       if (maskRef.current) {
@@ -85,14 +87,14 @@ const Mask = ({
   };
 
   const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === "ArrowLeft") {
+    if (event.key === 'ArrowLeft') {
       if (!isRotating) setIsRotating(true);
 
       if (maskRef.current) {
         maskRef.current.rotation.y += 0.005 * Math.PI;
       }
       rotationSpeed.current = 0.007;
-    } else if (event.key === "ArrowRight") {
+    } else if (event.key === 'ArrowRight') {
       if (!isRotating) setIsRotating(true);
 
       if (maskRef.current) {
@@ -103,25 +105,31 @@ const Mask = ({
   };
 
   const handleKeyUp = (event: KeyboardEvent) => {
-    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
       setIsRotating(false);
     }
   };
 
   useEffect(() => {
     const canvas = gl.domElement;
-    canvas.addEventListener("pointerdown", handlePointerDown as EventListener);
-    canvas.addEventListener("pointerup", handlePointerUp as EventListener);
-    canvas.addEventListener("pointermove", handlePointerMove as EventListener);
-    window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("keyup", handleKeyUp);
+    canvas.addEventListener('pointerdown', handlePointerDown as EventListener);
+    canvas.addEventListener('pointerup', handlePointerUp as EventListener);
+    canvas.addEventListener('pointermove', handlePointerMove as EventListener);
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
 
     return () => {
-      canvas.removeEventListener("pointerdown", handlePointerDown as EventListener);
-      canvas.removeEventListener("pointerup", handlePointerUp as EventListener);
-      canvas.removeEventListener("pointermove", handlePointerMove as EventListener);
-      window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("keyup", handleKeyUp);
+      canvas.removeEventListener(
+        'pointerdown',
+        handlePointerDown as EventListener
+      );
+      canvas.removeEventListener('pointerup', handlePointerUp as EventListener);
+      canvas.removeEventListener(
+        'pointermove',
+        handlePointerMove as EventListener
+      );
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
     };
   }, [gl, isRotating]);
 
@@ -169,7 +177,7 @@ const Mask = ({
           castShadow
           receiveShadow
           geometry={nodes.path4155__0.geometry}
-          material={materials["Scene_-_Root"]}
+          material={materials['Scene_-_Root']}
           position={[10.922, 312.065, 43.067]}
           scale={9518.728}
         />
@@ -177,7 +185,7 @@ const Mask = ({
           castShadow
           receiveShadow
           geometry={nodes.path4153__0.geometry}
-          material={materials["Scene_-_Root"]}
+          material={materials['Scene_-_Root']}
           position={[-1.136, 678.209, 43.067]}
           scale={9518.728}
         />
@@ -185,7 +193,7 @@ const Mask = ({
           castShadow
           receiveShadow
           geometry={nodes.path4151__0.geometry}
-          material={materials["Scene_-_Root"]}
+          material={materials['Scene_-_Root']}
           position={[3.052, 544.902, 43.067]}
           scale={9518.728}
         />
@@ -193,7 +201,7 @@ const Mask = ({
           castShadow
           receiveShadow
           geometry={nodes.path4149__0.geometry}
-          material={materials["Scene_-_Root"]}
+          material={materials['Scene_-_Root']}
           position={[9.003, 948.134, 43.067]}
           scale={9518.728}
         />
@@ -201,7 +209,7 @@ const Mask = ({
           castShadow
           receiveShadow
           geometry={nodes.path4147__0.geometry}
-          material={materials["Scene_-_Root"]}
+          material={materials['Scene_-_Root']}
           position={[-143.856, 793.626, 43.067]}
           scale={9518.728}
         />
@@ -209,7 +217,7 @@ const Mask = ({
           castShadow
           receiveShadow
           geometry={nodes.path4145__0.geometry}
-          material={materials["Scene_-_Root"]}
+          material={materials['Scene_-_Root']}
           position={[167.565, 795.262, 43.067]}
           scale={9518.728}
         />
@@ -217,7 +225,7 @@ const Mask = ({
           castShadow
           receiveShadow
           geometry={nodes.path4141__0.geometry}
-          material={materials["Scene_-_Root"]}
+          material={materials['Scene_-_Root']}
           position={[-472.901, 1208.817, 43.067]}
           scale={9518.728}
         />
@@ -225,7 +233,7 @@ const Mask = ({
           castShadow
           receiveShadow
           geometry={nodes.path4137__0.geometry}
-          material={materials["Scene_-_Root"]}
+          material={materials['Scene_-_Root']}
           position={[486.813, 1208.368, 43.067]}
           scale={9518.728}
         />
@@ -233,7 +241,7 @@ const Mask = ({
           castShadow
           receiveShadow
           geometry={nodes.path4138__0.geometry}
-          material={materials["Scene_-_Root"]}
+          material={materials['Scene_-_Root']}
           position={[-280.596, 1472.776, 43.067]}
           scale={9518.728}
         />
@@ -241,7 +249,7 @@ const Mask = ({
           castShadow
           receiveShadow
           geometry={nodes.path4159__0.geometry}
-          material={materials["Scene_-_Root"]}
+          material={materials['Scene_-_Root']}
           position={[302.063, 1472.776, 43.067]}
           scale={9518.728}
         />
@@ -251,4 +259,3 @@ const Mask = ({
 };
 
 export default Mask;
-

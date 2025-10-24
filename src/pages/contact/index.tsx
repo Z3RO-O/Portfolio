@@ -1,10 +1,10 @@
-import { useState, type FormEvent, type ChangeEvent } from "react";
-import emailjs from "@emailjs/browser";
-import "./style.css";
-import { Helmet, HelmetProvider } from "react-helmet-async";
-import { meta } from "@/content_option";
-import { Container, Row, Col, Alert } from "react-bootstrap";
-import { contactConfig } from "@/content_option";
+import { useState, type FormEvent, type ChangeEvent } from 'react';
+import emailjs from '@emailjs/browser';
+import './style.css';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { meta } from '@/content_option';
+import { Container, Row, Col, Alert } from 'react-bootstrap';
+import { contactConfig } from '@/content_option';
 
 interface FormData {
   email: string;
@@ -18,13 +18,13 @@ interface FormData {
 
 export const ContactUs = () => {
   const [formData, setFormdata] = useState<FormData>({
-    email: "",
-    name: "",
-    message: "",
+    email: '',
+    name: '',
+    message: '',
     loading: false,
     show: false,
-    alertmessage: "",
-    variant: "",
+    alertmessage: '',
+    variant: '',
   });
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -43,33 +43,35 @@ export const ContactUs = () => {
         contactConfig.YOUR_SERVICE_ID,
         contactConfig.YOUR_TEMPLATE_ID,
         templateParams,
-        contactConfig.YOUR_USER_ID,
+        contactConfig.YOUR_USER_ID
       )
       .then(
-        (result) => {
+        result => {
           console.log(result.text);
           setFormdata({
             ...formData,
             loading: false,
-            alertmessage: "SUCCESS! ,Thankyou for your messege",
-            variant: "success",
+            alertmessage: 'SUCCESS! ,Thankyou for your messege',
+            variant: 'success',
             show: true,
           });
         },
-        (error) => {
+        error => {
           console.log(error.text);
           setFormdata({
             ...formData,
             alertmessage: `Faild to send!,${error.text}`,
-            variant: "danger",
+            variant: 'danger',
             show: true,
           });
-          document.getElementsByClassName("co_alert")[0].scrollIntoView();
-        },
+          document.getElementsByClassName('co_alert')[0].scrollIntoView();
+        }
       );
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormdata({
       ...formData,
       [e.target.name]: e.target.value,
@@ -80,33 +82,33 @@ export const ContactUs = () => {
     <HelmetProvider>
       <Container>
         <Helmet>
-          <meta charSet="utf-8" />
+          <meta charSet='utf-8' />
           <title>{meta.title} | Contact</title>
-          <meta name="description" content={meta.description} />
+          <meta name='description' content={meta.description} />
         </Helmet>
-        <Row className="mb-5 mt-3 pt-md-3">
+        <Row className='mb-5 mt-3 pt-md-3'>
           <Col>
-            <h1 className="display-4 mb-4">Contact Me</h1>
-            <hr className="t_border my-4 ml-0 text-left" />
+            <h1 className='display-4 mb-4'>Contact Me</h1>
+            <hr className='t_border my-4 ml-0 text-left' />
           </Col>
         </Row>
-        <Row className="sec_sp">
+        <Row className='sec_sp'>
           <Col lg={12}>
             <Alert
               variant={formData.variant}
               className={`rounded-0 co_alert ${
-                formData.show ? "d-block" : "d-none"
+                formData.show ? 'd-block' : 'd-none'
               }`}
               onClose={() => setFormdata({ ...formData, show: false })}
               dismissible
             >
-              <p className="my-0">{formData.alertmessage}</p>
+              <p className='my-0'>{formData.alertmessage}</p>
             </Alert>
           </Col>
-          <Col lg={5} className="mb-5">
-            <h3 className="color_sec py-4">Get in touch</h3>
+          <Col lg={5} className='mb-5'>
+            <h3 className='color_sec py-4'>Get in touch</h3>
             <address>
-              <strong>Email:</strong>{" "}
+              <strong>Email:</strong>{' '}
               <a href={`mailto:${contactConfig.YOUR_EMAIL}`}>
                 {contactConfig.YOUR_EMAIL}
               </a>
@@ -121,39 +123,39 @@ export const ContactUs = () => {
             <p>{contactConfig.description}</p>
             <p>{contactConfig.description2}</p>
           </Col>
-          <Col lg={7} className="d-flex align-items-center">
-            <form onSubmit={handleSubmit} className="contact__form w-100">
+          <Col lg={7} className='d-flex align-items-center'>
+            <form onSubmit={handleSubmit} className='contact__form w-100'>
               <Row>
-                <Col lg={6} className="form-group">
+                <Col lg={6} className='form-group'>
                   <input
-                    className="form-control"
-                    id="name"
-                    name="name"
-                    placeholder="Name"
-                    value={formData.name || ""}
-                    type="text"
+                    className='form-control'
+                    id='name'
+                    name='name'
+                    placeholder='Name'
+                    value={formData.name || ''}
+                    type='text'
                     required
                     onChange={handleChange}
                   />
                 </Col>
-                <Col lg={6} className="form-group">
+                <Col lg={6} className='form-group'>
                   <input
-                    className="form-control rounded-0"
-                    id="email"
-                    name="email"
-                    placeholder="Email"
-                    type="email"
-                    value={formData.email || ""}
+                    className='form-control rounded-0'
+                    id='email'
+                    name='email'
+                    placeholder='Email'
+                    type='email'
+                    value={formData.email || ''}
                     required
                     onChange={handleChange}
                   />
                 </Col>
               </Row>
               <textarea
-                className="form-control rounded-0"
-                id="message"
-                name="message"
-                placeholder="Message"
+                className='form-control rounded-0'
+                id='message'
+                name='message'
+                placeholder='Message'
                 rows={5}
                 value={formData.message}
                 onChange={handleChange}
@@ -161,9 +163,9 @@ export const ContactUs = () => {
               ></textarea>
               <br />
               <Row>
-                <Col lg={12} className="form-group">
-                  <button className="btn ac_btn" type="submit">
-                    {formData.loading ? "Sending..." : "Send"}
+                <Col lg={12} className='form-group'>
+                  <button className='btn ac_btn' type='submit'>
+                    {formData.loading ? 'Sending...' : 'Send'}
                   </button>
                 </Col>
               </Row>
@@ -171,8 +173,7 @@ export const ContactUs = () => {
           </Col>
         </Row>
       </Container>
-      <div className={formData.loading ? "loading-bar" : "d-none"}></div>
+      <div className={formData.loading ? 'loading-bar' : 'd-none'}></div>
     </HelmetProvider>
   );
 };
-
