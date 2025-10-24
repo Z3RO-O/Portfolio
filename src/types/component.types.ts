@@ -3,7 +3,7 @@ import type { Location } from 'react-router-dom';
 export interface WithRouterProps {
   location: Location;
   navigate: (path: string) => void;
-  params: Record<string, string>;
+  params: Record<string, string | undefined>;
 }
 
 export interface AnimatedCursorProps {

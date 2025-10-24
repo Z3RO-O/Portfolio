@@ -69,12 +69,15 @@ const SingleProject = ({
             </a>
           </div>
         </div>
-        <p className='bg-[rgb(90,90,90)] absolute w-[95%] h-[160px] left-0 top-0 -translate-x-[110%] translate-y-[40%] p-[15px] rounded-r-[20px] transition-transform duration-[900ms] leading-[110%] flex items-center justify-center group-hover:translate-x-[-2%]'>
+        <p className='bg-[rgb(90,90,90)] absolute w-[95%] h-[160px] left-0 top-0 -translate-x-[110%] translate-y-[40%] p-[15px] rounded-r-[20px] transition-transform duration-900 leading-[110%] flex items-center justify-center group-hover:translate-x-[-2%]'>
           {desc}
         </p>
         <div className='bg-[rgb(90,90,90)] absolute bottom-5 right-0 w-[140px] text-[0.8rem] flex justify-center gap-2 flex-col rounded-l-[10px] translate-x-full transition-transform duration-500 delay-300 p-[0.825rem] group-hover:translate-x-0'>
           {tags.map((tag, id) => (
-            <span key={id} className='font-medium break-words leading-[100%]'>
+            <span
+              key={id}
+              className='font-medium wrap-break-word leading-[100%]'
+            >
               {tag}
             </span>
           ))}

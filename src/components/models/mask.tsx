@@ -46,7 +46,7 @@ const Mask = ({
   setCurrentStage,
   ...props
 }: MaskProps) => {
-  const { nodes, materials } = useGLTF(hacker_face) as GLTFResult;
+  const { nodes, materials } = useGLTF(hacker_face) as unknown as GLTFResult;
   const maskRef = useRef<THREE.Group | null>(null);
   const { gl, viewport } = useThree();
   const lastX = useRef<number>(0);

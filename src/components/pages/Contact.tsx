@@ -125,7 +125,7 @@ export const Contact = () => {
           <Col lg={7} className='d-flex align-items-center'>
             <form
               onSubmit={handleSubmit}
-              className='w-100 [&_.form-control]:py-[1.375rem] [&_.form-control]:px-3 [&_.form-control]:leading-[1.5] [&_.form-control]:text-(--text-color) [&_.form-control]:bg-(--bg-color) [&_.form-control]:rounded-none [&_.form-control]:border [&_.form-control]:border-(--secondary-color) [&_.form-control::placeholder]:text-(--secondary-color) [&_.form-control::placeholder]:opacity-70 [&_input.form-control]:mb-8 [&_input.form-control]:h-[calc(2.5em+0.75rem+2px)]'
+              className='w-100 [&_.form-control]:py-5.5 [&_.form-control]:px-3 [&_.form-control]:leading-normal [&_.form-control]:text-(--text-color) [&_.form-control]:bg-(--bg-color) [&_.form-control]:rounded-none [&_.form-control]:border [&_.form-control]:border-(--secondary-color) [&_.form-control::placeholder]:text-(--secondary-color) [&_.form-control::placeholder]:opacity-70 [&_input.form-control]:mb-8 [&_input.form-control]:h-[calc(2.5em+0.75rem+2px)]'
             >
               <Row>
                 <Col lg={6} className='form-group'>
@@ -167,7 +167,7 @@ export const Contact = () => {
               <Row>
                 <Col lg={12} className='form-group'>
                   <button
-                    className='btn py-1 px-[19px] text-(--secondary-color) relative border-2 border-(--secondary-color) overflow-hidden transition-all duration-[600ms] ease-[cubic-bezier(0.55,0,0.1,1)] cursor-pointer rounded-none mr-5 hover:shadow-[8px_8px_0px_var(--text-color),-8px_-8px_0px_var(--text-color)] hover:text-(--secondary-color)'
+                    className='btn py-1 px-[19px] text-(--secondary-color) relative border-2 border-(--secondary-color) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] cursor-pointer rounded-none mr-5 hover:shadow-[8px_8px_0px_var(--text-color),-8px_-8px_0px_var(--text-color)] hover:text-(--secondary-color)'
                     type='submit'
                   >
                     {formData.loading ? 'Sending...' : 'Send'}
@@ -181,7 +181,7 @@ export const Contact = () => {
       <div
         className={
           formData.loading
-            ? 'fixed top-0 left-0 right-0 h-[10px] z-[999999999] bg-(--text-color) translate-x-full animate-[shift-rightwards_1s_ease-in-out_infinite] delay-300'
+            ? 'fixed top-0 left-0 right-0 h-[10px] z-999999999 bg-(--text-color) translate-x-full animate-[shift-rightwards_1s_ease-in-out_infinite] delay-300'
             : 'd-none'
         }
       ></div>

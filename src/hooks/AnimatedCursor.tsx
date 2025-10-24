@@ -6,19 +6,18 @@ import React, {
   type CSSProperties,
 } from 'react';
 
-interface DeviceDetector {
-  info: string;
-  Android(): RegExpMatchArray | null;
-  BlackBerry(): RegExpMatchArray | null;
-  IEMobile(): RegExpMatchArray | null;
-  iOS(): RegExpMatchArray | null;
-  iPad(): boolean;
-  OperaMini(): RegExpMatchArray | null;
-  any(): RegExpMatchArray | null | boolean;
-}
-
-const IsDevice: DeviceDetector | undefined = (() => {
-  if (typeof navigator === 'undefined') return;
+const IsDevice = (() => {
+  if (typeof navigator === 'undefined')
+    return {
+      info: '',
+      Android: () => null,
+      BlackBerry: () => null,
+      IEMobile: () => null,
+      iOS: () => null,
+      iPad: () => false,
+      OperaMini: () => null,
+      any: () => false,
+    };
 
   const ua = navigator.userAgent;
 
@@ -61,12 +60,12 @@ const IsDevice: DeviceDetector | undefined = (() => {
   };
 })();
 
-function useEventListener(
+const useEventListener = (
   eventName: string,
   handler: (event: Event) => void,
   element: Document | HTMLElement = document
-): void {
-  const savedHandler = useRef<(event: Event) => void>();
+) => {
+  const savedHandler = useRef<(event: Event) => void>(() => {});
 
   useEffect(() => {
     savedHandler.current = handler;
@@ -84,7 +83,7 @@ function useEventListener(
       element.removeEventListener(eventName, eventListener);
     };
   }, [eventName, element]);
-}
+};
 
 interface CursorCoreProps {
   outerStyle?: CSSProperties;
@@ -104,7 +103,7 @@ interface Coords {
   y: number;
 }
 
-function CursorCore({
+const CursorCore = ({
   outerStyle,
   innerStyle,
   color = '220, 90, 90',
@@ -127,11 +126,11 @@ function CursorCore({
     'button',
     '.link',
   ],
-}: CursorCoreProps): JSX.Element {
+}: CursorCoreProps) => {
   const cursorOuterRef = useRef<HTMLDivElement>(null);
   const cursorInnerRef = useRef<HTMLDivElement>(null);
-  const requestRef = useRef<number>();
-  const previousTimeRef = useRef<number>();
+  const requestRef = useRef<number>(0);
+  const previousTimeRef = useRef<number>(0);
   const [coords, setCoords] = useState<Coords>({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -311,15 +310,15 @@ function CursorCore({
       <div ref={cursorInnerRef} style={styles.cursorInner} />
     </React.Fragment>
   );
-}
+};
 
 interface AnimatedCursorProps extends CursorCoreProps {}
 
-function AnimatedCursor(props: AnimatedCursorProps): JSX.Element {
+const AnimatedCursor = (props: AnimatedCursorProps) => {
   if (typeof navigator !== 'undefined' && IsDevice?.any()) {
     return <React.Fragment></React.Fragment>;
   }
   return <CursorCore {...props} />;
-}
+};
 
 export default AnimatedCursor;
