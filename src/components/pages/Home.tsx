@@ -7,7 +7,7 @@ import { Suspense, useState } from 'react';
 import Loader from '@/components/common/Loader';
 import Mask from '@/components/models/mask';
 
-export const Home = () => {
+const Home = () => {
   const adjustMaskForScreenSize = (): [
     [number, number, number],
     [number, number, number],
@@ -122,3 +122,5 @@ export const Home = () => {
     </HelmetProvider>
   );
 };
+
+export default Home;

@@ -1,10 +1,10 @@
 import { Route, Routes, type Location } from 'react-router-dom';
 import withRouter from '@/hooks/withRouter';
-import { Home } from '@/components/pages/Home';
-import { Projects } from '@/components/pages/Projects';
-import { Contact } from '@/components/pages/Contact';
-import { About } from '@/components/pages/About';
-import { SocialIcons } from '@/components/common/SocialIcons';
+import Home from '@/components/pages/Home';
+import Projects from '@/components/pages/Projects';
+import Contact from '@/components/pages/Contact';
+import About from '@/components/pages/About';
+import SocialIcons from '@/components/common/SocialIcons';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const pageVariants = {

@@ -15,7 +15,7 @@ interface FormData {
   variant: string;
 }
 
-export const Contact = () => {
+const Contact = () => {
   const [formData, setFormdata] = useState<FormData>({
     email: '',
     name: '',
@@ -188,3 +188,5 @@ export const Contact = () => {
     </HelmetProvider>
   );
 };
+
+export default Contact;

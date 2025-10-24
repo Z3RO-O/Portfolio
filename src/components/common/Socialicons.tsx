@@ -1,7 +1,7 @@
 import { FaGithub, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { socialprofils } from '@/content_option';
 
-export const SocialIcons = () => {
+const SocialIcons = () => {
   return (
     <div className='fixed top-1/2 left-[30px] w-5 h-[200px] -mt-[100px] lg:static lg:w-auto lg:h-auto lg:mt-0 lg:flex lg:flex-row-reverse lg:justify-center lg:py-10 lg:items-center'>
       <ul className='list-none p-0 m-0 lg:mb-5'>
@@ -60,3 +60,5 @@ export const SocialIcons = () => {
     </div>
   );
 };
+
+export default SocialIcons;

@@ -9,7 +9,7 @@ import {
 } from '@/content_option';
 import { SkillsWithIcons } from '@/components/common/SkillsWithIcons';
 
-export const About = () => {
+const About = () => {
   return (
     <HelmetProvider>
       <Container className='About-header'>
@@ -87,3 +87,5 @@ export const About = () => {
     </HelmetProvider>
   );
 };
+
+export default About;
