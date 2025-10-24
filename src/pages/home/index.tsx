@@ -8,7 +8,7 @@ import { Suspense, useState } from "react";
 import Loader from "@/components/loader";
 import Mask from "@/models/mask";
 
-export const Home = (): JSX.Element => {
+export const Home = () => {
   const adjustMaskForScreenSize = (): [[number, number, number], [number, number, number], [number, number, number]] => {
     const screenScale: [number, number, number] = [2.5, 2.5, 2];
     const screenPosition: [number, number, number] = [0, -25, -40];

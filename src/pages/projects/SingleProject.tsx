@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 import { FaPlay, FaCode } from "react-icons/fa";
-import placeholder from "@/pages/projects/placeholder.png";
+import { placeholder } from "@/assets/assets";
 import "./SingleProject.css";
 
 interface SingleProjectProps {
@@ -13,7 +13,7 @@ interface SingleProjectProps {
   image: string;
 }
 
-function SingleProject({ id, name, desc, tags, code, demo, image }: SingleProjectProps): JSX.Element {
+const SingleProject = ({ id, name, desc, tags, code, demo, image }: SingleProjectProps) => {
   const useStyles = makeStyles(() => ({
     iconBtn: {
       display: "flex",

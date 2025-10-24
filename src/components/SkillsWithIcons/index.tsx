@@ -1,11 +1,11 @@
 import React from "react";
-import { SkillCategory } from "@/types/content.types";
+import type { SkillCategory } from "@/types/content.types";
 
 interface SkillsWithIconsProps {
   skills: SkillCategory[];
 }
 
-export const SkillsWithIcons = ({ skills }: SkillsWithIconsProps): JSX.Element => {
+export const SkillsWithIcons = ({ skills }: SkillsWithIconsProps) => {
   return (
     <div className="skills-container">
       {skills.map((category, catIndex) => (

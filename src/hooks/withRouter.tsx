@@ -1,6 +1,6 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { ComponentType } from "react";
-import { WithRouterProps } from "@/types/component.types";
+import type { ComponentType } from "react";
+import type { WithRouterProps } from "@/types/component.types";
 
 function withRouter<P extends object>(
   Component: ComponentType<P & WithRouterProps>

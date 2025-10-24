@@ -10,7 +10,7 @@ import {
 } from "@/content_option";
 import { SkillsWithIcons } from "@/components/SkillsWithIcons";
 
-export const About = (): JSX.Element => {
+export const About = () => {
   return (
     <HelmetProvider>
       <Container className="About-header">

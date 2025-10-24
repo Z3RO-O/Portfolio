@@ -1,4 +1,4 @@
-import { useState, FormEvent, ChangeEvent } from "react";
+import { useState, type FormEvent, type ChangeEvent } from "react";
 import emailjs from "@emailjs/browser";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
@@ -16,7 +16,7 @@ interface FormData {
   variant: string;
 }
 
-export const ContactUs = (): JSX.Element => {
+export const ContactUs = () => {
   const [formData, setFormdata] = useState<FormData>({
     email: "",
     name: "",

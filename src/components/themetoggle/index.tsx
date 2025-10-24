@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { WiMoonAltWaningCrescent4 } from "react-icons/wi";
 
-const Themetoggle = (): JSX.Element => {
+const Themetoggle = () => {
   const [theme, settheme] = useState<string>(
     localStorage.getItem("theme") || "dark"
   );

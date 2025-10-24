@@ -6,7 +6,7 @@ import { logotext, socialprofils } from "@/content_option";
 import Themetoggle from "@/components/themetoggle";
 import { FaInstagram, FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
 
-const Headermain = (): JSX.Element => {
+const Headermain = () => {
   const [isActive, setActive] = useState<boolean>(false);
 
   const handleToggle = () => {
