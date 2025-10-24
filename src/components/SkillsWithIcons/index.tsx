@@ -1,6 +1,11 @@
 import React from "react";
+import { SkillCategory } from "@/types/content.types";
 
-export const SkillsWithIcons = ({ skills }) => {
+interface SkillsWithIconsProps {
+  skills: SkillCategory[];
+}
+
+export const SkillsWithIcons = ({ skills }: SkillsWithIconsProps): JSX.Element => {
   return (
     <div className="skills-container">
       {skills.map((category, catIndex) => (
@@ -11,7 +16,7 @@ export const SkillsWithIcons = ({ skills }) => {
               <div
                 key={index}
                 className="skill-item"
-                style={{ "--skill-color": skill.color }}
+                style={{ "--skill-color": skill.color } as React.CSSProperties}
               >
                 <div className="skill-icon">{skill.icon}</div>
                 <span className="skill-name">{skill.name}</span>
@@ -23,3 +28,4 @@ export const SkillsWithIcons = ({ skills }) => {
     </div>
   );
 };
+

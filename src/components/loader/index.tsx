@@ -1,6 +1,6 @@
 import { Html } from "@react-three/drei";
 
-const index = () => {
+const Loader = (): JSX.Element => {
   return (
     <Html>
       <div className="flex justify-center items-center">
@@ -10,4 +10,5 @@ const index = () => {
   );
 };
 
-export default index;
+export default Loader;
+

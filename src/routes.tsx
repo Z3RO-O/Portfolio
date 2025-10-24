@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Location } from "react-router-dom";
 import withRouter from "@/hooks/withRouter";
 import { Home } from "@/pages/home";
 import { Projects } from "@/pages/projects";
@@ -23,12 +23,16 @@ const pageVariants = {
 };
 
 const pageTransition = {
-  type: "tween",
-  ease: "anticipate",
+  type: "tween" as const,
+  ease: "anticipate" as const,
   duration: 0.4,
 };
 
-const AnimatedRoutes = withRouter(({ location }) => (
+interface AnimatedRoutesProps {
+  location: Location;
+}
+
+const AnimatedRoutes = withRouter(({ location }: AnimatedRoutesProps) => (
   <AnimatePresence mode="wait">
     <motion.div
       key={location.pathname}
@@ -39,7 +43,7 @@ const AnimatedRoutes = withRouter(({ location }) => (
       transition={pageTransition}
     >
       <Routes location={location}>
-        <Route exact path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<ContactUs />} />
@@ -49,7 +53,7 @@ const AnimatedRoutes = withRouter(({ location }) => (
   </AnimatePresence>
 ));
 
-function AppRoutes() {
+function AppRoutes(): JSX.Element {
   return (
     <div className="_c">
       <AnimatedRoutes />
@@ -59,3 +63,4 @@ function AppRoutes() {
 }
 
 export default AppRoutes;
+

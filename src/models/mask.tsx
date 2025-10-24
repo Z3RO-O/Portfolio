@@ -6,144 +6,158 @@ Source: https://sketchfab.com/3d-models/hacker-face-ecb2e2a0801e4914b8b5420fe866
 Title: Hacker Face
 */
 
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import m from "@/assets/hacker_face.glb";
+import { hacker_face } from "@/assets/assets";
 import { a } from "@react-spring/three";
+import * as THREE from "three";
+import type { GLTF } from "three-stdlib";
 
-const mask = ({
+type GLTFResult = GLTF & {
+  nodes: {
+    path4155__0: THREE.Mesh;
+    path4153__0: THREE.Mesh;
+    path4151__0: THREE.Mesh;
+    path4149__0: THREE.Mesh;
+    path4147__0: THREE.Mesh;
+    path4145__0: THREE.Mesh;
+    path4141__0: THREE.Mesh;
+    path4137__0: THREE.Mesh;
+    path4138__0: THREE.Mesh;
+    path4159__0: THREE.Mesh;
+  };
+  materials: {
+    "Scene_-_Root": THREE.Material;
+  };
+};
+
+interface MaskProps {
+  isRotating: boolean;
+  setIsRotating: (value: boolean) => void;
+  setCurrentStage: (stage: number | null) => void;
+  currentFocusPoint?: unknown;
+  [key: string]: unknown;
+}
+
+const Mask = ({
   isRotating,
   setIsRotating,
   setCurrentStage,
-  currentFocusPoint,
   ...props
-}) => {
-  const { nodes, materials } = useGLTF(m);
-  const maskRef = useRef();
+}: MaskProps) => {
+  const { nodes, materials } = useGLTF(hacker_face) as GLTFResult;
+  const maskRef = useRef<THREE.Group | null>(null);
   const { gl, viewport } = useThree();
-  const lastX = useRef(0);
-  const rotationSpeed = useRef(0);
+  const lastX = useRef<number>(0);
+  const rotationSpeed = useRef<number>(0);
   const dampingFactor = 0.95;
 
-  const handlePointerDown = (event) => {
+  const handlePointerDown = (event: PointerEvent | TouchEvent) => {
     event.stopPropagation();
     event.preventDefault();
     setIsRotating(true);
 
-    // Calculate the clientX based on whether it's a touch event or a mouse event
-    const clientX = event.touches ? event.touches[0].clientX : event.clientX;
-
-    // Store the current clientX position for reference
+    const clientX = "touches" in event ? event.touches[0].clientX : event.clientX;
     lastX.current = clientX;
   };
 
-  // Handle pointer (mouse or touch) up event
-  const handlePointerUp = (event) => {
+  const handlePointerUp = (event: PointerEvent | TouchEvent) => {
     event.stopPropagation();
     event.preventDefault();
     setIsRotating(false);
   };
 
-  // Handle pointer (mouse or touch) move event
-  const handlePointerMove = (event) => {
+  const handlePointerMove = (event: PointerEvent | TouchEvent) => {
     event.stopPropagation();
     event.preventDefault();
     if (isRotating) {
-      // If rotation is enabled, calculate the change in clientX position
-      const clientX = event.touches ? event.touches[0].clientX : event.clientX;
-
-      // calculate the change in the horizontal position of the mouse cursor or touch input,
-      // relative to the viewport's width
+      const clientX = "touches" in event ? event.touches[0].clientX : event.clientX;
       const delta = (clientX - lastX.current) / viewport.width;
 
-      // Update the mask's rotation based on the mouse/touch movement
-      maskRef.current.rotation.y += delta * 0.01 * Math.PI;
+      if (maskRef.current) {
+        maskRef.current.rotation.y += delta * 0.01 * Math.PI;
+      }
 
-      // Update the reference for the last clientX position
       lastX.current = clientX;
-
-      // Update the rotation speed
       rotationSpeed.current = delta * 0.01 * Math.PI;
     }
   };
 
-  // Handle keydown events
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "ArrowLeft") {
       if (!isRotating) setIsRotating(true);
 
-      maskRef.current.rotation.y += 0.005 * Math.PI;
+      if (maskRef.current) {
+        maskRef.current.rotation.y += 0.005 * Math.PI;
+      }
       rotationSpeed.current = 0.007;
     } else if (event.key === "ArrowRight") {
       if (!isRotating) setIsRotating(true);
 
-      maskRef.current.rotation.y -= 0.005 * Math.PI;
+      if (maskRef.current) {
+        maskRef.current.rotation.y -= 0.005 * Math.PI;
+      }
       rotationSpeed.current = -0.007;
     }
   };
 
-  // Handle keyup events
-  const handleKeyUp = (event) => {
+  const handleKeyUp = (event: KeyboardEvent) => {
     if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
       setIsRotating(false);
     }
   };
 
   useEffect(() => {
-    // Add event listeners for pointer and keyboard events
     const canvas = gl.domElement;
-    canvas.addEventListener("pointerdown", handlePointerDown);
-    canvas.addEventListener("pointerup", handlePointerUp);
-    canvas.addEventListener("pointermove", handlePointerMove);
+    canvas.addEventListener("pointerdown", handlePointerDown as EventListener);
+    canvas.addEventListener("pointerup", handlePointerUp as EventListener);
+    canvas.addEventListener("pointermove", handlePointerMove as EventListener);
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("keyup", handleKeyUp);
 
-    // Remove event listeners when component unmounts
     return () => {
-      canvas.removeEventListener("pointerdown", handlePointerDown);
-      canvas.removeEventListener("pointerup", handlePointerUp);
-      canvas.removeEventListener("pointermove", handlePointerMove);
+      canvas.removeEventListener("pointerdown", handlePointerDown as EventListener);
+      canvas.removeEventListener("pointerup", handlePointerUp as EventListener);
+      canvas.removeEventListener("pointermove", handlePointerMove as EventListener);
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
     };
-  }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
+  }, [gl, isRotating]);
 
-  // This function is called on each frame update
   useFrame(() => {
-    // If not rotating, apply damping to slow down the rotation (smoothly)
     if (!isRotating) {
-      // Apply damping factor
       rotationSpeed.current *= dampingFactor;
 
-      // Stop rotation when speed is very small
       if (Math.abs(rotationSpeed.current) < 0.001) {
         rotationSpeed.current = 0;
       }
 
-      maskRef.current.rotation.y += rotationSpeed.current;
+      if (maskRef.current) {
+        maskRef.current.rotation.y += rotationSpeed.current;
+      }
     } else {
-      // When rotating, determine the current stage based on mask's orientation
-      const rotation = maskRef.current.rotation.y;
-      const normalizedRotation =
-        ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+      if (maskRef.current) {
+        const rotation = maskRef.current.rotation.y;
+        const normalizedRotation =
+          ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
 
-      // Set the current stage based on the mask's orientation
-      switch (true) {
-        case normalizedRotation >= 5.45 && normalizedRotation <= 5.85:
-          setCurrentStage(4);
-          break;
-        case normalizedRotation >= 0.85 && normalizedRotation <= 1.3:
-          setCurrentStage(3);
-          break;
-        case normalizedRotation >= 2.4 && normalizedRotation <= 2.6:
-          setCurrentStage(2);
-          break;
-        case normalizedRotation >= 4.25 && normalizedRotation <= 4.75:
-          setCurrentStage(1);
-          break;
-        default:
-          setCurrentStage(null);
+        switch (true) {
+          case normalizedRotation >= 5.45 && normalizedRotation <= 5.85:
+            setCurrentStage(4);
+            break;
+          case normalizedRotation >= 0.85 && normalizedRotation <= 1.3:
+            setCurrentStage(3);
+            break;
+          case normalizedRotation >= 2.4 && normalizedRotation <= 2.6:
+            setCurrentStage(2);
+            break;
+          case normalizedRotation >= 4.25 && normalizedRotation <= 4.75:
+            setCurrentStage(1);
+            break;
+          default:
+            setCurrentStage(null);
+        }
       }
     }
   });
@@ -236,4 +250,5 @@ const mask = ({
   );
 };
 
-export default mask;
+export default Mask;
+

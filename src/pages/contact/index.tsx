@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 import emailjs from "@emailjs/browser";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
@@ -6,8 +6,18 @@ import { meta } from "@/content_option";
 import { Container, Row, Col, Alert } from "react-bootstrap";
 import { contactConfig } from "@/content_option";
 
-export const ContactUs = () => {
-  const [formData, setFormdata] = useState({
+interface FormData {
+  email: string;
+  name: string;
+  message: string;
+  loading: boolean;
+  show: boolean;
+  alertmessage: string;
+  variant: string;
+}
+
+export const ContactUs = (): JSX.Element => {
+  const [formData, setFormdata] = useState<FormData>({
     email: "",
     name: "",
     message: "",
@@ -17,9 +27,9 @@ export const ContactUs = () => {
     variant: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormdata({ loading: true });
+    setFormdata({ ...formData, loading: true });
 
     const templateParams = {
       from_name: formData.email,
@@ -39,6 +49,7 @@ export const ContactUs = () => {
         (result) => {
           console.log(result.text);
           setFormdata({
+            ...formData,
             loading: false,
             alertmessage: "SUCCESS! ,Thankyou for your messege",
             variant: "success",
@@ -48,6 +59,7 @@ export const ContactUs = () => {
         (error) => {
           console.log(error.text);
           setFormdata({
+            ...formData,
             alertmessage: `Faild to send!,${error.text}`,
             variant: "danger",
             show: true,
@@ -57,7 +69,7 @@ export const ContactUs = () => {
       );
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormdata({
       ...formData,
       [e.target.name]: e.target.value,
@@ -79,20 +91,19 @@ export const ContactUs = () => {
           </Col>
         </Row>
         <Row className="sec_sp">
-          <Col lg="12">
+          <Col lg={12}>
             <Alert
-              //show={formData.show}
               variant={formData.variant}
               className={`rounded-0 co_alert ${
                 formData.show ? "d-block" : "d-none"
               }`}
-              onClose={() => setFormdata({ show: false })}
+              onClose={() => setFormdata({ ...formData, show: false })}
               dismissible
             >
               <p className="my-0">{formData.alertmessage}</p>
             </Alert>
           </Col>
-          <Col lg="5" className="mb-5">
+          <Col lg={5} className="mb-5">
             <h3 className="color_sec py-4">Get in touch</h3>
             <address>
               <strong>Email:</strong>{" "}
@@ -101,21 +112,19 @@ export const ContactUs = () => {
               </a>
               <br />
               <br />
-              {contactConfig.hasOwnProperty("YOUR_FONE") ? (
+              {contactConfig.YOUR_FONE && (
                 <p>
                   <strong>Phone:</strong> {contactConfig.YOUR_FONE}
                 </p>
-              ) : (
-                ""
               )}
             </address>
             <p>{contactConfig.description}</p>
             <p>{contactConfig.description2}</p>
           </Col>
-          <Col lg="7" className="d-flex align-items-center">
+          <Col lg={7} className="d-flex align-items-center">
             <form onSubmit={handleSubmit} className="contact__form w-100">
               <Row>
-                <Col lg="6" className="form-group">
+                <Col lg={6} className="form-group">
                   <input
                     className="form-control"
                     id="name"
@@ -127,7 +136,7 @@ export const ContactUs = () => {
                     onChange={handleChange}
                   />
                 </Col>
-                <Col lg="6" className="form-group">
+                <Col lg={6} className="form-group">
                   <input
                     className="form-control rounded-0"
                     id="email"
@@ -145,14 +154,14 @@ export const ContactUs = () => {
                 id="message"
                 name="message"
                 placeholder="Message"
-                rows="5"
+                rows={5}
                 value={formData.message}
                 onChange={handleChange}
                 required
               ></textarea>
               <br />
               <Row>
-                <Col lg="12" className="form-group">
+                <Col lg={12} className="form-group">
                   <button className="btn ac_btn" type="submit">
                     {formData.loading ? "Sending..." : "Send"}
                   </button>
@@ -166,3 +175,4 @@ export const ContactUs = () => {
     </HelmetProvider>
   );
 };
+

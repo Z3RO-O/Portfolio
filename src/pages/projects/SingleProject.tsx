@@ -1,11 +1,19 @@
-/* eslint-disable react/prop-types */
 import { makeStyles } from "@mui/styles";
 import { FaPlay, FaCode } from "react-icons/fa";
 import placeholder from "@/pages/projects/placeholder.png";
 import "./SingleProject.css";
 
-// eslint-disable-next-line react/prop-types
-function SingleProject({ id, name, desc, tags, code, demo, image }) {
+interface SingleProjectProps {
+  id: number;
+  name: string;
+  desc: string;
+  tags: string[];
+  code: string;
+  demo: string;
+  image: string;
+}
+
+function SingleProject({ id, name, desc, tags, code, demo, image }: SingleProjectProps): JSX.Element {
   const useStyles = makeStyles(() => ({
     iconBtn: {
       display: "flex",
@@ -52,7 +60,6 @@ function SingleProject({ id, name, desc, tags, code, demo, image }) {
               aria-labelledby={`${name} ${name}-code`}
             >
               <FaCode
-                // color="white"
                 id={`${name}-code`}
                 color="white"
                 className={classes.icon}
@@ -73,3 +80,4 @@ function SingleProject({ id, name, desc, tags, code, demo, image }) {
 }
 
 export default SingleProject;
+

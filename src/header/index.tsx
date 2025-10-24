@@ -6,8 +6,8 @@ import { logotext, socialprofils } from "@/content_option";
 import Themetoggle from "@/components/themetoggle";
 import { FaInstagram, FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
 
-const Headermain = () => {
-  const [isActive, setActive] = useState("false");
+const Headermain = (): JSX.Element => {
+  const [isActive, setActive] = useState<boolean>(false);
 
   const handleToggle = () => {
     setActive(!isActive);
@@ -24,12 +24,12 @@ const Headermain = () => {
           <div className="d-flex align-items-center">
             <Themetoggle />
             <button className="menu__button  nav_ac" onClick={handleToggle}>
-              {!isActive ? <VscClose /> : <VscGrabber />}
+              {isActive ? <VscGrabber /> : <VscClose />}
             </button>
           </div>
         </div>
 
-        <div className={`site__navigation ${!isActive ? "menu__opend" : ""}`}>
+        <div className={`site__navigation ${isActive ? "" : "menu__opend"}`}>
           <div className="bg__menu h-100">
             <div className="menu__wrapper">
               <div className="menu__container p-3">
@@ -66,18 +66,26 @@ const Headermain = () => {
           </div>
           <div className="menu_footer d-flex flex-column flex-md-row justify-content-between align-items-md-center position-absolute w-100 p-3">
             <div className="d-flex gap-2">
-              <a target="_blank" href={socialprofils.twitter}>
-                <FaTwitter size={32} />
-              </a>
-              <a target="_blank" href={socialprofils.github}>
-                <FaGithub size={32} />
-              </a>
-              <a target="_blank" href={socialprofils.instagram}>
-                <FaInstagram size={32} />
-              </a>
-              <a target="_blank" href={socialprofils.linkedin}>
-                <FaLinkedin size={32} />
-              </a>
+              {socialprofils.twitter && (
+                <a target="_blank" rel="noreferrer" href={socialprofils.twitter}>
+                  <FaTwitter size={32} />
+                </a>
+              )}
+              {socialprofils.github && (
+                <a target="_blank" rel="noreferrer" href={socialprofils.github}>
+                  <FaGithub size={32} />
+                </a>
+              )}
+              {socialprofils.instagram && (
+                <a target="_blank" rel="noreferrer" href={socialprofils.instagram}>
+                  <FaInstagram size={32} />
+                </a>
+              )}
+              {socialprofils.linkedin && (
+                <a target="_blank" rel="noreferrer" href={socialprofils.linkedin}>
+                  <FaLinkedin size={32} />
+                </a>
+              )}
             </div>
             <p className="copyright m-0">copyright © {logotext}</p>
           </div>
@@ -92,3 +100,4 @@ const Headermain = () => {
 };
 
 export default Headermain;
+

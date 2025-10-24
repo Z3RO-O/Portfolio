@@ -7,23 +7,28 @@ import Headermain from "@/header";
 import AnimatedCursor from "@/hooks/AnimatedCursor";
 import "./App.css";
 
-function _ScrollToTop(props) {
+interface ScrollToTopProps {
+  children?: React.ReactNode;
+}
+
+function _ScrollToTop({ children }: ScrollToTopProps): JSX.Element {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-  return props.children;
+  return <>{children}</>;
 }
+
 const ScrollToTop = withRouter(_ScrollToTop);
 
-export default function App() {
+export default function App(): JSX.Element {
   return (
     <Router basename={import.meta.env.PUBLIC_URL}>
       <div className="cursor__dot">
         <AnimatedCursor
           innerSize={15}
           outerSize={15}
-          color="255, 255 ,255"
+          color="255, 255, 255"
           outerAlpha={0.7}
           innerScale={0.8}
           outerScale={3}

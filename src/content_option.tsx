@@ -1,8 +1,10 @@
-import one from "@/assets/svg/projects/stegano.svg";
-import two from "@/assets/svg/projects/cool-e.svg";
-import three from "@/assets/svg/projects/isdf.svg";
-import four from "@/assets/svg/projects/stock_market.svg";
-import five from "@/assets/svg/projects/phishing_illustration.svg";
+import {
+  stegano as one,
+  cool_e as two,
+  isdf as three,
+  stock_market as four,
+  phishing_illustration as five,
+} from "@/assets/assets";
 
 // React Icons imports for skills
 import { RiFirebaseFill } from "react-icons/ri";
@@ -36,7 +38,19 @@ import {
   SiKalilinux,
 } from "react-icons/si";
 
-const skills = [
+import type {
+  SkillCategory,
+  Project,
+  WorkExperience,
+  Service,
+  IntroData,
+  ContactConfig,
+  SocialProfiles,
+  Meta,
+  DataAbout,
+} from "@/types/content.types";
+
+export const skills: SkillCategory[] = [
   {
     category: "Frontend",
     items: [
@@ -194,15 +208,16 @@ const skills = [
   },
 ];
 
-const logotext = "VAIBHAV";
-const meta = {
+export const logotext: string = "VAIBHAV";
+
+export const meta: Meta = {
   title: "Vaibhav Singh",
   description:
-    "I’m Vaibhav Singh | A Programmer, Web devloper,currently working in Trialshopy",
+    "I'm Vaibhav Singh | A Programmer, Web devloper,currently working in Trialshopy",
 };
 
-const introdata = {
-  title: "I’m Vaibhav Singh",
+export const introdata: IntroData = {
+  title: "I'm Vaibhav Singh",
   animated: {
     first: "I love Coding",
     second: "I code cool websites",
@@ -215,7 +230,7 @@ const introdata = {
   your_img_url: "https://images.unsplash.com/photo-1514790193030-c89d266d5a9d",
 };
 
-const dataabout = {
+export const dataabout: DataAbout = {
   title: "abit about myself",
   aboutme: [
     "A Programmer | A Developer | A Techie who wants to be an Ethical Hacker",
@@ -223,7 +238,8 @@ const dataabout = {
     '" Computers can tell more about ourselves than what we can ! "',
   ],
 };
-const worktimeline = [
+
+export const worktimeline: WorkExperience[] = [
   {
     jobtitle: "Associate Engineer",
     where: "Sage",
@@ -256,7 +272,7 @@ const worktimeline = [
   },
 ];
 
-const services = [
+export const services: Service[] = [
   {
     title: "Website Development",
     description:
@@ -274,7 +290,7 @@ const services = [
   },
 ];
 
-const projects = [
+export const projects: Project[] = [
   {
     id: 1,
     projectName: "LSB Steganography",
@@ -327,34 +343,21 @@ const projects = [
   },
 ];
 
-const contactConfig = {
+export const contactConfig: ContactConfig = {
   YOUR_EMAIL: "vvaibhavsingh.0@gmail.com",
   YOUR_FONE: "+91 7839271574",
   description:
     "If you have a project that you need help with, or if you just want to chat about hacking, I'd love to hear from you.",
   description2: "You can reach me by email or by phone.",
-  // creat an emailjs.com account
-  // check out this tutorial https://www.emailjs.com/docs/examples/reactjs/
   YOUR_SERVICE_ID: "service_pklek2g",
   YOUR_TEMPLATE_ID: "template_1q4071q",
   YOUR_USER_ID: "9IO0HwB_rw11nrq2B",
 };
 
-const socialprofils = {
+export const socialprofils: SocialProfiles = {
   github: "https://github.com/Z3RO-O",
   instagram: "https://www.instagram.com/vvaibhav_s/",
   linkedin: "https://www.linkedin.com/in/vvaibhavsingh/",
   twitter: "https://twitter.com/vaibhavsngh0",
 };
-export {
-  meta,
-  dataabout,
-  projects,
-  worktimeline,
-  skills,
-  services,
-  introdata,
-  contactConfig,
-  socialprofils,
-  logotext,
-};
+

@@ -8,19 +8,19 @@ import { Suspense, useState } from "react";
 import Loader from "@/components/loader";
 import Mask from "@/models/mask";
 
-export const Home = () => {
-  const adjustMaskForScreenSize = () => {
-    let screenScale = null;
-    let screenPosition = [0, -25, -40];
-    let rotation = [0.1, -0.5, 0];
-    if (window.innerWidth < 768) screenScale = [2.5, 2.5, 2];
-    else screenScale = [2.5, 2.5, 2];
+export const Home = (): JSX.Element => {
+  const adjustMaskForScreenSize = (): [[number, number, number], [number, number, number], [number, number, number]] => {
+    const screenScale: [number, number, number] = [2.5, 2.5, 2];
+    const screenPosition: [number, number, number] = [0, -25, -40];
+    const rotation: [number, number, number] = [0.1, -0.5, 0];
+    
     return [screenScale, screenPosition, rotation];
   };
 
   const [maskScale, maskPosition, rotation] = adjustMaskForScreenSize();
-  const [currentStage, setCurrentStage] = useState(1);
-  const [isRotating, setIsRotating] = useState(false);
+  const [currentStage, setCurrentStage] = useState<number | null>(1);
+  const [isRotating, setIsRotating] = useState<boolean>(false);
+  
   return (
     <HelmetProvider>
       <section id="home" className="home">
@@ -41,7 +41,7 @@ export const Home = () => {
                 <directionalLight position={[1, 1, 1]} intensity={5} />
                 <ambientLight intensity={0.5} />
                 <hemisphereLight
-                  skyColor="#b1e1ff"
+                  color="#b1e1ff"
                   groundColor="#000000"
                   intensity={1}
                 />
@@ -110,3 +110,4 @@ export const Home = () => {
     </HelmetProvider>
   );
 };
+

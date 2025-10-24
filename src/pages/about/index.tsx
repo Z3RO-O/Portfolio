@@ -10,7 +10,7 @@ import {
 } from "@/content_option";
 import { SkillsWithIcons } from "@/components/SkillsWithIcons";
 
-export const About = () => {
+export const About = (): JSX.Element => {
   return (
     <HelmetProvider>
       <Container className="About-header">
@@ -26,10 +26,10 @@ export const About = () => {
           </Col>
         </Row>
         <Row className="sec_sp">
-          <Col lg="5">
+          <Col lg={5}>
             <h3 className="color_sec py-4">{dataabout.title}</h3>
           </Col>
-          <Col lg="7" className="d-flex align-items-center">
+          <Col lg={7} className="d-flex align-items-center">
             <div>
               <p>{dataabout.aboutme[0]}</p>
               <p>{dataabout.aboutme[1]}</p>
@@ -38,10 +38,10 @@ export const About = () => {
           </Col>
         </Row>
         <Row className="sec_sp">
-          <Col lg="5">
+          <Col lg={5}>
             <h3 className="color_sec py-4">Work Timline</h3>
           </Col>
-          <Col lg="7">
+          <Col lg={7}>
             <table className="table caption-top">
               <tbody>
                 {worktimeline.map((data, i) => {
@@ -58,16 +58,16 @@ export const About = () => {
           </Col>
         </Row>
         <Row className="sec_sp">
-          <Col lg="12">
+          <Col lg={12}>
             <h3 className="color_sec py-4">Skills & Technologies</h3>
             <SkillsWithIcons skills={skills} />
           </Col>
         </Row>
         <Row className="sec_sp">
-          <Col lang="5">
+          <Col lg={5}>
             <h3 className="color_sec py-4">Services & Interests</h3>
           </Col>
-          <Col lg="7">
+          <Col lg={7}>
             {services.map((data, i) => {
               return (
                 <div className="service_ py-4" key={i}>
@@ -82,3 +82,4 @@ export const About = () => {
     </HelmetProvider>
   );
 };
+

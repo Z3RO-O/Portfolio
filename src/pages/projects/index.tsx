@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { meta, projects } from "@/content_option";
 import SingleProject from "@/pages/projects/SingleProject";
 
-export const Projects = () => {
+export const Projects = (): JSX.Element => {
   return (
     <HelmetProvider>
       <Container className="About-header">
@@ -39,3 +39,4 @@ export const Projects = () => {
     </HelmetProvider>
   );
 };
+
