@@ -1,24 +1,23 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Container, Row, Col } from 'react-bootstrap';
 import { meta, projects } from '@/content_option';
 import SingleProject from '@/components/common/SingleProject';
 
 const Projects = () => {
   return (
     <HelmetProvider>
-      <Container>
+      <div className='max-w-7xl mx-auto px-4'>
         <Helmet>
           <meta charSet='utf-8' />
           <title> Projects | {meta.title} </title>{' '}
           <meta name='description' content={meta.description} />
         </Helmet>
-        <Row className=''>
-          <Col>
-            <h1 className='display-4 m-0'> Projects </h1>{' '}
+        <div className='flex flex-wrap -mx-4'>
+          <div className='w-full px-4'>
+            <h1 className='text-5xl mb-4'> Projects </h1>
             <hr className='border-(--secondary) text-left' />
-          </Col>
-        </Row>
-        <div className='flex flex-wrap justify-center gap-8 mb-4'>
+          </div>
+        </div>
+        <div className='flex flex-wrap justify-center gap-8 my-4'>
           {projects.map(project => {
             return (
               <SingleProject
@@ -34,7 +33,7 @@ const Projects = () => {
             );
           })}
         </div>
-      </Container>
+      </div>
     </HelmetProvider>
   );
 };

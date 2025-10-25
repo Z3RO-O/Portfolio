@@ -35,7 +35,7 @@ const Home = () => {
           <title> {meta.title}</title>
           <meta name='description' content={meta.description} />
         </Helmet>
-        <div className='h-screen min-h-[700px] -mt-[60px] block lg:flex lg:items-center max-lg:h-auto!'>
+        <div className='h-screen min-h-[700px] -mt-[60px] block lg:flex lg:items-center max-lg:h-auto'>
           <div className='w-full lg:w-1/2 order-1 lg:order-2 h-full bg-cover bg-center min-h-[700px] relative saturate-50 max-lg:h-[600px] max-lg:min-h-[75vh] max-lg:mb-[30px]'>
             <Canvas
               className={`h-full bg-transparent ${
@@ -65,8 +65,8 @@ const Home = () => {
           <div className='w-full lg:w-1/2 order-2 lg:order-1 h-full lg:flex lg:justify-center'>
             <div className='self-center'>
               <div className='max-w-[450px] mx-auto max-lg:max-w-[700px] max-lg:px-5'>
-                <h2 className='mb-1x'>{introdata.title}</h2>
-                <h1 className='fluidz-48 mb-1x text-[30px] mb-[50px] font-bold'>
+                <h2 className='mb-2 text-3xl font-bold'>{introdata.title}</h2>
+                <h1 className='text-3xl mb-8 font-bold'>
                   <Typewriter
                     options={{
                       strings: [
@@ -80,8 +80,8 @@ const Home = () => {
                     }}
                   />
                 </h1>
-                <p className='mb-1x'>{introdata.description[0]}</p>
-                <p className='mb-1x'>{introdata.description[1]}</p>
+                <p className='mb-4'>{introdata.description[0]}</p>
+                <p className='mb-8'>{introdata.description[1]}</p>
                 <div className='flex flex-wrap gap-6'>
                   <Link
                     to='/projects'
@@ -100,17 +100,17 @@ const Home = () => {
                   >
                     <div className='inline-block py-1 px-[19px] text-(--primary) relative border-2 border-(--secondary) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] cursor-pointer rounded-none bg-(--secondary) hover:shadow-[8px_8px_0px_var(--secondary),-8px_-8px_0px_var(--secondary)] group'>
                       About
-                      <div className='absolute w-full h-full bg-black top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.55,0,0.1,1)] -z-4'></div>
-                      <div className='absolute w-full h-full bg-(--primary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
-                      <div className='absolute w-full h-full bg-(--secondary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
+                      <div className='absolute w-full h-full bg-black top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.55,0,0.1,1)] -z-40'></div>
+                      <div className='absolute w-full h-full bg-(--primary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.55,0,0.1,1)] -z-30'></div>
+                      <div className='absolute w-full h-full bg-(--secondary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.55,0,0.1,1)] -z-30'></div>
                     </div>
                   </Link>
                   <Link to='/contact' className='no-underline'>
                     <div className='inline-block py-1 px-[19px] text-(--secondary) relative border-2 border-(--secondary) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] cursor-pointer rounded-none hover:shadow-[8px_8px_0px_var(--secondary),-8px_-8px_0px_var(--secondary)] group'>
                       Contact Me
-                      <div className='absolute w-full h-full bg-black top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.55,0,0.1,1)] -z-4'></div>
-                      <div className='absolute w-full h-full bg-(--primary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
-                      <div className='absolute w-full h-full bg-(--secondary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
+                      <div className='absolute w-full h-full bg-black top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.55,0,0.1,1)] -z-40'></div>
+                      <div className='absolute w-full h-full bg-(--primary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.55,0,0.1,1)] -z-30'></div>
+                      <div className='absolute w-full h-full bg-(--secondary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.55,0,0.1,1)] -z-30'></div>
                     </div>
                   </Link>
                 </div>

@@ -2,7 +2,6 @@ import { useState, type FormEvent, type ChangeEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { meta } from '@/content_option';
-import { Container, Row, Col, Alert } from 'react-bootstrap';
 import { contactConfig } from '@/content_option';
 
 interface FormData {
@@ -50,7 +49,7 @@ const Contact = () => {
           setFormdata({
             ...formData,
             loading: false,
-            alertmessage: 'SUCCESS! ,Thankyou for your messege',
+            alertmessage: 'Success! Thank you for your message',
             variant: 'success',
             show: true,
           });
@@ -59,11 +58,10 @@ const Contact = () => {
           console.log(error.text);
           setFormdata({
             ...formData,
-            alertmessage: `Faild to send!,${error.text}`,
+            alertmessage: `Failed to send. ${error.text}`,
             variant: 'danger',
             show: true,
           });
-          document.getElementsByClassName('co_alert')[0].scrollIntoView();
         }
       );
   };
@@ -79,56 +77,66 @@ const Contact = () => {
 
   return (
     <HelmetProvider>
-      <Container>
+      <div className='max-w-7xl mx-auto px-4'>
         <Helmet>
           <meta charSet='utf-8' />
           <title>{meta.title} | Contact</title>
           <meta name='description' content={meta.description} />
         </Helmet>
         <div>
-          <h1 className='display-4 m-0'>Contact Me</h1>
+          <h1 className='text-5xl mb-4'>Contact Me</h1>
           <hr className='border-(--secondary) text-left' />
         </div>
-        <Row>
-          <Col lg={12}>
-            <Alert
-              variant={formData.variant}
-              className={`rounded-0 co_alert ${
-                formData.show ? 'd-block' : 'd-none'
-              }`}
-              onClose={() => setFormdata({ ...formData, show: false })}
-              dismissible
-            >
-              <p className='my-0'>{formData.alertmessage}</p>
-            </Alert>
-          </Col>
-          <div className='flex mt-4 gap-6'>
-            <Col lg={5}>
-              <h3 className='text-(--secondary) my-4'>Get in touch</h3>
-              <div>
-                <p className='p-0'>
-                  <strong>Email:</strong>{' '}
-                  <a href={`mailto:${contactConfig.YOUR_EMAIL}`}>
-                    {contactConfig.YOUR_EMAIL}
-                  </a>
-                </p>
-                {contactConfig.YOUR_PHONE && (
-                  <p>
-                    <strong>Phone:</strong> {contactConfig.YOUR_PHONE}
-                  </p>
-                )}
+        <div className='flex flex-wrap -mx-4'>
+          <div className='w-full px-4'>
+            {formData.show && (
+              <div
+                className={`relative p-4 my-4 border rounded-none ${
+                  formData.variant === 'success'
+                    ? 'bg-green-100 border-green-400 text-green-700 dark:bg-green-900/20 dark:border-green-600 dark:text-green-400'
+                    : 'bg-red-100 border-red-400 text-red-700 dark:bg-red-900/20 dark:border-red-600 dark:text-red-400'
+                }`}
+              >
+                <p className='my-0 pr-8'>{formData.alertmessage}</p>
+                <button
+                  type='button'
+                  className='absolute top-2 right-4 text-4xl leading-none opacity-50 hover:opacity-100'
+                  onClick={() => setFormdata({ ...formData, show: false })}
+                  aria-label='Close'
+                >
+                  ×
+                </button>
               </div>
+            )}
+          </div>
+          <div className='flex flex-col lg:flex-row w-full mt-16 gap-6 px-4'>
+            <div className='flex flex-col gap-4 w-full lg:w-5/12'>
+              <h3 className='text-3xl text-(--secondary) my-4'>Get in touch</h3>
+              <p>
+                <strong>Email:</strong>{' '}
+                <a
+                  className='underline!'
+                  href={`mailto:${contactConfig.YOUR_EMAIL}`}
+                >
+                  {contactConfig.YOUR_EMAIL}
+                </a>
+              </p>
+              {contactConfig.YOUR_PHONE && (
+                <p>
+                  <strong>Phone:</strong> {contactConfig.YOUR_PHONE}
+                </p>
+              )}
               <p>{contactConfig.description}</p>
               <p>{contactConfig.description2}</p>
-            </Col>
+            </div>
             <form
               onSubmit={handleSubmit}
-              className='w-100 [&_.form-control]:py-5.5 [&_.form-control]:px-3 [&_.form-control]:leading-normal [&_.form-control]:text-(--secondary) [&_.form-control]:bg-(--primary) [&_.form-control]:rounded-none [&_.form-control]:border [&_.form-control]:border-(--secondary) [&_.form-control::placeholder]:text-(--secondary) [&_.form-control::placeholder]:opacity-70 [&_input.form-control]:mb-8 [&_input.form-control]:h-[calc(2.5em+0.75rem+2px)]'
+              className='w-full [&_.form-control]:py-5.5 [&_.form-control]:px-3 [&_.form-control]:leading-normal [&_.form-control]:text-(--secondary) [&_.form-control]:bg-(--primary) [&_.form-control]:rounded-none [&_.form-control]:border [&_.form-control]:border-(--secondary) [&_.form-control::placeholder]:text-(--secondary) [&_.form-control::placeholder]:opacity-70 [&_input.form-control]:mb-8 [&_input.form-control]:h-[calc(2.5em+0.75rem+2px)]'
             >
-              <div className='flex flex-col gap-6'>
-                <div className='flex flex-wrap gap-6'>
+              <div className='flex flex-col'>
+                <div className='flex flex-col lg:flex-row lg:gap-6 w-full'>
                   <input
-                    className='form-control rounded-0'
+                    className='form-control w-full lg:w-1/2'
                     id='name'
                     name='name'
                     placeholder='Name'
@@ -138,7 +146,7 @@ const Contact = () => {
                     onChange={handleChange}
                   />
                   <input
-                    className='form-control rounded-0'
+                    className='form-control w-full lg:w-1/2'
                     id='email'
                     name='email'
                     placeholder='Email'
@@ -149,7 +157,7 @@ const Contact = () => {
                   />
                 </div>
                 <textarea
-                  className='form-control rounded-0'
+                  className='form-control'
                   id='message'
                   name='message'
                   placeholder='Message'
@@ -165,19 +173,19 @@ const Contact = () => {
                 type='submit'
               >
                 {formData.loading ? 'Sending...' : 'Send'}
-                <div className='absolute w-full h-full bg-black top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.55,0,0.1,1)] -z-4'></div>
-                <div className='absolute w-full h-full bg-(--primary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
-                <div className='absolute w-full h-full bg-(--secondary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
+                <div className='absolute w-full h-full bg-black top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.55,0,0.1,1)] -z-40'></div>
+                <div className='absolute w-full h-full bg-(--primary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.55,0,0.1,1)] -z-30'></div>
+                <div className='absolute w-full h-full bg-(--secondary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.55,0,0.1,1)] -z-30'></div>
               </button>
             </form>
           </div>
-        </Row>
-      </Container>
+        </div>
+      </div>
       <div
         className={
           formData.loading
             ? 'fixed top-0 left-0 right-0 h-[10px] z-999999999 bg-(--secondary) translate-x-full animate-[shift-rightwards_1s_ease-in-out_infinite] delay-300'
-            : 'd-none'
+            : 'hidden'
         }
       ></div>
     </HelmetProvider>
