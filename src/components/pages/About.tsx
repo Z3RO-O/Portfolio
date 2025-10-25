@@ -12,7 +12,7 @@ import { SkillsWithIcons } from '@/components/common/SkillsWithIcons';
 const About = () => {
   return (
     <HelmetProvider>
-      <Container className='About-header'>
+      <Container>
         <Helmet>
           <meta charSet='utf-8' />
           <title> About | {meta.title}</title>
@@ -21,12 +21,12 @@ const About = () => {
         <Row className='mb-5 mt-3 pt-md-3'>
           <Col>
             <h1 className='display-4 mb-4'>About me</h1>
-            <hr className='border-(--text-color) my-4 ml-0 text-left' />
+            <hr className='border-(--secondary) my-4 ml-0 text-left' />
           </Col>
         </Row>
         <Row className='mb-24'>
           <Col lg={5}>
-            <h3 className='text-(--secondary-color) py-4'>{dataabout.title}</h3>
+            <h3 className='text-(--secondary) py-4'>{dataabout.title}</h3>
           </Col>
           <Col lg={7} className='d-flex align-items-center'>
             <div>
@@ -38,10 +38,10 @@ const About = () => {
         </Row>
         <Row className='mb-24'>
           <Col lg={5}>
-            <h3 className='text-(--secondary-color) py-4'>Work Timline</h3>
+            <h3 className='text-(--secondary) py-4'>Work Timline</h3>
           </Col>
           <Col lg={7}>
-            <table className='table caption-top [&_td]:text-(--text-color) [&_td]:bg-(--bg-color) [&_th]:text-(--text-color) [&_th]:bg-(--bg-color)'>
+            <table className='table caption-top [&_td]:text-(--secondary) [&_td]:bg-(--primary) [&_th]:text-(--secondary) [&_th]:bg-(--primary)'>
               <tbody>
                 {worktimeline.map((data, i) => {
                   return (
@@ -58,23 +58,19 @@ const About = () => {
         </Row>
         <Row className='mb-24'>
           <Col lg={12}>
-            <h3 className='text-(--secondary-color) py-4'>
-              Skills & Technologies
-            </h3>
+            <h3 className='text-(--secondary) py-4'>Skills & Technologies</h3>
             <SkillsWithIcons skills={skills} />
           </Col>
         </Row>
         <Row className='mb-24'>
           <Col lg={5}>
-            <h3 className='text-(--secondary-color) py-4'>
-              Services & Interests
-            </h3>
+            <h3 className='text-(--secondary) py-4'>Services & Interests</h3>
           </Col>
           <Col lg={7}>
             {services.map((data, i) => {
               return (
                 <div className='py-4' key={i}>
-                  <h5 className='py-2 border-b-2 border-(--secondary-color)'>
+                  <h5 className='py-2 border-b-2 border-(--secondary)'>
                     {data.title}
                   </h5>
                   <p className='service_desc'>{data.description}</p>

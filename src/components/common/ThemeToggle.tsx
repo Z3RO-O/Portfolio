@@ -11,13 +11,13 @@ const ThemeToggle = () => {
   };
 
   useEffect(() => {
-    document.documentElement.setAttribute('theme', theme);
+    document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
 
   return (
     <div
-      className='border-none bg-(--primary-color) text-xl font-[Marcellus] text-(--text-color-2) leading-loose font-bold z-1000 cursor-pointer hover:text-(--text-color-2) [&>svg]:w-8 [&>svg]:h-8'
+      className='border-none bg-(--primary) font-[Marcellus] text-(--secondary) leading-loose font-bold z-1000 cursor-pointer hover:text-(--secondary) [&>svg]:w-6 [&>svg]:h-6'
       onClick={themetoggle}
     >
       <WiMoonAltWaningCrescent4 />

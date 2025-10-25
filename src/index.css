@@ -1,23 +1,17 @@
 @import 'tailwindcss';
 
 :root {
-  --bg-color: #000;
-  --primary-color: #000;
-  --secondary-color: #fff;
-  --text-color: #fff;
-  --text-color-2: #fff;
-  --text-color-3: rgb(204, 0, 0);
-  --overlay-color: rgb(12 12 12 / 63%);
+  --primary: #000;
+  --secondary: #fff;
+  --accent: rgb(204, 0, 0);
+  --overlay: rgb(12 12 12 / 63%);
 }
 
-[theme='light'] {
-  --bg-color: #fff;
-  --primary-color: #fff;
-  --secondary-color: #000;
-  --text-color: #000;
-  --text-color-2: #000;
-  --text-color-3: rgb(204, 0, 0);
-  --overlay-color: rgb(255 255 255 / 70%);
+[data-theme='light'] {
+  --primary: #fff;
+  --secondary: #000;
+  --accent: rgb(204, 0, 0);
+  --overlay: rgb(255 255 255 / 70%);
 }
 
 html,
@@ -30,14 +24,12 @@ body {
   height: 100%;
   overflow-x: hidden;
   overflow-y: visible;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: var(--primary);
+  color: var(--secondary);
   font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding-top: 60px;
-  border-left: 10px solid var(--primary-color);
-  border-right: 10px solid var(--primary-color);
 }
 
 ul {
@@ -55,7 +47,7 @@ h6 {
 
 a,
 a:hover {
-  color: var(--text-color);
+  color: var(--secondary);
   text-decoration: none;
 }
 
@@ -75,12 +67,12 @@ p {
 }
 
 .cursor__dot div:last-child {
-  background-color: var(--text-color-3) !important;
+  background-color: var(--accent) !important;
 }
 
 .cursor__dot div:first-child {
   filter: invert(1);
-  background-color: var(--overlay-color) !important;
+  background-color: var(--overlay) !important;
 }
 
 /* Animation for skill items */

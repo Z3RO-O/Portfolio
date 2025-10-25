@@ -85,13 +85,11 @@ const Contact = () => {
           <title>{meta.title} | Contact</title>
           <meta name='description' content={meta.description} />
         </Helmet>
-        <Row className='mb-5 mt-3 pt-md-3'>
-          <Col>
-            <h1 className='display-4 mb-4'>Contact Me</h1>
-            <hr className='border-(--text-color) my-4 ml-0 text-left' />
-          </Col>
-        </Row>
-        <Row className='mb-24'>
+        <div>
+          <h1 className='display-4 m-0'>Contact Me</h1>
+          <hr className='border-(--secondary) text-left' />
+        </div>
+        <Row>
           <Col lg={12}>
             <Alert
               variant={formData.variant}
@@ -104,33 +102,33 @@ const Contact = () => {
               <p className='my-0'>{formData.alertmessage}</p>
             </Alert>
           </Col>
-          <Col lg={5} className='mb-5'>
-            <h3 className='text-(--secondary-color) py-4'>Get in touch</h3>
-            <address>
-              <strong>Email:</strong>{' '}
-              <a href={`mailto:${contactConfig.YOUR_EMAIL}`}>
-                {contactConfig.YOUR_EMAIL}
-              </a>
-              <br />
-              <br />
-              {contactConfig.YOUR_FONE && (
-                <p>
-                  <strong>Phone:</strong> {contactConfig.YOUR_FONE}
+          <div className='flex mt-4 gap-6'>
+            <Col lg={5}>
+              <h3 className='text-(--secondary) my-4'>Get in touch</h3>
+              <div>
+                <p className='p-0'>
+                  <strong>Email:</strong>{' '}
+                  <a href={`mailto:${contactConfig.YOUR_EMAIL}`}>
+                    {contactConfig.YOUR_EMAIL}
+                  </a>
                 </p>
-              )}
-            </address>
-            <p>{contactConfig.description}</p>
-            <p>{contactConfig.description2}</p>
-          </Col>
-          <Col lg={7} className='d-flex align-items-center'>
+                {contactConfig.YOUR_PHONE && (
+                  <p>
+                    <strong>Phone:</strong> {contactConfig.YOUR_PHONE}
+                  </p>
+                )}
+              </div>
+              <p>{contactConfig.description}</p>
+              <p>{contactConfig.description2}</p>
+            </Col>
             <form
               onSubmit={handleSubmit}
-              className='w-100 [&_.form-control]:py-5.5 [&_.form-control]:px-3 [&_.form-control]:leading-normal [&_.form-control]:text-(--text-color) [&_.form-control]:bg-(--bg-color) [&_.form-control]:rounded-none [&_.form-control]:border [&_.form-control]:border-(--secondary-color) [&_.form-control::placeholder]:text-(--secondary-color) [&_.form-control::placeholder]:opacity-70 [&_input.form-control]:mb-8 [&_input.form-control]:h-[calc(2.5em+0.75rem+2px)]'
+              className='w-100 [&_.form-control]:py-5.5 [&_.form-control]:px-3 [&_.form-control]:leading-normal [&_.form-control]:text-(--secondary) [&_.form-control]:bg-(--primary) [&_.form-control]:rounded-none [&_.form-control]:border [&_.form-control]:border-(--secondary) [&_.form-control::placeholder]:text-(--secondary) [&_.form-control::placeholder]:opacity-70 [&_input.form-control]:mb-8 [&_input.form-control]:h-[calc(2.5em+0.75rem+2px)]'
             >
-              <Row>
-                <Col lg={6} className='form-group'>
+              <div className='flex flex-col gap-6'>
+                <div className='flex flex-wrap gap-6'>
                   <input
-                    className='form-control'
+                    className='form-control rounded-0'
                     id='name'
                     name='name'
                     placeholder='Name'
@@ -139,8 +137,6 @@ const Contact = () => {
                     required
                     onChange={handleChange}
                   />
-                </Col>
-                <Col lg={6} className='form-group'>
                   <input
                     className='form-control rounded-0'
                     id='email'
@@ -151,37 +147,36 @@ const Contact = () => {
                     required
                     onChange={handleChange}
                   />
-                </Col>
-              </Row>
-              <textarea
-                className='form-control rounded-0'
-                id='message'
-                name='message'
-                placeholder='Message'
-                rows={5}
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
+                </div>
+                <textarea
+                  className='form-control rounded-0'
+                  id='message'
+                  name='message'
+                  placeholder='Message'
+                  rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                ></textarea>
+              </div>
               <br />
-              <Row>
-                <Col lg={12} className='form-group'>
-                  <button
-                    className='btn py-1 px-[19px] text-(--secondary-color) relative border-2 border-(--secondary-color) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] cursor-pointer rounded-none mr-5 hover:shadow-[8px_8px_0px_var(--text-color),-8px_-8px_0px_var(--text-color)] hover:text-(--secondary-color)'
-                    type='submit'
-                  >
-                    {formData.loading ? 'Sending...' : 'Send'}
-                  </button>
-                </Col>
-              </Row>
+              <button
+                className='inline-block py-1 px-[19px] text-(--secondary) relative border-2 border-(--secondary) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] cursor-pointer rounded-none hover:shadow-[8px_8px_0px_var(--secondary),-8px_-8px_0px_var(--secondary)] group'
+                type='submit'
+              >
+                {formData.loading ? 'Sending...' : 'Send'}
+                <div className='absolute w-full h-full bg-black top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.55,0,0.1,1)] -z-4'></div>
+                <div className='absolute w-full h-full bg-(--primary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
+                <div className='absolute w-full h-full bg-(--secondary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
+              </button>
             </form>
-          </Col>
+          </div>
         </Row>
       </Container>
       <div
         className={
           formData.loading
-            ? 'fixed top-0 left-0 right-0 h-[10px] z-999999999 bg-(--text-color) translate-x-full animate-[shift-rightwards_1s_ease-in-out_infinite] delay-300'
+            ? 'fixed top-0 left-0 right-0 h-[10px] z-999999999 bg-(--secondary) translate-x-full animate-[shift-rightwards_1s_ease-in-out_infinite] delay-300'
             : 'd-none'
         }
       ></div>

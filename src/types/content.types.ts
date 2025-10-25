@@ -43,7 +43,7 @@ export interface IntroData {
 
 export interface ContactConfig {
   YOUR_EMAIL: string;
-  YOUR_FONE: string;
+  YOUR_PHONE: string;
   description: string;
   description2: string;
   YOUR_SERVICE_ID: string;

@@ -345,7 +345,7 @@ export const projects: Project[] = [
 
 export const contactConfig: ContactConfig = {
   YOUR_EMAIL: 'vvaibhavsingh.0@gmail.com',
-  YOUR_FONE: '+91 7839271574',
+  YOUR_PHONE: '+91 7839271574',
   description:
     "If you have a project that you need help with, or if you just want to chat about hacking, I'd love to hear from you.",
   description2: 'You can reach me by email or by phone.',

@@ -6,19 +6,19 @@ import SingleProject from '@/components/common/SingleProject';
 const Projects = () => {
   return (
     <HelmetProvider>
-      <Container className='About-header'>
+      <Container>
         <Helmet>
           <meta charSet='utf-8' />
           <title> Projects | {meta.title} </title>{' '}
           <meta name='description' content={meta.description} />
         </Helmet>
-        <Row className='my-3 pt-md-3'>
+        <Row className=''>
           <Col>
-            <h1 className='display-4 mb-4'> Projects </h1>{' '}
-            <hr className='border-(--text-color) my-4 text-left' />
+            <h1 className='display-4 m-0'> Projects </h1>{' '}
+            <hr className='border-(--secondary) text-left' />
           </Col>
         </Row>
-        <div className='flex flex-wrap justify-center gap-16 pb-12'>
+        <div className='flex flex-wrap justify-center gap-8 mb-4'>
           {projects.map(project => {
             return (
               <SingleProject

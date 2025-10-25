@@ -82,35 +82,35 @@ const Home = () => {
                 </h1>
                 <p className='mb-1x'>{introdata.description[0]}</p>
                 <p className='mb-1x'>{introdata.description[1]}</p>
-                <div className='pb-5'>
+                <div className='flex flex-wrap gap-6'>
                   <Link
                     to='/projects'
-                    className='text-(--text-color-2) hover:text-(--text-color-2) no-underline'
+                    className='text-(--secondary) hover:text-(--secondary) no-underline'
                   >
-                    <div className='inline-block py-1 px-[19px] text-(--secondary-color) relative border-2 border-(--secondary-color) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] cursor-pointer rounded-none mr-5 hover:shadow-[8px_8px_0px_var(--text-color),-8px_-8px_0px_var(--text-color)] group'>
+                    <div className='inline-block py-1 px-[19px] text-(--secondary) relative border-2 border-(--secondary) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] cursor-pointer rounded-none hover:shadow-[8px_8px_0px_var(--secondary),-8px_-8px_0px_var(--secondary)] group'>
                       My Projects
                       <div className='absolute w-full h-full bg-black top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.55,0,0.1,1)] -z-4'></div>
-                      <div className='absolute w-full h-full bg-(--primary-color) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
-                      <div className='absolute w-full h-full bg-(--secondary-color) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
+                      <div className='absolute w-full h-full bg-(--primary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
+                      <div className='absolute w-full h-full bg-(--secondary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
                     </div>
                   </Link>
                   <Link
                     to='/about'
-                    className='text-(--text-color-2) hover:text-(--text-color-2) no-underline'
+                    className='text-(--secondary) hover:text-(--secondary) no-underline'
                   >
-                    <div className='inline-block py-1 px-[19px] text-(--primary-color) relative border-2 border-(--secondary-color) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] cursor-pointer rounded-none mr-5 bg-(--secondary-color) hover:shadow-[8px_8px_0px_var(--text-color),-8px_-8px_0px_var(--text-color)] group'>
+                    <div className='inline-block py-1 px-[19px] text-(--primary) relative border-2 border-(--secondary) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] cursor-pointer rounded-none bg-(--secondary) hover:shadow-[8px_8px_0px_var(--secondary),-8px_-8px_0px_var(--secondary)] group'>
                       About
                       <div className='absolute w-full h-full bg-black top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.55,0,0.1,1)] -z-4'></div>
-                      <div className='absolute w-full h-full bg-(--primary-color) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
-                      <div className='absolute w-full h-full bg-(--secondary-color) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
+                      <div className='absolute w-full h-full bg-(--primary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
+                      <div className='absolute w-full h-full bg-(--secondary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
                     </div>
                   </Link>
                   <Link to='/contact' className='no-underline'>
-                    <div className='inline-block py-1 px-[19px] text-(--secondary-color) relative border-2 border-(--secondary-color) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] cursor-pointer rounded-none mr-5 hover:shadow-[8px_8px_0px_var(--text-color),-8px_-8px_0px_var(--text-color)] group'>
+                    <div className='inline-block py-1 px-[19px] text-(--secondary) relative border-2 border-(--secondary) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] cursor-pointer rounded-none hover:shadow-[8px_8px_0px_var(--secondary),-8px_-8px_0px_var(--secondary)] group'>
                       Contact Me
                       <div className='absolute w-full h-full bg-black top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.55,0,0.1,1)] -z-4'></div>
-                      <div className='absolute w-full h-full bg-(--primary-color) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
-                      <div className='absolute w-full h-full bg-(--secondary-color) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
+                      <div className='absolute w-full h-full bg-(--primary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
+                      <div className='absolute w-full h-full bg-(--secondary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.55,0,0.1,1)] -z-3'></div>
                     </div>
                   </Link>
                 </div>

@@ -14,10 +14,10 @@ const Header = () => {
   };
 
   return (
-    <header className='fixed top-0 left-0 right-0 z-50 bg-(--primary-color)'>
+    <header className='fixed top-0 left-0 right-0 z-50 bg-(--primary)'>
       <div className='flex items-center justify-between px-4 py-3'>
         <Link
-          className='border-none bg-(--primary-color) text-xl font-[Marcellus] text-(--text-color-2) leading-loose font-bold z-1000 hover:text-(--text-color-2)'
+          className='border-none bg-(--primary) text-xl font-[Marcellus] text-(--secondary) leading-loose font-bold z-1000 hover:text-(--secondary)'
           to='/'
         >
           {logotext}
@@ -25,7 +25,7 @@ const Header = () => {
         <div className='flex items-center gap-4'>
           <Themetoggle />
           <button
-            className='border-none bg-(--primary-color) text-xl font-[Marcellus] text-(--text-color) leading-loose font-bold z-1000 focus:text-(--text-color) focus:shadow-none hover:text-(--text-color) hover:shadow-none [&>svg]:w-8 [&>svg]:h-8 [&>svg]:fill-(--text-color-2) [&>svg]:text-(--text-color-2)'
+            className='border-none bg-(--primary) text-xl font-[Marcellus] text-(--secondary) leading-loose font-bold z-1000 focus:text-(--secondary) focus:shadow-none hover:text-(--secondary) hover:shadow-none [&>svg]:w-8 [&>svg]:h-8 [&>svg]:fill-(--secondary) [&>svg]:text-(--secondary)'
             onClick={handleToggle}
           >
             {isActive ? <VscClose /> : <VscGrabber />}
@@ -37,7 +37,7 @@ const Header = () => {
         className={`h-full left-0 overflow-hidden fixed top-0 w-full ${isActive ? 'visible' : 'invisible'}`}
       >
         <div
-          className={`absolute left-0 top-0 w-full h-full bg-(--primary-color) will-change-transform transition-all duration-500 ease-in-out ${isActive ? 'translate-y-0' : '-translate-y-full'}`}
+          className={`absolute left-0 top-0 w-full h-full bg-(--primary) will-change-transform transition-all duration-500 ease-in-out ${isActive ? 'translate-y-0' : '-translate-y-full'}`}
         >
           <div className='relative w-full h-full overflow-y-auto overflow-x-hidden'>
             <div className='p-3 lg:ml-[33.3333%]'>
@@ -46,7 +46,7 @@ const Header = () => {
                   <Link
                     onClick={handleToggle}
                     to='/'
-                    className='text-(--text-color-2) leading-none text-[2rem] md:text-[4.8vw] inline-block relative transition-colors duration-250 ease-[cubic-bezier(0,0,0.58,1)] py-1 px-0 no-underline font-[Marcellus] hover:text-(--text-color-3)!'
+                    className='text-(--secondary) leading-none text-[2rem] md:text-[4.8vw] inline-block relative transition-colors duration-250 ease-[cubic-bezier(0,0,0.58,1)] py-1 px-0 no-underline font-[Marcellus] hover:text-(--accent)!'
                   >
                     Home
                   </Link>
@@ -55,7 +55,7 @@ const Header = () => {
                   <Link
                     onClick={handleToggle}
                     to='/projects'
-                    className='text-(--text-color-2) leading-none text-[2rem] md:text-[4.8vw] inline-block relative transition-colors duration-250 ease-[cubic-bezier(0,0,0.58,1)] py-1 px-0 no-underline font-[Marcellus] hover:text-(--text-color-3)!'
+                    className='text-(--secondary) leading-none text-[2rem] md:text-[4.8vw] inline-block relative transition-colors duration-250 ease-[cubic-bezier(0,0,0.58,1)] py-1 px-0 no-underline font-[Marcellus] hover:text-(--accent)!'
                   >
                     My Projects
                   </Link>
@@ -64,7 +64,7 @@ const Header = () => {
                   <Link
                     onClick={handleToggle}
                     to='/about'
-                    className='text-(--text-color-2) leading-none text-[2rem] md:text-[4.8vw] inline-block relative transition-colors duration-250 ease-[cubic-bezier(0,0,0.58,1)] py-1 px-0 no-underline font-[Marcellus] hover:text-(--text-color-3)!'
+                    className='text-(--secondary) leading-none text-[2rem] md:text-[4.8vw] inline-block relative transition-colors duration-250 ease-[cubic-bezier(0,0,0.58,1)] py-1 px-0 no-underline font-[Marcellus] hover:text-(--accent)!'
                   >
                     About
                   </Link>
@@ -73,7 +73,7 @@ const Header = () => {
                   <Link
                     onClick={handleToggle}
                     to='/contact'
-                    className='text-(--text-color-2) leading-none text-[2rem] md:text-[4.8vw] inline-block relative transition-colors duration-250 ease-[cubic-bezier(0,0,0.58,1)] py-1 px-0 no-underline font-[Marcellus] hover:text-(--text-color-3)!'
+                    className='text-(--secondary) leading-none text-[2rem] md:text-[4.8vw] inline-block relative transition-colors duration-250 ease-[cubic-bezier(0,0,0.58,1)] py-1 px-0 no-underline font-[Marcellus] hover:text-(--accent)!'
                   >
                     Contact
                   </Link>
@@ -82,14 +82,14 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className='flex flex-col md:flex-row justify-between md:items-center absolute w-full p-3 bottom-0 font-[Marcellus] text-sm bg-(--primary-color)'>
+        <div className='flex flex-col md:flex-row justify-between md:items-center absolute w-full p-3 bottom-0 font-[Marcellus] text-sm bg-(--primary)'>
           <div className='flex gap-2'>
             {socialprofils.twitter && (
               <a
                 target='_blank'
                 rel='noreferrer'
                 href={socialprofils.twitter}
-                className='text-(--text-color-2) mr-2.5 no-underline'
+                className='text-(--secondary) mr-2.5 no-underline'
               >
                 <FaTwitter size={32} />
               </a>
@@ -99,7 +99,7 @@ const Header = () => {
                 target='_blank'
                 rel='noreferrer'
                 href={socialprofils.github}
-                className='text-(--text-color-2) mr-2.5 no-underline'
+                className='text-(--secondary) mr-2.5 no-underline'
               >
                 <FaGithub size={32} />
               </a>
@@ -109,7 +109,7 @@ const Header = () => {
                 target='_blank'
                 rel='noreferrer'
                 href={socialprofils.instagram}
-                className='text-(--text-color-2) mr-2.5 no-underline'
+                className='text-(--secondary) mr-2.5 no-underline'
               >
                 <FaInstagram size={32} />
               </a>
@@ -119,7 +119,7 @@ const Header = () => {
                 target='_blank'
                 rel='noreferrer'
                 href={socialprofils.linkedin}
-                className='text-(--text-color-2) mr-2.5 no-underline'
+                className='text-(--secondary) mr-2.5 no-underline'
               >
                 <FaLinkedin size={32} />
               </a>
