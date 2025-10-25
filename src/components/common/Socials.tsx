@@ -1,12 +1,12 @@
 import { FaGithub, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { socialprofils } from '@/content_option';
 
-const SocialIcons = () => {
+const Socials = () => {
   return (
     <div className='fixed top-1/2 left-[30px] w-5 h-[200px] -mt-[100px] max-lg:w-auto max-lg:h-auto max-lg:static max-lg:mt-0 max-lg:flex max-lg:flex-row-reverse max-lg:justify-center max-lg:py-10 max-lg:items-center'>
-      <ul className='list-none p-0 m-0 max-lg:mb-5 max-lg:flex max-lg:flex-row max-lg:gap-2.5'>
+      <ul className='list-none max-lg:flex max-lg:flex-row max-lg:gap-2.5'>
         {socialprofils.twitter && (
-          <li className='block text-xs text-center mb-2.5 transition-all duration-300 max-lg:mb-0'>
+          <li className='block text-xs text-center mb-0 lg:mb-2.5 transition-all duration-300'>
             <a
               target='_blank'
               rel='noreferrer'
@@ -18,7 +18,7 @@ const SocialIcons = () => {
           </li>
         )}
         {socialprofils.github && (
-          <li className='block text-xs text-center mb-2.5 transition-all duration-300 max-lg:mb-0'>
+          <li className='block text-xs text-center mb-0 lg:mb-2.5 transition-all duration-300'>
             <a
               target='_blank'
               rel='noreferrer'
@@ -30,7 +30,7 @@ const SocialIcons = () => {
           </li>
         )}
         {socialprofils.instagram && (
-          <li className='block text-xs text-center mb-2.5 transition-all duration-300 max-lg:mb-0'>
+          <li className='block text-xs text-center mb-0 lg:mb-2.5 transition-all duration-300'>
             <a
               target='_blank'
               rel='noreferrer'
@@ -42,7 +42,7 @@ const SocialIcons = () => {
           </li>
         )}
         {socialprofils.linkedin && (
-          <li className='block text-xs text-center mb-2.5 transition-all duration-300 max-lg:mb-0'>
+          <li className='block text-xs text-center mb-0 lg:mb-2.5 transition-all duration-300'>
             <a
               target='_blank'
               rel='noreferrer'
@@ -61,4 +61,4 @@ const SocialIcons = () => {
   );
 };
 
-export default SocialIcons;
+export default Socials;

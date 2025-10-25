@@ -258,6 +258,12 @@ p {
   }
 }
 
+/* Button hover text color change */
+.btn-animated:hover {
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
 /* Animation for contact loading bar */
 @keyframes shift-rightwards {
   0% {

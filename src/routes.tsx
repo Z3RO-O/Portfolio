@@ -4,7 +4,7 @@ import Home from '@/components/pages/Home';
 import Projects from '@/components/pages/Projects';
 import Contact from '@/components/pages/Contact';
 import About from '@/components/pages/About';
-import SocialIcons from '@/components/common/SocialIcons';
+import Socials from '@/components/common/Socials';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const pageVariants = {
@@ -57,7 +57,7 @@ const AppRoutes = () => {
   return (
     <div className='max-[991px]:pt-10'>
       <AnimatedRoutes />
-      <SocialIcons />
+      <Socials />
     </div>
   );
 };
