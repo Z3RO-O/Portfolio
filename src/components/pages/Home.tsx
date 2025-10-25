@@ -38,9 +38,7 @@ const Home = () => {
         <div className='h-screen min-h-[700px] -mt-[60px] block lg:flex lg:items-center max-lg:h-auto'>
           <div className='w-full lg:w-1/2 order-1 lg:order-2 h-full bg-cover bg-center min-h-[700px] relative saturate-50 max-lg:h-[600px] max-lg:min-h-[75vh] max-lg:mb-[30px]'>
             <Canvas
-              className={`h-full bg-transparent ${
-                isRotating ? 'cursor-grabbing' : 'cursor-grab'
-              }`}
+              className='h-full bg-transparent'
               camera={{ near: 0.1, far: 1000 }}
             >
               <Suspense fallback={<Loader />}>
@@ -87,7 +85,7 @@ const Home = () => {
                     to='/projects'
                     className='text-(--secondary) hover:text-(--secondary) no-underline'
                   >
-                    <div className='btn-animated inline-block py-1 px-[19px] text-(--secondary) relative border-2 border-(--secondary) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] cursor-pointer rounded-none hover:shadow-[8px_8px_0px_var(--secondary),-8px_-8px_0px_var(--secondary)] group'>
+                    <div className='btn-animated inline-block py-1 px-[19px] text-(--secondary) relative border-2 border-(--secondary) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] rounded-none hover:shadow-[8px_8px_0px_var(--secondary),-8px_-8px_0px_var(--secondary)] group'>
                       <span className='relative z-10'>My Projects</span>
                       <div className='absolute w-full h-full bg-black top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.55,0,0.1,1)] -z-40'></div>
                       <div className='absolute w-full h-full bg-(--primary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.55,0,0.1,1)] -z-30'></div>
@@ -98,7 +96,7 @@ const Home = () => {
                     to='/about'
                     className='text-(--secondary) hover:text-(--secondary) no-underline'
                   >
-                    <div className='inline-block py-1 px-[19px] text-(--primary) relative border-2 border-(--secondary) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] cursor-pointer rounded-none bg-(--secondary) hover:shadow-[8px_8px_0px_var(--secondary),-8px_-8px_0px_var(--secondary)] group'>
+                    <div className='inline-block py-1 px-[19px] text-(--primary) relative border-2 border-(--secondary) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] rounded-none bg-(--secondary) hover:shadow-[8px_8px_0px_var(--secondary),-8px_-8px_0px_var(--secondary)] group'>
                       About
                       <div className='absolute w-full h-full bg-black top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.55,0,0.1,1)] -z-40'></div>
                       <div className='absolute w-full h-full bg-(--primary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.55,0,0.1,1)] -z-30'></div>
@@ -106,7 +104,7 @@ const Home = () => {
                     </div>
                   </Link>
                   <Link to='/contact' className='no-underline'>
-                    <div className='btn-animated inline-block py-1 px-[19px] text-(--secondary) relative border-2 border-(--secondary) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] cursor-pointer rounded-none hover:shadow-[8px_8px_0px_var(--secondary),-8px_-8px_0px_var(--secondary)] group'>
+                    <div className='btn-animated inline-block py-1 px-[19px] text-(--secondary) relative border-2 border-(--secondary) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] rounded-none hover:shadow-[8px_8px_0px_var(--secondary),-8px_-8px_0px_var(--secondary)] group'>
                       <span className='relative z-10'>Contact Me</span>
                       <div className='absolute w-full h-full bg-black top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.55,0,0.1,1)] -z-40'></div>
                       <div className='absolute w-full h-full bg-(--primary) top-0 left-0 translate-y-[90px] group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.55,0,0.1,1)] -z-30'></div>

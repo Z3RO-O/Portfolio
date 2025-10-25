@@ -83,11 +83,11 @@ const Contact = () => {
           <title>{meta.title} | Contact</title>
           <meta name='description' content={meta.description} />
         </Helmet>
-        <div>
-          <h1 className='text-5xl mb-4'>Contact Me</h1>
+        <div className='w-full px-4'>
+          <h1 className='text-5xl mb-4'> Contact Me </h1>
           <hr className='border-(--secondary) text-left' />
         </div>
-        <div className='flex flex-wrap -mx-4'>
+        <div className='flex flex-wrap lg:mx-8'>
           <div className='w-full px-4'>
             {formData.show && (
               <div
@@ -169,7 +169,7 @@ const Contact = () => {
               </div>
               <br />
               <button
-                className='btn-animated inline-block py-1 px-[19px] text-(--secondary) relative border-2 border-(--secondary) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] cursor-pointer rounded-none hover:shadow-[8px_8px_0px_var(--secondary),-8px_-8px_0px_var(--secondary)] group'
+                className='btn-animated inline-block py-1 px-[19px] text-(--secondary) relative border-2 border-(--secondary) overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.55,0,0.1,1)] rounded-none hover:shadow-[8px_8px_0px_var(--secondary),-8px_-8px_0px_var(--secondary)] group'
                 type='submit'
               >
                 <span className='relative z-10'>

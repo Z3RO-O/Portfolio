@@ -17,7 +17,7 @@ const ThemeToggle = () => {
 
   return (
     <div
-      className='border-none bg-(--primary) font-[Marcellus] text-(--secondary) leading-loose font-bold z-1000 cursor-pointer hover:text-(--secondary) [&>svg]:w-6 [&>svg]:h-6'
+      className='border-none font-[Marcellus] text-(--secondary) leading-loose font-bold z-1000 hover:text-(--secondary) [&>svg]:w-6 [&>svg]:h-6'
       onClick={themetoggle}
     >
       <WiMoonAltWaningCrescent4 />

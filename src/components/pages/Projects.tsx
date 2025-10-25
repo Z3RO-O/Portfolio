@@ -11,13 +11,11 @@ const Projects = () => {
           <title> Projects | {meta.title} </title>{' '}
           <meta name='description' content={meta.description} />
         </Helmet>
-        <div className='flex flex-wrap -mx-4'>
-          <div className='w-full px-4'>
-            <h1 className='text-5xl mb-4'> Projects </h1>
-            <hr className='border-(--secondary) text-left' />
-          </div>
+        <div className='w-full px-4'>
+          <h1 className='text-5xl mb-4'> Projects </h1>
+          <hr className='border-(--secondary) text-left' />
         </div>
-        <div className='flex flex-wrap justify-center gap-8 my-4'>
+        <div className='flex flex-wrap justify-center gap-8 py-8'>
           {projects.map(project => {
             return (
               <SingleProject

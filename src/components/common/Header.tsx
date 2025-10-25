@@ -17,7 +17,7 @@ const Header = () => {
     <header className='fixed top-0 left-0 right-0 z-50 bg-(--primary)'>
       <div className='flex items-center justify-between px-4 py-3'>
         <Link
-          className='border-none bg-(--primary) text-xl font-[Marcellus] text-(--secondary) leading-loose font-bold z-1000 hover:text-(--secondary)'
+          className='border-none text-xl font-[Marcellus] text-(--secondary) leading-loose font-bold z-1000 hover:text-(--secondary)'
           to='/'
         >
           {logotext}
@@ -25,7 +25,7 @@ const Header = () => {
         <div className='flex items-center gap-4'>
           <Themetoggle />
           <button
-            className='border-none bg-(--primary) text-xl font-[Marcellus] text-(--secondary) leading-loose font-bold z-1000 focus:text-(--secondary) focus:shadow-none hover:text-(--secondary) hover:shadow-none [&>svg]:w-8 [&>svg]:h-8 [&>svg]:fill-(--secondary) [&>svg]:text-(--secondary)'
+            className='border-none text-xl font-[Marcellus] text-(--secondary) leading-loose font-bold z-1000 focus:text-(--secondary) focus:shadow-none hover:text-(--secondary) hover:shadow-none [&>svg]:w-8 [&>svg]:h-8 [&>svg]:fill-(--secondary) [&>svg]:text-(--secondary)'
             onClick={handleToggle}
           >
             {isActive ? <VscClose /> : <VscGrabber />}
@@ -82,7 +82,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className='flex flex-col md:flex-row justify-between md:items-center absolute w-full p-3 bottom-0 font-[Marcellus] text-sm bg-(--primary)'>
+        <div className='flex flex-col md:flex-row justify-between md:items-center absolute w-full p-3 bottom-0 font-[Marcellus] text-sm'>
           <div className='flex gap-2'>
             {socialprofils.twitter && (
               <a

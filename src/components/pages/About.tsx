@@ -17,14 +17,16 @@ const About = () => {
           <title> About | {meta.title}</title>
           <meta name='description' content={meta.description} />
         </Helmet>
-        <div>
-          <h1 className='text-5xl mb-4'>About me</h1>
+        <div className='w-full px-4'>
+          <h1 className='text-5xl mb-4'> About me </h1>
           <hr className='border-(--secondary) text-left' />
         </div>
-        <div className='flex flex-col gap-8 md:mt-12 mt-6'>
-          <div className='flex flex-wrap -mx-4'>
+        <div className='flex flex-col gap-8 md:mt-12 mt-6 lg:mx-8'>
+          <div className='flex flex-wrap'>
             <div className='w-full lg:w-5/12 px-4'>
-              <h3 className='text-3xl text-(--secondary) my-3'>{dataabout.title}</h3>
+              <h3 className='text-3xl text-(--secondary) my-3'>
+                {dataabout.title}
+              </h3>
             </div>
             <div className='w-full lg:w-7/12 px-4 flex items-center'>
               <div>
@@ -34,11 +36,11 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className='flex flex-wrap -mx-4'>
+          <div className='flex flex-wrap'>
             <div className='w-full lg:w-5/12 px-4'>
               <h3 className='text-3xl text-(--secondary) my-3'>Work Timline</h3>
             </div>
-            <div className='w-full lg:w-7/12 px-4'>
+            <div className='w-full lg:w-7/12'>
               <table className='w-full border-collapse'>
                 <tbody>
                   {worktimeline.map((data, i) => {
@@ -49,14 +51,14 @@ const About = () => {
                       >
                         <th
                           scope='row'
-                          className='text-(--secondary) bg-(--primary) dark:bg-black py-3 px-4 text-left font-semibold align-top'
+                          className='text-(--secondary) bg-(--primary) py-3 px-4 text-left font-semibold align-top'
                         >
                           {data.jobtitle}
                         </th>
-                        <td className='text-(--secondary) bg-(--primary) dark:bg-black py-3 px-4 align-top'>
+                        <td className='text-(--secondary) bg-(--primary) py-3 px-4 align-top'>
                           {data.where}
                         </td>
-                        <td className='text-(--secondary) bg-(--primary) dark:bg-black py-3 px-4 align-top'>
+                        <td className='text-(--secondary) bg-(--primary) py-3 px-4 align-top'>
                           {data.date}
                         </td>
                       </tr>
@@ -66,15 +68,19 @@ const About = () => {
               </table>
             </div>
           </div>
-          <div className='flex flex-wrap -mx-4'>
+          <div className='flex flex-wrap'>
             <div className='w-full px-4'>
-              <h3 className='text-3xl text-(--secondary) py-4'>Skills & Technologies</h3>
+              <h3 className='text-3xl text-(--secondary) py-4'>
+                Skills & Technologies
+              </h3>
               <SkillsWithIcons skills={skills} />
             </div>
           </div>
-          <div className='flex flex-wrap -mx-4'>
+          <div className='flex flex-wrap mb-6'>
             <div className='w-full lg:w-5/12 px-4'>
-              <h3 className='text-3xl text-(--secondary) py-4'>Services & Interests</h3>
+              <h3 className='text-3xl text-(--secondary) py-4'>
+                Services & Interests
+              </h3>
             </div>
             <div className='w-full lg:w-7/12 px-4'>
               {services.map((data, i) => {
