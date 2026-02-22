@@ -89,6 +89,7 @@ interface CursorCoreProps {
   outerStyle?: CSSProperties;
   innerStyle?: CSSProperties;
   color?: string;
+  useThemeColors?: boolean;
   outerAlpha?: number;
   innerSize?: number;
   outerSize?: number;
@@ -107,6 +108,7 @@ const CursorCore = ({
   outerStyle,
   innerStyle,
   color = '220, 90, 90',
+  useThemeColors = false,
   outerAlpha = 0.3,
   innerSize = 8,
   outerSize = 8,
@@ -283,7 +285,7 @@ const CursorCore = ({
       width: innerSize,
       height: innerSize,
       pointerEvents: 'none' as const,
-      backgroundColor: `rgba(${color}, 1)`,
+      backgroundColor: useThemeColors ? 'var(--cursor-inner)' : `rgba(${color}, 1)`,
       ...(innerStyle && innerStyle),
       transition: 'opacity 0.15s ease-in-out, transform 0.25s ease-in-out',
     },
@@ -295,7 +297,7 @@ const CursorCore = ({
       pointerEvents: 'none' as const,
       width: outerSize,
       height: outerSize,
-      backgroundColor: `rgba(${color}, ${outerAlpha})`,
+      backgroundColor: useThemeColors ? 'var(--cursor-outer)' : `rgba(${color}, ${outerAlpha})`,
       transition: 'opacity 0.15s ease-in-out, transform 0.15s ease-in-out',
       willChange: 'transform' as const,
       ...(outerStyle && outerStyle),

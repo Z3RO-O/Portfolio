@@ -5,6 +5,7 @@ import { contactConfig } from '@/content_option';
 import PageHead from '@/components/common/PageHead';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { X } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -88,7 +89,7 @@ const Contact = () => {
         description={meta.description}
       />
       <div className='w-full px-4'>
-        <h1 className='text-4xl sm:text-5xl mb-4 font-bold'>Contact Me</h1>
+        <h1 className='text-3xl sm:text-4xl lg:text-5xl mb-4 font-bold'>Contact Me</h1>
         <hr className='border-border' />
       </div>
 
@@ -96,11 +97,11 @@ const Contact = () => {
         <div
           className={`relative p-4 my-4 rounded-lg border ${
             formData.variant === 'success'
-              ? 'bg-green-100 border-green-400 text-green-700 dark:bg-green-900/20 dark:border-green-600 dark:text-green-400'
-              : 'bg-red-100 border-red-400 text-red-700 dark:bg-red-900/20 dark:border-red-600 dark:text-red-400'
+              ? 'bg-success/10 border-success/50 text-success dark:bg-success/20 dark:border-success/60 dark:text-success'
+              : 'bg-destructive/10 border-destructive/50 text-destructive dark:bg-destructive/20 dark:border-destructive/60 dark:text-destructive'
           }`}
         >
-          <p className='my-0 pr-8'>{formData.alertmessage}</p>
+          <p className='my-0 pr-10'>{formData.alertmessage}</p>
           <Button
             type='button'
             variant='ghost'
@@ -109,12 +110,12 @@ const Contact = () => {
             onClick={() => setFormdata(prev => ({ ...prev, show: false }))}
             aria-label='Close'
           >
-            ×
+            <X className='size-4' />
           </Button>
         </div>
       )}
 
-      <div className='flex flex-col lg:flex-row w-full mt-8 lg:mt-16 gap-8 lg:gap-12 px-4'>
+      <div className='flex flex-col lg:flex-row w-full mt-6 sm:mt-8 lg:mt-12 gap-6 sm:gap-8 lg:gap-12 px-4'>
         <div className='flex flex-col gap-4 w-full lg:w-5/12'>
           <h3 className='text-2xl sm:text-3xl font-semibold'>Get in touch</h3>
           <p className='text-muted-foreground'>

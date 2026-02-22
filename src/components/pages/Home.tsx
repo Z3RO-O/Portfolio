@@ -30,17 +30,17 @@ const Home = () => {
       />
       <section
         id='home'
-        className='home flex-1 relative w-full transition-all duration-500 ease-in'
+        className='home flex-1 relative w-full h-[calc(100vh-var(--header-height))] overflow-hidden transition-all duration-500 ease-in'
       >
-        <div className='min-h-screen flex flex-col lg:flex-row lg:items-center lg:min-h-[calc(100vh-60px)]'>
+        <div className='h-full flex flex-col lg:flex-row lg:items-center lg:gap-12 max-w-7xl mx-auto px-6 sm:px-8 lg:px-16'>
           {/* Hero content - responsive order: content first on mobile */}
-          <div className='w-full lg:w-1/2 order-2 lg:order-1 flex flex-col justify-center px-4 sm:px-6 lg:px-12 py-12 lg:py-0'>
+          <div className='w-full lg:w-1/2 order-2 lg:order-1 flex flex-col justify-center py-6 sm:py-8 lg:py-0'>
             <div className='max-w-xl mx-auto lg:mx-0'>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className='mb-2 text-2xl sm:text-3xl font-bold text-foreground'
+                className='mb-2 text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground'
               >
                 {introdata.title}
               </motion.h2>
@@ -48,7 +48,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className='text-2xl sm:text-3xl lg:text-4xl mb-6 font-bold min-h-[3rem] sm:min-h-[4rem]'
+                className='text-2xl sm:text-3xl lg:text-4xl xl:text-5xl mb-4 sm:mb-6 font-bold min-h-[2.5rem] sm:min-h-[3rem] lg:min-h-[4rem]'
               >
                 <AnimatePresence mode='wait'>
                   <motion.span
@@ -75,7 +75,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className='mb-8 text-muted-foreground'
+                className='mb-4 sm:mb-6 lg:mb-8 text-muted-foreground'
               >
                 {introdata.description[1]}
               </motion.p>
@@ -118,7 +118,7 @@ const Home = () => {
           </div>
 
           {/* Hero visual - gradient/placeholder instead of 3D mask */}
-          <div className='w-full lg:w-1/2 order-1 lg:order-2 min-h-[300px] sm:min-h-[400px] lg:min-h-[calc(100vh-60px)] flex items-center justify-center px-4 py-8 lg:py-0'>
+          <div className='w-full lg:w-1/2 order-1 lg:order-2 min-h-[200px] sm:min-h-[280px] lg:min-h-0 lg:flex-1 flex items-center justify-center py-6 lg:py-0'>
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}

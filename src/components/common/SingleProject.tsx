@@ -30,7 +30,7 @@ const SingleProject = ({
   return (
     <Card
       key={id}
-      className='group w-full max-w-sm overflow-hidden transition-all duration-300 hover:shadow-lg'
+      className='group w-full overflow-hidden transition-all duration-300 hover:shadow-lg'
     >
       <CardHeader className='pb-2'>
         <h2 id={name} className='text-xl font-semibold text-center'>
@@ -42,7 +42,7 @@ const SingleProject = ({
           <img
             src={image || placeholder}
             alt={name}
-            className='h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-0'
+            className='h-full w-full object-cover duration-300'
           />
         </div>
         <p className='text-sm text-muted-foreground line-clamp-3'>{desc}</p>

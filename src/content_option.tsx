@@ -62,7 +62,7 @@ export const skills: SkillCategory[] = [
       {
         name: 'Next.js',
         icon: <SiNextdotjs />,
-        color: '#fff',
+        color: '#000000',
       },
       {
         name: 'React',
@@ -107,7 +107,7 @@ export const skills: SkillCategory[] = [
       {
         name: 'Flask',
         icon: <SiFlask />,
-        color: '#fff',
+        color: '#000000',
       },
       {
         name: 'NestJS',
@@ -117,7 +117,7 @@ export const skills: SkillCategory[] = [
       {
         name: 'Express',
         icon: <SiExpress />,
-        color: '#fff',
+        color: '#68A063',
       },
     ],
   },
@@ -152,7 +152,7 @@ export const skills: SkillCategory[] = [
       {
         name: 'GitHub',
         icon: <FaGithub />,
-        color: '#fff',
+        color: '#8b949e',
       },
       {
         name: 'Git',
@@ -261,13 +261,8 @@ export const worktimeline: WorkExperience[] = [
     date: '2024',
   },
   {
-    jobtitle: 'Frontend Developer',
+    jobtitle: 'Frontend Developer Intern',
     where: 'Blue Bricks',
-    date: '2023',
-  },
-  {
-    jobtitle: 'Web Developer',
-    where: 'Trialshopy',
     date: '2023',
   },
 ];
