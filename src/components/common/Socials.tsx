@@ -11,7 +11,7 @@ const Socials = () => {
               target='_blank'
               rel='noreferrer'
               href={socialprofils.twitter}
-              className='[&>svg]:w-[1.3em] [&>svg]:h-[1.3em] [&>svg]:fill-(--secondary)'
+              className='[&>svg]:w-[1.3em] [&>svg]:h-[1.3em] [&>svg]:fill-current text-foreground hover:text-primary transition-colors'
             >
               <FaTwitter />
             </a>
@@ -23,7 +23,7 @@ const Socials = () => {
               target='_blank'
               rel='noreferrer'
               href={socialprofils.github}
-              className='[&>svg]:w-[1.3em] [&>svg]:h-[1.3em] [&>svg]:fill-(--secondary)'
+              className='[&>svg]:w-[1.3em] [&>svg]:h-[1.3em] [&>svg]:fill-current text-foreground hover:text-primary transition-colors'
             >
               <FaGithub />
             </a>
@@ -35,7 +35,7 @@ const Socials = () => {
               target='_blank'
               rel='noreferrer'
               href={socialprofils.instagram}
-              className='[&>svg]:w-[1.3em] [&>svg]:h-[1.3em] [&>svg]:fill-(--secondary)'
+              className='[&>svg]:w-[1.3em] [&>svg]:h-[1.3em] [&>svg]:fill-current text-foreground hover:text-primary transition-colors'
             >
               <FaInstagram />
             </a>
@@ -47,14 +47,14 @@ const Socials = () => {
               target='_blank'
               rel='noreferrer'
               href={socialprofils.linkedin}
-              className='[&>svg]:w-[1.3em] [&>svg]:h-[1.3em] [&>svg]:fill-(--secondary)'
+              className='[&>svg]:w-[1.3em] [&>svg]:h-[1.3em] [&>svg]:fill-current text-foreground hover:text-primary transition-colors'
             >
               <FaLinkedin />
             </a>
           </li>
         )}
       </ul>
-      <div className='relative top-[70px] -left-6 w-[68px] h-5 text-(--secondary) text-xs font-semibold leading-[1.2] whitespace-nowrap -rotate-90 after:content-[""] after:block after:absolute after:top-[9px] after:-right-12 after:w-10 after:h-px after:bg-(--secondary) max-lg:static max-lg:w-auto max-lg:h-auto max-lg:rotate-0 max-lg:text-[17px] max-lg:mr-[65px]'>
+      <div className='relative top-[70px] -left-6 w-[68px] h-5 text-muted-foreground text-xs font-semibold leading-[1.2] whitespace-nowrap -rotate-90 after:content-[""] after:block after:absolute after:top-[9px] after:-right-12 after:w-10 after:h-px after:bg-border max-lg:static max-lg:w-auto max-lg:h-auto max-lg:rotate-0 max-lg:text-[17px] max-lg:mr-[65px]'>
         Follow Me
       </div>
     </div>

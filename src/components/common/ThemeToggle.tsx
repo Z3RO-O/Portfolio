@@ -1,27 +1,38 @@
 import { useEffect, useState } from 'react';
-import { WiMoonAltWaningCrescent4 } from 'react-icons/wi';
+import { Moon, Sun } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const ThemeToggle = () => {
-  const [theme, settheme] = useState<string>(
-    localStorage.getItem('theme') || 'dark'
-  );
-
-  const themetoggle = () => {
-    settheme(theme === 'dark' ? 'light' : 'dark');
-  };
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    if (typeof window === 'undefined') return 'light';
+    const stored = localStorage.getItem('theme');
+    if (stored === 'dark' || stored === 'light') return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
+  });
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    const root = document.documentElement;
+    root.classList.toggle('dark', theme === 'dark');
     localStorage.setItem('theme', theme);
   }, [theme]);
 
+  const toggle = () => setTheme(t => (t === 'dark' ? 'light' : 'dark'));
+
   return (
-    <div
-      className='border-none font-[Marcellus] text-(--secondary) leading-loose font-bold z-1000 hover:text-(--secondary) [&>svg]:w-6 [&>svg]:h-6'
-      onClick={themetoggle}
+    <Button
+      variant='ghost'
+      size='icon'
+      onClick={toggle}
+      aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
     >
-      <WiMoonAltWaningCrescent4 />
-    </div>
+      {theme === 'dark' ? (
+        <Sun className='size-5' />
+      ) : (
+        <Moon className='size-5' />
+      )}
+    </Button>
   );
 };
 

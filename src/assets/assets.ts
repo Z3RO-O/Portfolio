@@ -1,4 +1,4 @@
-import hacker_face from './hacker_face.glb';
+// hacker_face.glb - removed (mask 3D component disabled)
 import stegano from './stegano.svg';
 import cool_e from './cool-e.svg';
 import isdf from './isdf.svg';
@@ -7,7 +7,6 @@ import phishing_illustration from './phishing_illustration.svg';
 import placeholder from './placeholder.png';
 
 export {
-  hacker_face,
   stegano,
   cool_e,
   isdf,
