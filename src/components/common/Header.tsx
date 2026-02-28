@@ -3,7 +3,6 @@ import { logotext } from '@/content_option';
 import Themetoggle from '@/components/common/ThemeToggle';
 
 const navLinks = [
-  { to: '/', label: 'Home' },
   { to: '/projects', label: 'Projects' },
   { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },

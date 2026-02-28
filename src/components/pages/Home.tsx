@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import PageHead from '@/components/common/PageHead';
 import { Button } from '@/components/ui/button';
 import { Code2, User, Mail } from 'lucide-react';
+import { joker } from '@/assets/assets';
 
 const ROTATING_TEXTS = [
   introdata.animated.first,
@@ -33,7 +34,6 @@ const Home = () => {
         className='home flex-1 relative w-full h-[calc(100vh-var(--header-height))] overflow-hidden transition-all duration-500 ease-in'
       >
         <div className='h-full flex flex-col lg:flex-row lg:items-center lg:gap-12 max-w-7xl mx-auto px-6 sm:px-8 lg:px-16'>
-          {/* Hero content - responsive order: content first on mobile */}
           <div className='w-full lg:w-1/2 order-2 lg:order-1 flex flex-col justify-center py-6 sm:py-8 lg:py-0'>
             <div className='max-w-xl mx-auto lg:mx-0'>
               <motion.h2
@@ -116,22 +116,16 @@ const Home = () => {
               </motion.div>
             </div>
           </div>
-
-          {/* Hero visual - gradient/placeholder instead of 3D mask */}
           <div className='w-full lg:w-1/2 order-1 lg:order-2 min-h-[200px] sm:min-h-[280px] lg:min-h-0 lg:flex-1 flex items-center justify-center py-6 lg:py-0'>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className='w-full max-w-md aspect-square rounded-2xl bg-gradient-to-br from-primary/5 via-muted to-background border border-border flex items-center justify-center shadow-lg'
-            >
-              <div className='text-center p-8'>
-                <div className='text-6xl sm:text-8xl mb-4 opacity-60'>👋</div>
-                <p className='text-sm text-muted-foreground font-medium'>
-                  Welcome to my portfolio
-                </p>
+            <div className='w-full max-w-[280px] sm:max-w-sm md:max-w-md aspect-square'>
+              <div className='w-full h-full rounded-full overflow-hidden border-4 border-border shadow-lg'>
+                <img
+                  src={joker}
+                  alt='profile'
+                  className='w-full h-full object-cover'
+                />
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

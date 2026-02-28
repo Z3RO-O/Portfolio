@@ -55,7 +55,7 @@ const AnimatedRoutes = withRouter(({ location }: AnimatedRoutesProps) => (
 
 const AppRoutes = () => {
   return (
-    <div className='min-h-screen pt-4 sm:pt-6 pb-8 sm:pb-12'>
+    <div className='h-full'>
       <AnimatedRoutes />
       <Socials />
     </div>
