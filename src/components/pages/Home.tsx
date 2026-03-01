@@ -6,6 +6,7 @@ import PageHead from '@/components/common/PageHead';
 import { Button } from '@/components/ui/button';
 import { Code2, User, Mail } from 'lucide-react';
 import { joker } from '@/assets/assets';
+import DecryptedText from '@/components/specific/DecryptedText';
 
 const ROTATING_TEXTS = [
   introdata.animated.first,
@@ -36,19 +37,20 @@ const Home = () => {
         <div className='h-full flex flex-col lg:flex-row lg:items-center lg:gap-12 max-w-7xl mx-auto px-6 sm:px-8 lg:px-16'>
           <div className='w-full lg:w-1/2 order-2 lg:order-1 flex flex-col justify-center py-6 sm:py-8 lg:py-0'>
             <div className='max-w-xl mx-auto lg:mx-0'>
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className='mb-2 text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground'
-              >
-                {introdata.title}
-              </motion.h2>
+              <div className='mb-2 text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground'>
+                <DecryptedText
+                  text={introdata.title}
+                  animateOn='view'
+                  revealDirection='start'
+                  sequential
+                  useOriginalCharsOnly={false}
+                />
+              </div>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className='text-2xl sm:text-3xl lg:text-4xl xl:text-5xl mb-4 sm:mb-6 font-bold min-h-[2.5rem] sm:min-h-[3rem] lg:min-h-[4rem]'
+                className='text-2xl sm:text-3xl lg:text-4xl xl:text-5xl mb-4 sm:mb-6 font-bold min-h-10 sm:min-h-12 lg:min-h-16'
               >
                 <AnimatePresence mode='wait'>
                   <motion.span
