@@ -1,280 +1,441 @@
 @import 'tailwindcss';
 
-:root {
-  --primary: #000;
-  --secondary: #fff;
-  --accent: rgb(204, 0, 0);
-  --overlay: rgb(12 12 12 / 63%);
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= --theme(--breakpoint-sm)) {
+    max-width: none;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
 }
 
-[data-theme='light'] {
-  --primary: #fff;
-  --secondary: #000;
-  --accent: rgb(204, 0, 0);
-  --overlay: rgb(255 255 255 / 70%);
+@theme {
+  --font-display: Ndot57, sans-serif;
+  --font-body: Ndot55, sans-serif;
+  --font-mono: NType82Mono, monospace;
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-neon: hsl(var(--neon));
+  --color-neon-blue: hsl(var(--neon-blue));
+  --color-neon-purple: hsl(var(--neon-purple));
+
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-pulse-neon: pulse-neon 2s ease-in-out infinite;
+  --animate-flicker: flicker 3s ease-in-out infinite;
+  --animate-typing: typing 2s steps(30) forwards;
+  --animate-blink-caret: blink-caret 0.75s step-end infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-scroll-hint: scroll-hint 2s ease-in-out infinite;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+  @keyframes pulse-neon {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  @keyframes flicker {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    33% {
+      opacity: 0.9;
+    }
+    66% {
+      opacity: 0.95;
+    }
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: hsl(var(--primary));
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes scroll-hint {
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translateY(8px);
+      opacity: 1;
+    }
+  }
 }
 
-html,
-body {
-  height: 100%;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
 
-body {
-  margin: 0;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: visible;
-  background-color: var(--primary);
-  color: var(--secondary);
-  font-family: 'Raleway', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  padding-top: 60px;
+@utility text-glow {
+  text-shadow:
+    0 0 10px hsl(150 100% 50% / 0.6),
+    0 0 40px hsl(150 100% 50% / 0.2);
 }
 
-ul {
-  list-style: none;
+@utility text-glow-sm {
+  text-shadow: 0 0 6px hsl(150 100% 50% / 0.4);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: Marcellus;
-}
-
-a,
-a:hover {
-  color: var(--secondary);
-  text-decoration: none;
-}
-
-p {
-  word-break: break-word;
-  hyphens: auto;
-}
-
-/* Used in Header.tsx for menu toggle */
-.ovhidden {
-  overflow: hidden;
-}
-
-/* Used in App.tsx for animated cursor */
-.cursor__dot div {
-  z-index: 999999 !important;
-}
-
-.cursor__dot div:last-child {
-  background-color: var(--accent) !important;
-}
-
-.cursor__dot div:first-child {
-  filter: invert(1);
-  background-color: var(--overlay) !important;
-}
-
-/* Skills Component Styles */
-.skills-container {
-  width: 100%;
-  padding: 0;
-}
-
-.skills-category {
-  margin-bottom: 2rem;
-}
-
-.category-title {
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--secondary);
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1.5rem;
-  padding: 1rem 0;
-}
-
-.skill-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1.5rem 1rem;
-  background: var(--primary);
-  border: 2px solid transparent;
-  border-radius: 15px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  animation: fadeInUp 0.6s ease forwards;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.skill-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, var(--skill-color), transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 0;
-}
-
-.skill-item:hover::before {
-  opacity: 0.1;
-}
-
-.skill-item:hover {
-  transform: translateY(-8px);
-  border-color: var(--skill-color);
+@utility box-glow {
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.1),
-    0 0 0 1px var(--skill-color);
+    0 0 15px hsl(150 100% 50% / 0.15),
+    0 0 45px hsl(150 100% 50% / 0.05);
 }
 
-.skill-icon {
-  font-size: 3rem;
-  color: var(--skill-color);
-  margin-bottom: 0.8rem;
-  transition: all 0.3s ease;
+@utility box-glow-strong {
+  box-shadow:
+    0 0 20px hsl(150 100% 50% / 0.3),
+    0 0 60px hsl(150 100% 50% / 0.1);
+}
+
+@utility glass-panel {
+  background: hsl(220 18% 8% / 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid hsl(150 30% 20% / 0.3);
+}
+
+@utility grid-bg {
+  background-image:
+    linear-gradient(hsl(150 30% 15% / 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(150 30% 15% / 0.3) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+@utility terminal-border {
+  border: 1px solid hsl(150 100% 50% / 0.2);
+}
+
+@utility scanline {
   position: relative;
-  z-index: 1;
-}
+  overflow: hidden;
 
-.skill-item:hover .skill-icon {
-  transform: scale(1.1);
-  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
-}
-
-.skill-name {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--secondary);
-  text-align: center;
-  line-height: 1.2;
-  position: relative;
-  z-index: 1;
-}
-
-/* Staggered animation delays */
-.skill-item:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.skill-item:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.skill-item:nth-child(3) {
-  animation-delay: 0.3s;
-}
-.skill-item:nth-child(4) {
-  animation-delay: 0.4s;
-}
-.skill-item:nth-child(5) {
-  animation-delay: 0.5s;
-}
-.skill-item:nth-child(6) {
-  animation-delay: 0.6s;
-}
-.skill-item:nth-child(7) {
-  animation-delay: 0.7s;
-}
-.skill-item:nth-child(8) {
-  animation-delay: 0.8s;
-}
-.skill-item:nth-child(9) {
-  animation-delay: 0.9s;
-}
-.skill-item:nth-child(10) {
-  animation-delay: 1s;
-}
-.skill-item:nth-child(n + 11) {
-  animation-delay: 1.1s;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 1rem;
-  }
-
-  .skill-item {
-    padding: 1rem 0.5rem;
-  }
-
-  .skill-icon {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .skill-name {
-    font-size: 0.8rem;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(150 100% 50% / 0.015) 2px,
+      hsl(150 100% 50% / 0.015) 4px
+    );
+    pointer-events: none;
   }
 }
 
-@media (max-width: 480px) {
-  .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 0.8rem;
+@utility neon-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsl(150 100% 50% / 0.6),
+    transparent
+  );
+}
+
+@utility cursor-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: hsl(var(--primary));
+  box-shadow: 0 0 18px hsl(var(--primary) / 0.65);
+}
+
+@utility cursor-ring {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  border: 1px solid hsl(var(--primary) / 0.45);
+  background: radial-gradient(
+    circle,
+    hsl(var(--primary) / 0.12),
+    transparent 70%
+  );
+  box-shadow: 0 0 24px hsl(var(--primary) / 0.18);
+}
+
+@layer utilities {
+  @font-face {
+    font-family: 'Ndot57';
+    src: url('/fonts/Ndot57-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
   }
 
-  .skill-item {
-    padding: 0.8rem 0.3rem;
+  @font-face {
+    font-family: 'Ndot55';
+    src: url('/fonts/Ndot55-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
   }
 
-  .skill-icon {
-    font-size: 2rem;
-  }
-
-  .skill-name {
-    font-size: 0.75rem;
+  @font-face {
+    font-family: 'NType82Mono';
+    src: url('/fonts/NType82Mono-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
   }
 }
 
-/* Dark mode adjustments */
-[data-theme='dark'] .skill-item {
-  background: rgba(255, 255, 255, 0.05);
+@layer base {
+  :root {
+    --background: 220 20% 4%;
+    --foreground: 150 80% 85%;
+
+    --card: 220 18% 7%;
+    --card-foreground: 150 50% 80%;
+
+    --popover: 220 18% 7%;
+    --popover-foreground: 150 50% 80%;
+
+    --primary: 150 100% 50%;
+    --primary-foreground: 220 20% 4%;
+
+    --secondary: 220 15% 12%;
+    --secondary-foreground: 150 40% 75%;
+
+    --muted: 220 15% 10%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 150 100% 50%;
+    --accent-foreground: 220 20% 4%;
+
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 150 30% 18%;
+    --input: 220 15% 14%;
+    --ring: 150 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom cyberpunk tokens */
+    --neon: 150 100% 50%;
+    --neon-glow:
+      0 0 20px hsl(150 100% 50% / 0.4), 0 0 60px hsl(150 100% 50% / 0.1);
+    --neon-blue: 200 100% 60%;
+    --neon-purple: 270 100% 65%;
+    --glass: 220 18% 8% / 0.7;
+    --glass-border: 150 30% 20% / 0.3;
+    --grid-color: 150 30% 15%;
+    --terminal-green: 150 100% 50%;
+
+    --sidebar-background: 220 18% 6%;
+    --sidebar-foreground: 150 50% 80%;
+    --sidebar-primary: 150 100% 50%;
+    --sidebar-primary-foreground: 220 20% 4%;
+    --sidebar-accent: 220 15% 12%;
+    --sidebar-accent-foreground: 150 40% 75%;
+    --sidebar-border: 150 30% 18%;
+    --sidebar-ring: 150 100% 50%;
+  }
 }
 
-[data-theme='dark'] .skill-item:hover {
-  background: rgba(255, 255, 255, 0.08);
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased text-[16px] leading-[1.6];
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Ndot57', sans-serif;
+  }
+
+  h1 {
+    font-size: clamp(28px, 5vw, 48px);
+  }
+
+  h2 {
+    font-size: clamp(24px, 4vw, 36px);
+  }
+
+  h3 {
+    font-size: clamp(20px, 3vw, 28px);
+  }
+
+  h4 {
+    font-size: clamp(18px, 2.5vw, 24px);
+  }
+
+  h5 {
+    font-size: clamp(16px, 2vw, 20px);
+  }
+
+  h6 {
+    font-size: clamp(14px, 1.5vw, 18px);
+  }
+
+  p, li, span, a, button, input, textarea, select, label {
+    font-size: clamp(12px, 1.5vw, 16px);
+  }
+
+  small {
+    font-size: clamp(12px, 1.2vw, 14px);
+  }
+
+  ::selection {
+    background: hsl(150 100% 50% / 0.25);
+    color: hsl(150 100% 80%);
+  }
+
+  .card {
+    padding: 2em;
+  }
+
+  .read-the-docs {
+    color: #888;
+  }
 }
 
-/* Animation for skill items */
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@media (hover: hover) and (pointer: fine) {
+  body,
+  a,
+  button,
+  [role='button'],
+  input,
+  textarea,
+  select {
+    cursor: none !important;
   }
 }
 
-/* Button hover text color change */
-.btn-animated:hover {
-  color: var(--primary) !important;
-  border-color: var(--primary) !important;
+@media (hover: none), (pointer: coarse) {
+  .custom-cursor {
+    display: none;
+  }
 }
 
-/* Animation for contact loading bar */
-@keyframes shift-rightwards {
-  0% {
-    transform: translateX(-100%);
-  }
-  40% {
-    transform: translateX(0%);
-  }
-  60% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(220 20% 4%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(150 100% 50% / 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(150 100% 50% / 0.5);
 }

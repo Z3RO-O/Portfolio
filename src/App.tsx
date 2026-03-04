@@ -1,43 +1,27 @@
-import { useEffect } from 'react';
-import { BrowserRouter as Router, useLocation } from 'react-router-dom';
-import withRouter from '@/hooks/withRouter';
-import AppRoutes from '@/routes';
-import Header from '@/components/common/Header';
-import AnimatedCursor from '@/hooks/AnimatedCursor';
+import { Toaster } from '@/components/ui/toaster';
+import { Toaster as Sonner } from '@/components/ui/sonner';
+import { TooltipProvider } from '@/components/ui/tooltip';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Index from './pages/Index';
+import NotFound from './pages/NotFound';
 
-interface ScrollToTopProps {
-  children?: React.ReactNode;
-}
+const queryClient = new QueryClient();
 
-const _ScrollToTop = ({ children }: ScrollToTopProps) => {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return <>{children}</>;
-};
-
-const ScrollToTop = withRouter(_ScrollToTop);
-
-const App = () => {
-  return (
-    <Router basename={import.meta.env.PUBLIC_URL}>
-      <div className='cursor__dot'>
-        <AnimatedCursor
-          innerSize={15}
-          outerSize={15}
-          color='255, 255, 255'
-          outerAlpha={0.7}
-          innerScale={0.8}
-          outerScale={3}
-        />
-      </div>
-      <ScrollToTop>
-        <Header />
-        <AppRoutes />
-      </ScrollToTop>
-    </Router>
-  );
-};
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Index />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
 export default App;
