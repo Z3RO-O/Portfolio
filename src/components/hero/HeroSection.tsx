@@ -68,9 +68,8 @@ export default function HeroSection() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.5 }}
-          className='font-mono text-sm sm:text-base text-muted-foreground mb-6 max-w-lg'
+          className='font-body text-sm sm:text-base text-muted-foreground mb-6 max-w-lg'
         >
-          {'// '}
           {profile.title}
         </motion.p>
 
@@ -79,7 +78,7 @@ export default function HeroSection() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 1.0, duration: 0.5 }}
-          className='font-body text-sm text-muted-foreground max-w-md mb-8 leading-relaxed'
+          className='font-mono text-sm text-muted-foreground max-w-md mb-8 leading-relaxed'
         >
           {profile.description}
         </motion.p>

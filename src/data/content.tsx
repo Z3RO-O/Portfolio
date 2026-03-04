@@ -1,4 +1,3 @@
-import { RiFirebaseFill } from 'react-icons/ri';
 import { VscVscode } from 'react-icons/vsc';
 import {
   FaReact,
@@ -11,9 +10,6 @@ import {
 import {
   SiTailwindcss,
   SiDjango,
-  SiMongodb,
-  SiPostgresql,
-  SiMysql,
   SiTypescript,
   SiNextdotjs,
   SiExpress,
@@ -27,12 +23,12 @@ import {
   SiFastapi,
   SiNestjs,
   SiKalilinux,
-  SiCanva,
 } from 'react-icons/si';
 
 export const profile = {
   name: 'Vaibhav Singh',
-  title: 'Frontend Developer / Software Developer',
+  username: 'Z3RO-O',
+  title: 'Developer | CTF Player',
   description:
     'I craft modern, high-performance web experiences with clean code and creative UI. Passionate about open-source, developer tools, and pushing the boundaries of the web.',
   location: 'India',
@@ -102,7 +98,6 @@ export const skills = {
     { name: 'Docker', icon: <FaDocker />, color: '#2496ED' },
     { name: 'Postman', icon: <SiPostman />, color: '#FF6C37' },
     { name: 'Google Cloud', icon: <SiGooglecloud />, color: '#4285F4' },
-    { name: 'Canva', icon: <SiCanva />, color: '#000000' },
   ],
   os: [
     { name: 'Windows', icon: <FaWindows />, color: '#0078D6' },

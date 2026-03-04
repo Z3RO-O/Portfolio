@@ -34,9 +34,7 @@ function buildSpherePoints(skillsByCategory: SkillsByCategory): SkillNode[] {
     Object.entries(skillsByCategory) as Array<
       [keyof SkillsByCategory, SkillItem[]]
     >
-  ).flatMap(([category, items]) =>
-    items.map(item => ({ ...item, category }))
-  );
+  ).flatMap(([category, items]) => items.map(item => ({ ...item, category })));
 
   const total = entries.length;
   const radius = total > 16 ? 2.8 : 2.4;
@@ -91,7 +89,10 @@ function SkillNodes({ nodes }: { nodes: SkillNode[] }) {
                 color: node.color,
               }}
             >
-              <div className='text-2xl' style={{ filter: 'drop-shadow(0 0 8px currentColor)' }}>
+              <div
+                className='text-2xl'
+                style={{ filter: 'drop-shadow(0 0 8px currentColor)' }}
+              >
                 {node.icon}
               </div>
               <span className='whitespace-nowrap text-[10px] font-medium opacity-90'>

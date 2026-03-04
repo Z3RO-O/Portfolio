@@ -346,7 +346,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply bg-background text-foreground font-body antialiased text-[16px] leading-[1.6];
   }
 
   h1,
@@ -358,9 +358,49 @@
     font-family: 'Ndot57', sans-serif;
   }
 
+  h1 {
+    font-size: clamp(28px, 5vw, 48px);
+  }
+
+  h2 {
+    font-size: clamp(24px, 4vw, 36px);
+  }
+
+  h3 {
+    font-size: clamp(20px, 3vw, 28px);
+  }
+
+  h4 {
+    font-size: clamp(18px, 2.5vw, 24px);
+  }
+
+  h5 {
+    font-size: clamp(16px, 2vw, 20px);
+  }
+
+  h6 {
+    font-size: clamp(14px, 1.5vw, 18px);
+  }
+
+  p, li, span, a, button, input, textarea, select, label {
+    font-size: clamp(12px, 1.5vw, 16px);
+  }
+
+  small {
+    font-size: clamp(12px, 1.2vw, 14px);
+  }
+
   ::selection {
     background: hsl(150 100% 50% / 0.25);
     color: hsl(150 100% 80%);
+  }
+
+  .card {
+    padding: 2em;
+  }
+
+  .read-the-docs {
+    color: #888;
   }
 }
 
