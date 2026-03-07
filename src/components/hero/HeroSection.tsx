@@ -35,7 +35,7 @@ export default function HeroSection() {
           transition={{ type: 'spring', stiffness: 200, delay: 0.3 }}
           className='mb-6'
         >
-          <div className='w-28 h-28 rounded-full border-2 border-primary overflow-hidden box-glow'>
+          <div className='w-30 h-30 rounded-full border-2 border-primary overflow-hidden box-glow mt-10 md:mt-0'>
             <img
               src={profile.avatar}
               alt={profile.name}
@@ -94,7 +94,7 @@ export default function HeroSection() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1.2 }}
-              className='flex items-center gap-3 my-4 justify-center'
+              className='flex flex-wrap items-center gap-3 my-4 justify-center'
             >
               {socials.map(s => {
                 const Icon = iconMap[s.icon];
