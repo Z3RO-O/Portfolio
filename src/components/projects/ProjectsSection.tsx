@@ -30,15 +30,42 @@ export default function ProjectsSection() {
               </div>
 
               <div className='p-5 font-display'>
-                <h3 className='text-lg text-primary tracking-wider mb-2 group-hover:text-glow transition-all'>
-                  {proj.title}
-                </h3>
+                <div className='flex items-center justify-between mb-2'>
+                  <h3 className='text-lg text-primary tracking-wider group-hover:text-glow transition-all'>
+                    {proj.title}
+                  </h3>
+                  {/* Links */}
+                  <div className='flex items-center gap-3'>
+                    {proj.github && (
+                      <a
+                        href={proj.github}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='text-muted-foreground hover:text-primary transition-colors'
+                        aria-label='GitHub'
+                      >
+                        <Github size={16} />
+                      </a>
+                    )}
+                    {proj.live && (
+                      <a
+                        href={proj.live}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='text-muted-foreground hover:text-primary transition-colors'
+                        aria-label='Live demo'
+                      >
+                        <ExternalLink size={16} />
+                      </a>
+                    )}
+                  </div>
+                </div>
                 <p className='text-md text-foreground/80 leading-relaxed mb-4'>
                   {proj.description}
                 </p>
 
                 {/* Tech */}
-                <div className='flex flex-wrap gap-1.5 mb-4'>
+                <div className='flex flex-wrap gap-1.5'>
                   {proj.tech.map(t => (
                     <span
                       key={t}
@@ -47,32 +74,6 @@ export default function ProjectsSection() {
                       {t}
                     </span>
                   ))}
-                </div>
-
-                {/* Links */}
-                <div className='flex items-center gap-3'>
-                  {proj.github && (
-                    <a
-                      href={proj.github}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='text-muted-foreground hover:text-primary transition-colors'
-                      aria-label='GitHub'
-                    >
-                      <Github size={16} />
-                    </a>
-                  )}
-                  {proj.live && (
-                    <a
-                      href={proj.live}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='text-muted-foreground hover:text-primary transition-colors'
-                      aria-label='Live demo'
-                    >
-                      <ExternalLink size={16} />
-                    </a>
-                  )}
                 </div>
               </div>
             </motion.div>
