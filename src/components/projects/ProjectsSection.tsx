@@ -21,19 +21,19 @@ export default function ProjectsSection() {
             >
               {/* Project header bar */}
               <div className='flex items-center gap-2 px-4 py-2 border-b border-border/50'>
-                <span className='w-2 h-2 rounded-full bg-primary/40' />
-                <span className='w-2 h-2 rounded-full bg-muted-foreground/30' />
-                <span className='w-2 h-2 rounded-full bg-muted-foreground/30' />
+                <span className='w-2.5 h-2.5 rounded-full bg-destructive/60' />
+                <span className='w-2.5 h-2.5 rounded-full bg-yellow-500/60' />
+                <span className='w-2.5 h-2.5 rounded-full bg-primary/60' />
                 <span className='ml-2 font-mono text-xs text-muted-foreground truncate'>
                   ~/{proj.title.toLowerCase().replace(/\s/g, '-')}
                 </span>
               </div>
 
-              <div className='p-5'>
-                <h3 className='font-display text-lg text-primary tracking-wider mb-2 group-hover:text-glow transition-all'>
+              <div className='p-5 font-display'>
+                <h3 className='text-lg text-primary tracking-wider mb-2 group-hover:text-glow transition-all'>
                   {proj.title}
                 </h3>
-                <p className='font-body text-sm text-foreground/60 leading-relaxed mb-4'>
+                <p className='text-md text-foreground/80 leading-relaxed mb-4'>
                   {proj.description}
                 </p>
 
@@ -42,7 +42,7 @@ export default function ProjectsSection() {
                   {proj.tech.map(t => (
                     <span
                       key={t}
-                      className='px-2 py-0.5 text-xs font-mono rounded bg-secondary text-secondary-foreground'
+                      className='px-2 py-0.5 text-sm font-body rounded bg-secondary text-secondary-foreground'
                     >
                       {t}
                     </span>

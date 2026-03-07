@@ -28,9 +28,6 @@ import {
 export const profile = {
   name: 'Vaibhav Singh',
   username: 'Z3RO-O',
-  title: 'Developer | CTF Player',
-  description:
-    'I craft modern, high-performance web experiences with clean code and creative UI. Passionate about open-source, developer tools, and pushing the boundaries of the web.',
   location: 'India',
   avatar: '/avatar.svg',
   resume: '/Vaibhav_Singh_Resume.pdf',
@@ -57,21 +54,15 @@ export const socials = [
 ];
 
 export const navLinks = [
-  { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ];
 
 export const about = {
-  bio: 'A Programmer | A Developer | A Techie who wants to be an Ethical Hacker',
+  bio: 'Web Developer | CTF Player | Techie who wants to be an Ethical Hacker',
   philosophy: '" Computers can tell more about ourselves than what we can ! "',
-  highlights: [
-    'Web developer',
-    'Ethical hacking enthusiast',
-    'Programmer on a mission to make the world a better place',
-  ],
 };
 
 export const skills = {
@@ -114,7 +105,7 @@ export const experience = [
     duration: 'Sep 2025 — Present',
     description:
       "Joined Sage as an Associate Engineer following Fyle's acquisition, continuing to contribute to frontend development and enhancing Sage Expense Management",
-    tech: ['Frontend', 'Jest'],
+    tech: ['Angular', 'PrimeNG', 'Playwright'],
   },
   {
     company: 'Fyle',
@@ -122,7 +113,7 @@ export const experience = [
     duration: 'Mar 2025 — Aug 2025',
     description:
       "Contributed to Fyle's product suite by developing and enhancing features across the Web app, Mobile app, Chrome extension, and Outlook add-in to improve user experience and streamline expense management workflows.",
-    tech: ['Git & Github', 'Frontend'],
+    tech: ['Angular', 'Angular JS', 'Playwright', 'Jest'],
   },
   {
     company: 'Fyle',
@@ -130,14 +121,14 @@ export const experience = [
     duration: 'Aug 2024 — Feb 2025',
     description:
       'Implemented SSO NAA in the Outlook add-in, integrated NPS (via Refiner.io) in the web and mobile apps along with automation to calculate NPS for past 30 days, contributed usability fixes and user-facing improvements, and improved unit test coverage to ensure product reliability.',
-    tech: ['Git & Github', 'Frontend'],
+    tech: ['Angular', 'Angular JS', 'Jest'],
   },
   {
     company: 'GEM AI',
-    role: 'Frontend Developer',
+    role: 'Junior Frontend Developer',
     duration: 'Mar 2024 — Aug 2024',
     description: 'Developed frontend features for AI-powered applications',
-    tech: ['React.js', 'shadcn'],
+    tech: ['Next.js', 'Redux', 'Tailwind CSS', 'shadcn/ui'],
   },
   {
     company: 'CyberPeace Foundation',
@@ -145,15 +136,15 @@ export const experience = [
     duration: 'Feb 2024 — Jun 2024',
     description:
       'Conducted research on cybersecurity initiatives and developed mobile applications',
-    tech: ['Flutter', 'Cloud Firestore'],
+    tech: ['Flutter', 'Firebase'],
   },
   {
     company: 'Blue Bricks',
-    role: 'Frontend Developer',
+    role: 'Frontend Developer Intern',
     duration: 'Oct 2023 — Dec 2023',
     description:
       'Developed responsive frontend interfaces and collaborated on web development projects',
-    tech: ['Git & Github', 'Frontend'],
+    tech: ['Next.js', 'React-Charts', 'Tailwind CSS'],
   },
 ];
 
@@ -209,16 +200,5 @@ export const projects = [
 export const contactInfo = {
   heading: 'Get In Touch',
   description:
-    "I'm always open to new opportunities, collaborations, or just a friendly chat about tech. Drop me a message!",
-};
-
-export const contactConfig = {
-  YOUR_EMAIL: 'vvaibhavsingh.0@gmail.com',
-  YOUR_PHONE: '+91 7839271574',
-  description:
-    "If you have a project that you need help with, or if you just want to chat about hacking, I'd love to hear from you.",
-  description2: 'You can reach me by email or by phone.',
-  YOUR_SERVICE_ID: 'service_pklek2g',
-  YOUR_TEMPLATE_ID: 'template_1q4071q',
-  YOUR_USER_ID: '9IO0HwB_rw11nrq2B',
+    "I'm always open to new opportunities, collaborations, or just a friendly chat. Drop me a message!",
 };

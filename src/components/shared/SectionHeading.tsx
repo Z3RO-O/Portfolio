@@ -1,10 +1,5 @@
 import { motion } from 'framer-motion';
 
-interface SectionHeadingProps {
-  title: string;
-  tag: string;
-}
-
 export default function SectionHeading({ title, tag }: SectionHeadingProps) {
   return (
     <motion.div
@@ -14,7 +9,7 @@ export default function SectionHeading({ title, tag }: SectionHeadingProps) {
       transition={{ duration: 0.4 }}
       className='text-center'
     >
-      <span className='font-mono text-xs text-muted-foreground block mb-2'>
+      <span className='font-mono text-sm text-muted-foreground block mb-2'>
         <span className='text-primary'>$</span> {tag}
       </span>
       <h2 className='font-display text-2xl sm:text-3xl text-primary text-glow-sm tracking-wider'>

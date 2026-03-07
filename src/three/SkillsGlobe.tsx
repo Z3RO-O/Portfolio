@@ -2,33 +2,6 @@ import { useMemo } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
 
-type SkillItem = {
-  name: string;
-  icon: React.ReactNode;
-  color: string;
-};
-
-type SkillsByCategory = {
-  frontend: SkillItem[];
-  backend: SkillItem[];
-  tools: SkillItem[];
-  os: SkillItem[];
-};
-
-type SkillNode = {
-  name: string;
-  icon: React.ReactNode;
-  position: [number, number, number];
-  color: string;
-};
-
-const categoryColors = {
-  frontend: 'hsl(150 100% 50%)',
-  backend: 'hsl(200 100% 60%)',
-  tools: 'hsl(270 100% 65%)',
-  os: 'hsl(150 30% 85%)',
-} as const;
-
 function buildSpherePoints(skillsByCategory: SkillsByCategory): SkillNode[] {
   const entries = (
     Object.entries(skillsByCategory) as Array<
