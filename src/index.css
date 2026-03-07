@@ -382,7 +382,15 @@
     font-size: clamp(14px, 1.5vw, 18px);
   }
 
-  p, li, span, a, button, input, textarea, select, label {
+  p,
+  li,
+  span,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label {
     font-size: clamp(12px, 1.5vw, 16px);
   }
 

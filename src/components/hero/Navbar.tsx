@@ -39,13 +39,15 @@ export default function Navbar() {
                   <Menu className='h-5 w-5 text-primary' />
                 </button>
               </SheetTrigger>
-              <SheetContent side='right' className='w-[80%] bg-background/95 backdrop-blur-sm border-border'>
+              <SheetContent
+                side='right'
+                className='w-[80%] bg-background/95 backdrop-blur-sm border-border'
+              >
                 <SheetHeader className='border-b border-border pb-4'>
                   <SheetTitle className='font-mono text-2xl text-primary text-start'>
                     $ navigate to
                   </SheetTitle>
-                  <SheetDescription className='font-mono text-muted-foreground'>
-                  </SheetDescription>
+                  <SheetDescription className='font-mono text-muted-foreground'></SheetDescription>
                 </SheetHeader>
                 <nav className='flex flex-col gap-2 mt-6'>
                   {navLinks.map(link => (

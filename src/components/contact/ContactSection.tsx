@@ -141,7 +141,12 @@ export default function ContactSection() {
                 className='w-full bg-background border border-border rounded px-3 py-2 font-mono text-sm text-foreground focus:border-primary focus:outline-hidden transition-colors resize-none'
               />
             </div>
-            <Button variant='neon' type='submit' className='w-full' disabled={form.loading}>
+            <Button
+              variant='neon'
+              type='submit'
+              className='w-full'
+              disabled={form.loading}
+            >
               <Send size={14} />
               {form.loading ? 'Sending...' : 'Send Message'}
             </Button>
