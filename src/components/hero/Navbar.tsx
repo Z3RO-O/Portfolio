@@ -41,23 +41,23 @@ export default function Navbar() {
               </SheetTrigger>
               <SheetContent
                 side='right'
-                className='w-[80%] bg-background/95 backdrop-blur-sm border-border'
+                className='w-[80%] bg-background/95 backdrop-blur-sm border-border p-0 font-display tracking-wider'
               >
-                <SheetHeader className='border-b border-border pb-4'>
-                  <SheetTitle className='font-mono text-2xl text-primary text-start'>
+                <SheetHeader className='border-b border-border px-4 py-2 mb-2'>
+                  <SheetTitle className='text-xl text-primary text-start mb-0'>
                     $ navigate to
                   </SheetTitle>
                   <SheetDescription className='font-mono text-muted-foreground'></SheetDescription>
                 </SheetHeader>
-                <nav className='flex flex-col gap-2 mt-6'>
+                <nav className='flex flex-col gap-3'>
                   {navLinks.map(link => (
                     <a
                       key={link.href}
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className='group flex items-center gap-2 p-4 font-mono text-lg'
+                      className='group flex items-center gap-2 px-4 py-3 text-lg'
                     >
-                      <span className='text-primary'>/</span>
+                      <span className='text-primary'>{"=>"}</span>
                       {link.label}
                     </a>
                   ))}
