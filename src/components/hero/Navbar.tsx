@@ -57,7 +57,7 @@ export default function Navbar() {
                       onClick={() => setOpen(false)}
                       className='group flex items-center gap-2 px-4 py-3 text-lg'
                     >
-                      <span className='text-primary'>{"=>"}</span>
+                      <span className='text-primary'>{'=>'}</span>
                       {link.label}
                     </a>
                   ))}
@@ -71,7 +71,7 @@ export default function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
-                    className='whitespace-nowrap font-mono text-xs uppercase tracking-[0.24em] text-muted-foreground transition-colors hover:text-primary'
+                    className='whitespace-nowrap font-mono text-xs font-medium uppercase tracking-[0.24em] text-muted-foreground transition-colors hover:text-primary'
                   >
                     {link.label}
                   </a>

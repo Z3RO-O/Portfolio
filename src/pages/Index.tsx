@@ -6,15 +6,12 @@ import ProjectsSection from '@/components/projects/ProjectsSection';
 import SkillsSection from '@/components/skills/SkillsSection';
 import ContactSection from '@/components/contact/ContactSection';
 import Footer from '@/components/footer/Footer';
-import CustomCursor from '@/components/shared/CustomCursor';
 
 const Scene3D = lazy(() => import('@/three/Scene3D'));
 
 const Index = () => {
   return (
     <div className='relative min-h-screen scanline'>
-      <CustomCursor />
-
       <Suspense fallback={null}>
         <Scene3D />
       </Suspense>
