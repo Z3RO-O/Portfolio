@@ -27,7 +27,7 @@ export default function HeroSection() {
       {/* Grid overlay */}
       <div className='absolute inset-0 grid-bg opacity-40' />
 
-      <div className='container relative z-10 flex flex-col items-center'>
+      <div className='container relative z-10 px-4 flex flex-col items-center'>
         {/* Avatar */}
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
@@ -35,7 +35,7 @@ export default function HeroSection() {
           transition={{ type: 'spring', stiffness: 200, delay: 0.3 }}
           className='mb-6'
         >
-          <div className='w-30 h-30 rounded-full border-2 border-primary overflow-hidden box-glow mt-10 md:mt-0'>
+          <div className='w-30 h-30 rounded-full border-2 border-primary overflow-hidden box-glow mt-28 md:mt-14'>
             <img
               src={profile.avatar}
               alt={profile.name}
@@ -65,7 +65,7 @@ export default function HeroSection() {
         </motion.h1>
 
         {/* About */}
-        <div className='container px-4  max-w-4xl mx-auto text-center my-8'>
+        <div className='container px-0  max-w-4xl mx-auto text-center my-8'>
           {/* Bio terminal */}
           <motion.div
             initial={{ x: -30, opacity: 0 }}
@@ -75,9 +75,9 @@ export default function HeroSection() {
             className='glass-panel rounded-lg p-6 flex flex-col gap-4'
           >
             <div className='flex items-center gap-2'>
-              <span className='w-3 h-3 rounded-full bg-destructive/60' />
-              <span className='w-3 h-3 rounded-full bg-yellow-500/60' />
-              <span className='w-3 h-3 rounded-full bg-primary/60' />
+              <span className='w-3 h-3 rounded-full bg-destructive/90' />
+              <span className='w-3 h-3 rounded-full bg-yellow-500/90' />
+              <span className='w-3 h-3 rounded-full bg-primary/90' />
               <span className='ml-2 font-mono text-xs text-muted-foreground'>
                 about.md
               </span>
@@ -126,7 +126,7 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className='absolute bottom-18 animate-scroll-hint'
+        className='absolute bottom-10 animate-scroll-hint'
       >
         <a
           href='#experience'

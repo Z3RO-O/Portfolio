@@ -23,7 +23,7 @@ export default function SkillsSection() {
           transition={{ duration: 0.5 }}
           className='mt-12 glass-panel overflow-hidden rounded-2xl p-3 sm:p-4'
         >
-          <div className='mb-4 flex items-center justify-between gap-3 border-b border-border/60 px-3 pb-3'>
+          <div className='mb-4 flex items-center justify-between gap-3 border-b border-border px-3 pb-3'>
             <p className='font-body text-xl text-foreground/80'>
               Drag to rotate the stack constellation.
             </p>

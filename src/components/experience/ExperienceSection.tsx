@@ -40,19 +40,9 @@ export default function ExperienceSection() {
                     </span>
                   </div>
 
-                  <p className='text-sm text-foreground/80 leading-relaxed mb-3 tracking-wider'>
+                  <p className='text-sm text-foreground/80 leading-relaxed tracking-wider'>
                     {exp.description}
                   </p>
-                  <div className='flex flex-wrap gap-2'>
-                    {exp.tech.map(t => (
-                      <span
-                        key={t}
-                        className='px-2 py-0.5 text-xs rounded border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors'
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               </motion.div>
             ))}

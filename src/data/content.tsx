@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+import { HiMiniBeaker } from 'react-icons/hi2';
 import { VscVscode } from 'react-icons/vsc';
 import {
   FaReact,
@@ -6,6 +8,8 @@ import {
   FaGithub,
   FaDocker,
   FaWindows,
+  FaHtml5,
+  FaCss3Alt,
 } from 'react-icons/fa';
 import {
   SiTailwindcss,
@@ -23,6 +27,13 @@ import {
   SiFastapi,
   SiNestjs,
   SiKalilinux,
+  SiPhp,
+  SiFirebase,
+  SiFlutter,
+  SiJest,
+  SiChartdotjs,
+  SiPrimeng,
+  SiShadcnui,
 } from 'react-icons/si';
 
 export const profile = {
@@ -65,38 +76,233 @@ export const about = {
   philosophy: '" Computers can tell more about ourselves than what we can ! "',
 };
 
-export const skills = {
-  frontend: [
-    { name: 'React', icon: <FaReact />, color: '#61DAFB' },
-    { name: 'Next.js', icon: <SiNextdotjs />, color: '#fff' },
-    { name: 'Angular', icon: <SiAngular />, color: '#DD0031' },
-    { name: 'Redux', icon: <SiRedux />, color: '#764ABC' },
-    { name: 'TypeScript', icon: <SiTypescript />, color: '#3178C6' },
-    { name: 'JavaScript', icon: <FaJsSquare />, color: '#F7DF1E' },
-    { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#06B6D4' },
-  ],
-  backend: [
-    { name: 'Django', icon: <SiDjango />, color: '#092E20' },
-    { name: 'FastAPI', icon: <SiFastapi />, color: '#009688' },
-    { name: 'Flask', icon: <SiFlask />, color: '#fff' },
-    { name: 'NestJS', icon: <SiNestjs />, color: '#E0234E' },
-    { name: 'Express', icon: <SiExpress />, color: '#fff' },
-  ],
-  tools: [
-    { name: 'GitHub', icon: <FaGithub />, color: '#fff' },
-    { name: 'Git', icon: <FaGitAlt />, color: '#F05032' },
-    { name: 'VS Code', icon: <VscVscode />, color: '#007ACC' },
-    { name: 'Docker', icon: <FaDocker />, color: '#2496ED' },
-    { name: 'Postman', icon: <SiPostman />, color: '#FF6C37' },
-    { name: 'Google Cloud', icon: <SiGooglecloud />, color: '#4285F4' },
-  ],
-  os: [
-    { name: 'Windows', icon: <FaWindows />, color: '#0078D6' },
-    { name: 'macOS', icon: <SiApple />, color: '#999999' },
-    { name: 'Kali Linux', icon: <SiKalilinux />, color: '#1788D2' },
-    { name: 'Ubuntu', icon: <SiUbuntu />, color: '#E95420' },
-  ],
+export type TechStackItem = {
+  name: string;
+  icon: ReactNode;
+  color: string;
 };
+
+type SkillCategory = 'frontend' | 'backend' | 'tools' | 'os';
+
+type TechDefinition = TechStackItem & {
+  /** If set, included on the skills globe under this group. Order in the array is preserved. */
+  skillCategory?: SkillCategory;
+  /** Extra keys that resolve to this entry (e.g. TailwindCSS → Tailwind CSS). */
+  aliases?: readonly string[];
+};
+
+/**
+ * Single source of truth for icons/colors. Drives `skills` (globe) and `techStackLookup` (projects/experience).
+ */
+const TECH_DEFINITIONS: TechDefinition[] = [
+  // frontend (skills globe order)
+  {
+    name: 'React',
+    icon: <FaReact />,
+    color: '#61DAFB',
+    skillCategory: 'frontend',
+  },
+  {
+    name: 'Next.js',
+    icon: <SiNextdotjs />,
+    color: '#fff',
+    skillCategory: 'frontend',
+  },
+  {
+    name: 'Angular',
+    icon: <SiAngular />,
+    color: '#DD0031',
+    skillCategory: 'frontend',
+  },
+  {
+    name: 'Redux',
+    icon: <SiRedux />,
+    color: '#764ABC',
+    skillCategory: 'frontend',
+  },
+  {
+    name: 'TypeScript',
+    icon: <SiTypescript />,
+    color: '#3178C6',
+    skillCategory: 'frontend',
+  },
+  {
+    name: 'JavaScript',
+    icon: <FaJsSquare />,
+    color: '#F7DF1E',
+    skillCategory: 'frontend',
+    aliases: ['JS'],
+  },
+  {
+    name: 'Tailwind CSS',
+    icon: <SiTailwindcss />,
+    color: '#06B6D4',
+    skillCategory: 'frontend',
+    aliases: ['TailwindCSS'],
+  },
+  // backend
+  {
+    name: 'Django',
+    icon: <SiDjango />,
+    color: '#092E20',
+    skillCategory: 'backend',
+  },
+  {
+    name: 'FastAPI',
+    icon: <SiFastapi />,
+    color: '#009688',
+    skillCategory: 'backend',
+  },
+  {
+    name: 'Flask',
+    icon: <SiFlask />,
+    color: '#fff',
+    skillCategory: 'backend',
+  },
+  {
+    name: 'NestJS',
+    icon: <SiNestjs />,
+    color: '#E0234E',
+    skillCategory: 'backend',
+  },
+  {
+    name: 'Express',
+    icon: <SiExpress />,
+    color: '#fff',
+    skillCategory: 'backend',
+  },
+  // tools
+  {
+    name: 'GitHub',
+    icon: <FaGithub />,
+    color: '#fff',
+    skillCategory: 'tools',
+  },
+  {
+    name: 'Git',
+    icon: <FaGitAlt />,
+    color: '#F05032',
+    skillCategory: 'tools',
+  },
+  {
+    name: 'VS Code',
+    icon: <VscVscode />,
+    color: '#007ACC',
+    skillCategory: 'tools',
+  },
+  {
+    name: 'Docker',
+    icon: <FaDocker />,
+    color: '#2496ED',
+    skillCategory: 'tools',
+  },
+  {
+    name: 'Postman',
+    icon: <SiPostman />,
+    color: '#FF6C37',
+    skillCategory: 'tools',
+  },
+  {
+    name: 'Google Cloud',
+    icon: <SiGooglecloud />,
+    color: '#4285F4',
+    skillCategory: 'tools',
+  },
+  // os
+  {
+    name: 'Windows',
+    icon: <FaWindows />,
+    color: '#0078D6',
+    skillCategory: 'os',
+  },
+  {
+    name: 'macOS',
+    icon: <SiApple />,
+    color: '#999999',
+    skillCategory: 'os',
+  },
+  {
+    name: 'Kali Linux',
+    icon: <SiKalilinux />,
+    color: '#1788D2',
+    skillCategory: 'os',
+  },
+  {
+    name: 'Ubuntu',
+    icon: <SiUbuntu />,
+    color: '#E95420',
+    skillCategory: 'os',
+  },
+  // projects / experience only (not on globe)
+  { name: 'HTML', icon: <FaHtml5 />, color: '#E34F26' },
+  { name: 'CSS', icon: <FaCss3Alt />, color: '#1572B6' },
+  { name: 'PHP', icon: <SiPhp />, color: '#777BB4' },
+  { name: 'Flutter', icon: <SiFlutter />, color: '#02569B' },
+  { name: 'Firebase', icon: <SiFirebase />, color: '#FFCA28' },
+  { name: 'PrimeNG', icon: <SiPrimeng />, color: '#DD0031' },
+  {
+    name: 'Playwright',
+    icon: <HiMiniBeaker />,
+    color: '#2EAD33',
+  },
+  { name: 'Jest', icon: <SiJest />, color: '#C21325' },
+  {
+    name: 'shadcn/ui',
+    icon: <SiShadcnui />,
+    color: '#fafafa',
+  },
+  {
+    name: 'React-Charts',
+    icon: <SiChartdotjs />,
+    color: '#FF6384',
+  },
+];
+
+function toStackItem({ name, icon, color }: TechDefinition): TechStackItem {
+  return { name, icon, color };
+}
+
+function buildSkillsByCategory(): {
+  frontend: TechStackItem[];
+  backend: TechStackItem[];
+  tools: TechStackItem[];
+  os: TechStackItem[];
+} {
+  const empty: {
+    frontend: TechStackItem[];
+    backend: TechStackItem[];
+    tools: TechStackItem[];
+    os: TechStackItem[];
+  } = { frontend: [], backend: [], tools: [], os: [] };
+
+  for (const def of TECH_DEFINITIONS) {
+    if (!def.skillCategory) continue;
+    empty[def.skillCategory].push(toStackItem(def));
+  }
+  return empty;
+}
+
+function buildTechStackLookup(): Record<string, TechStackItem> {
+  const map: Record<string, TechStackItem> = {};
+  for (const def of TECH_DEFINITIONS) {
+    const item = toStackItem(def);
+    map[def.name] = item;
+    for (const alias of def.aliases ?? []) {
+      map[alias] = item;
+    }
+  }
+  return map;
+}
+
+/** Grouped for the skills globe; derived from `TECH_DEFINITIONS`. */
+export const skills = buildSkillsByCategory();
+
+/** Lookup by tech string in projects; includes aliases (e.g. `TailwindCSS`, `JS`). */
+export const techStackLookup = buildTechStackLookup();
+
+export function resolveTech(label: string): TechStackItem | null {
+  return techStackLookup[label] ?? null;
+}
 
 export const experience = [
   {
@@ -105,7 +311,6 @@ export const experience = [
     duration: 'Sep 2025 — Present',
     description:
       "Joined Sage as an Associate Engineer following Fyle's acquisition, continuing to contribute to frontend development and enhancing Sage Expense Management",
-    tech: ['Angular', 'PrimeNG', 'Playwright'],
   },
   {
     company: 'Fyle',
@@ -113,7 +318,6 @@ export const experience = [
     duration: 'Mar 2025 — Aug 2025',
     description:
       "Contributed to Fyle's product suite by developing and enhancing features across the Web app, Mobile app, Chrome extension, and Outlook add-in to improve user experience and streamline expense management workflows.",
-    tech: ['Angular', 'Angular JS', 'Playwright', 'Jest'],
   },
   {
     company: 'Fyle',
@@ -121,14 +325,12 @@ export const experience = [
     duration: 'Aug 2024 — Feb 2025',
     description:
       'Implemented SSO NAA in the Outlook add-in, integrated NPS (via Refiner.io) in the web and mobile apps along with automation to calculate NPS for past 30 days, contributed usability fixes and user-facing improvements, and improved unit test coverage to ensure product reliability.',
-    tech: ['Angular', 'Angular JS', 'Jest'],
   },
   {
     company: 'GEM AI',
     role: 'Junior Frontend Developer',
     duration: 'Mar 2024 — Aug 2024',
     description: 'Developed frontend features for AI-powered applications',
-    tech: ['Next.js', 'Redux', 'Tailwind CSS', 'shadcn/ui'],
   },
   {
     company: 'CyberPeace Foundation',
@@ -136,7 +338,6 @@ export const experience = [
     duration: 'Feb 2024 — Jun 2024',
     description:
       'Conducted research on cybersecurity initiatives and developed mobile applications',
-    tech: ['Flutter', 'Firebase'],
   },
   {
     company: 'Blue Bricks',
@@ -144,7 +345,6 @@ export const experience = [
     duration: 'Oct 2023 — Dec 2023',
     description:
       'Developed responsive frontend interfaces and collaborated on web development projects',
-    tech: ['Next.js', 'React-Charts', 'Tailwind CSS'],
   },
 ];
 

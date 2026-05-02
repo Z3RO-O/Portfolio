@@ -71,7 +71,7 @@ export default function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
-                    className='whitespace-nowrap font-mono text-xs font-medium uppercase tracking-[0.24em] text-muted-foreground transition-colors hover:text-primary'
+                    className='whitespace-nowrap font-mono text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground transition-colors hover:text-primary'
                   >
                     {link.label}
                   </a>

@@ -32,7 +32,7 @@ function buildSpherePoints(skillsByCategory: SkillsByCategory): SkillNode[] {
 function GlobeCore() {
   return (
     <mesh>
-      <sphereGeometry args={[1.4, 48, 48]} />
+      <sphereGeometry args={[1.4, 20, 16]} />
       <meshBasicMaterial
         color='hsl(220 18% 7%)'
         transparent

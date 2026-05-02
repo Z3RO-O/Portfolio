@@ -94,9 +94,9 @@ export default function ContactSection() {
             className='glass-panel rounded-lg p-6 space-y-4 max-w-md mx-auto'
           >
             <div className='flex items-center gap-2 mb-2'>
-              <span className='w-2.5 h-2.5 rounded-full bg-destructive/60' />
-              <span className='w-2.5 h-2.5 rounded-full bg-yellow-500/60' />
-              <span className='w-2.5 h-2.5 rounded-full bg-primary/60' />
+              <span className='w-2.5 h-2.5 rounded-full bg-destructive/90' />
+              <span className='w-2.5 h-2.5 rounded-full bg-yellow-500/90' />
+              <span className='w-2.5 h-2.5 rounded-full bg-primary/90' />
               <span className='ml-2 font-mono text-xs text-muted-foreground'>
                 contact.sh
               </span>
