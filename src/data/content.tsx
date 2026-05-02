@@ -10,6 +10,7 @@ import {
   FaWindows,
   FaHtml5,
   FaCss3Alt,
+  FaTerminal,
 } from 'react-icons/fa';
 import {
   SiTailwindcss,
@@ -34,6 +35,7 @@ import {
   SiChartdotjs,
   SiPrimeng,
   SiShadcnui,
+  SiSupabase,
 } from 'react-icons/si';
 
 export const profile = {
@@ -239,6 +241,7 @@ const TECH_DEFINITIONS: TechDefinition[] = [
   { name: 'PHP', icon: <SiPhp />, color: '#777BB4' },
   { name: 'Flutter', icon: <SiFlutter />, color: '#02569B' },
   { name: 'Firebase', icon: <SiFirebase />, color: '#FFCA28' },
+  { name: 'Supabase', icon: <SiSupabase />, color: '#3FCF8E' },
   { name: 'PrimeNG', icon: <SiPrimeng />, color: '#DD0031' },
   {
     name: 'Playwright',
@@ -256,6 +259,7 @@ const TECH_DEFINITIONS: TechDefinition[] = [
     icon: <SiChartdotjs />,
     color: '#FF6384',
   },
+  { name: 'Shell', icon: <FaTerminal />, color: '#fff' },
 ];
 
 function toStackItem({ name, icon, color }: TechDefinition): TechStackItem {
@@ -350,50 +354,40 @@ export const experience = [
 
 export const projects = [
   {
-    title: 'LSB Steganography',
+    title: 'Raaga',
     description:
-      'This project aims to build a Website which can do steganography in all type of files.',
+      'Music streaming platform which uses Itunes API to fetch songs which provides 30 seconds previews in free tier.',
     image: '',
-    tech: ['React', 'Tailwind CSS', 'Flask'],
-    github: 'https://github.com/Z3RO-O/LSB-Steganography',
-    live: 'https://github.com/Z3RO-O/LSB-Steganography',
+    tech: ['React', 'TypeScript', 'Tailwind CSS'],
+    github: 'https://github.com/Z3RO-O/Raaga',
+    live: 'https://raaga-lime.vercel.app',
   },
   {
-    title: 'COOL-E',
+    title: 'SMEAI',
     description:
-      'This project is for Indian railways where you can Book a Coolie Online.',
+      'Transforms your documents into an AI-powered subject matter expert.',
     image: '',
-    tech: ['HTML', 'CSS', 'JavaScript'],
-    github: 'https://github.com/Z3RO-O/E-COOLIE.git',
-    live: 'https://cool-e.netlify.app/',
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase'],
+    github: 'https://github.com/Z3RO-O/SMEAI',
+    live: 'https://smeai-alpha.vercel.app',
   },
   {
-    title: 'ISDF Club Website',
+    title: 'Snake Game',
     description:
-      'Club Website for Information and Digital Forensics Club of AIT',
+      'Classic Nokia Snake Game with relevant snake game sounds and a high score leaderboard using local storage.',
     image: '',
-    tech: ['HTML', 'CSS', 'JS'],
-    github:
-      'https://github.com/Z3RO-O/ISDF-Websitehttps://github.com/Z3RO-O/ISDF-Website',
-    live: 'https://z3ro-o.github.io/ISDF-Website/',
+    tech: ['React', 'TypeScript', 'Tailwind CSS'],
+    github: 'https://github.com/Z3RO-O/Snake-Game',
+    live: 'https://snake-game-odyc.netlify.app',
   },
   {
-    title: 'Stock Market App',
+    title: 'Git Alias',
     description:
-      'This is a Stock Market Live Chart viewing website built in Bajaj HackRX 4.0 Hackathon',
+      'A collection of powerful git aliases to boost your productivity and streamline your git workflow with installation script.',
     image: '',
-    tech: ['React', 'TailwindCSS', 'React-Charts'],
-    github: 'https://github.com/Z3RO-O/Stock-Charts',
-    live: 'https://stock-charts.vercel.app/',
-  },
-  {
-    title: 'Phishing Pages',
-    description:
-      ' The primary goal of this project is to provide a visual representation of how phishing attacks can be executed and to educate users on how to identify and protect themselves against such threats.',
-    image: '',
-    tech: ['PHP', 'CSS'],
-    github: 'https://github.com/Z3RO-O/Phishing_page/tree/main',
-    live: 'https://github.com/Z3RO-O/Phishing_page/tree/main',
+    tech: ['Shell'],
+    github: 'https://github.com/Z3RO-O/git-aliases',
+    live: 'https://github.com/Z3RO-O/git-aliases',
   },
 ];
 
