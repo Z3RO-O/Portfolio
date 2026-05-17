@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { navLinks } from '@/data/content.tsx';
 import {
@@ -17,11 +16,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <motion.nav
-      initial={{ y: -60, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, delay: 0.2 }}
-      className='fixed left-4 right-4 top-4 z-50 glass-panel rounded-full md:left-8 md:right-8'
+    <nav
+      className='nav-enter fixed left-4 right-4 top-4 z-50 glass-panel rounded-full md:left-8 md:right-8 [contain:layout_paint]'
     >
       <div className='container mx-auto px-4 py-3'>
         <div className='flex min-h-10 items-center justify-between gap-4'>
@@ -84,6 +80,6 @@ export default function Navbar() {
           )}
         </div>
       </div>
-    </motion.nav>
+    </nav>
   );
 }
