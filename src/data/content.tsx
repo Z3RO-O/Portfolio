@@ -308,9 +308,23 @@ export function resolveTech(label: string): TechStackItem | null {
   return techStackLookup[label] ?? null;
 }
 
-export const experience = [
+export type ExperienceEntry = {
+  company: string;
+  companyLocation: string;
+  companyLinkedIn: string;
+  logo: string;
+  role: string;
+  duration: string;
+  description: string;
+};
+
+export const experience: ExperienceEntry[] = [
   {
     company: 'Sage',
+    companyLocation: 'Remote',
+    companyLinkedIn:
+      'https://www.linkedin.com/company/sage-software',
+    logo: 'https://media.licdn.com/dms/image/v2/D4E0BAQGxwtVdR8m7-Q/company-logo_200_200/company-logo_200_200/0/1709803905606?e=1780531200&v=beta&t=YUv1k139_yZcGzUDEcI72RnpHc24y_oEBqgcccPPQvQ',
     role: 'Associate Engineer',
     duration: 'Sep 2025 — Present',
     description:
@@ -318,6 +332,9 @@ export const experience = [
   },
   {
     company: 'Fyle',
+    companyLocation: 'Remote',
+    companyLinkedIn: 'https://www.linkedin.com/company/fyle',
+    logo: 'https://media.licdn.com/dms/image/v2/D560BAQE0NPxPl-Cxew/company-logo_200_200/B56ZovcxmVHkAI-/0/1761732664273/fyle_logo?e=1780531200&v=beta&t=vzhHt6E1V6T_9aXUB4OhIlFkYoHONi5sCesHPsMuZ5g',
     role: 'MTS 1',
     duration: 'Mar 2025 — Aug 2025',
     description:
@@ -325,6 +342,9 @@ export const experience = [
   },
   {
     company: 'Fyle',
+    companyLocation: 'Remote',
+    companyLinkedIn: 'https://www.linkedin.com/company/fyle',
+    logo: 'https://media.licdn.com/dms/image/v2/D560BAQE0NPxPl-Cxew/company-logo_200_200/B56ZovcxmVHkAI-/0/1761732664273/fyle_logo?e=1780531200&v=beta&t=vzhHt6E1V6T_9aXUB4OhIlFkYoHONi5sCesHPsMuZ5g',
     role: 'Engineering Intern',
     duration: 'Aug 2024 — Feb 2025',
     description:
@@ -332,12 +352,18 @@ export const experience = [
   },
   {
     company: 'GEM AI',
+    companyLocation: 'Remote',
+    companyLinkedIn: 'https://www.linkedin.com/company/gemai',
+    logo: 'https://media.licdn.com/dms/image/v2/D4E0BAQEjG4SVbC1eTA/company-logo_200_200/B4EZfm5gnBG4AM-/0/1751925526017/gemai_logo?e=1780531200&v=beta&t=cYWNJkAENLCJwtpLDbb2TlyobzpFcf4iArPJ__dYBc0',
     role: 'Junior Frontend Developer',
     duration: 'Mar 2024 — Aug 2024',
     description: 'Developed frontend features for AI-powered applications',
   },
   {
     company: 'CyberPeace Foundation',
+    companyLocation: 'Remote',
+    companyLinkedIn: 'https://www.linkedin.com/company/cyberpeacefoundation',
+    logo: 'https://media.licdn.com/dms/image/v2/C560BAQFwCTmawSuQXw/company-logo_200_200/company-logo_200_200/0/1630646344986/cyberpeacefoundation_logo?e=1780531200&v=beta&t=9cwO1Je8UsRtHhMo9OLdStlkTjWQIy3Oe6iCyw34eEU',
     role: 'Research Intern',
     duration: 'Feb 2024 — Jun 2024',
     description:
@@ -345,6 +371,10 @@ export const experience = [
   },
   {
     company: 'Blue Bricks',
+    companyLocation: 'Remote',
+    companyLinkedIn:
+      'https://www.linkedin.com/company/blue-bricks-technologies',
+    logo: 'https://media.licdn.com/dms/image/v2/D560BAQFpwUr7AhMZ2w/company-logo_200_200/B56Z1mHn53J0AI-/0/1775534769224/blue_bricks_technologies_logo?e=1780531200&v=beta&t=v_cJk5aT-t-trxcN_HktJfBXR6pmtLQo9dSQORfoGWw',
     role: 'Frontend Developer Intern',
     duration: 'Oct 2023 — Dec 2023',
     description:
