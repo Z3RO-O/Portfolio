@@ -12,21 +12,23 @@ export default function ProjectsSection() {
 
         <div className='grid sm:grid-cols-2 gap-6 mt-12'>
           {projects.map((proj, i) => (
-            <a
-              href={proj.live}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-muted-foreground hover:text-primary transition-colors'
-              aria-label='Live demo'
-            >
               <motion.div
-                key={i}
+                key={proj.title}
                 initial={{ y: 30, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className='group glass-panel rounded-lg overflow-hidden hover:border-primary/40 transition-all duration-300 hover:box-glow'
+                className='group relative glass-panel rounded-lg overflow-hidden hover:border-primary/40 transition-all duration-300 hover:box-glow'
               >
+                {proj.live && (
+                  <a
+                    href={proj.live}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='absolute inset-0 z-0'
+                    aria-label={`${proj.title} live demo`}
+                  />
+                )}
                 {/* Project header bar */}
                 <div className='flex items-center gap-2 px-4 py-2 border-b border-border/50'>
                   <span className='w-2.5 h-2.5 rounded-full bg-destructive/90' />
@@ -53,7 +55,7 @@ export default function ProjectsSection() {
                         href={proj.github}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='text-muted-foreground hover:text-primary transition-colors'
+                        className='relative z-10 text-muted-foreground hover:text-primary transition-colors'
                         aria-label='GitHub'
                       >
                         <SiGithub size={20} />
@@ -62,7 +64,6 @@ export default function ProjectsSection() {
                   </div>
                 </div>
               </motion.div>
-            </a>
           ))}
         </div>
       </div>
